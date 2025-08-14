@@ -11,7 +11,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/TheUnknownCod3r/ColdWar-Lucy-Base">
-    <img src="images/logo.png" alt="Logo" width="300" height="300">
+    <img src="images/logo.png" alt="Logo" width="600" height="600">
   </a>
   <h3 align="center">The Lucy Menu</h3>
 
