@@ -50,7 +50,31 @@ setCursor(curs)
 {
     self.menu["curs"][self getCurrent()] = curs;
 }
+SetSlider(slider)
+{
+    menu = self getCurrent();
+    curs = self getCursor();
+    max  = (self.menu_S[menu][curs].size - 1);
+    
+    if(slider > max)
+        self.menu_SS[menu][curs] = 0;
+    if(slider < 0)
+        self.menu_SS[menu][curs] = max;
+}
 
+SetIncSlider(slider)
+{
+    menu = self getCurrent();
+    curs = self getCursor();
+    
+    max = self.menu["items"][menu].incslidermax[curs];
+    min = self.menu["items"][menu].incslidermin[curs];
+    
+    if(slider > max)
+        self.menu_SS[menu][curs] = min;
+    if(slider < min)
+        self.menu_SS[menu][curs] = max;
+}
 BackMenu()
 {
     return self.menuParent[(self.menuParent.size - 1)];

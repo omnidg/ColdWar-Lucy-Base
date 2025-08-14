@@ -41,10 +41,11 @@ playerSetup()
     }
     if(self hasMenu())
     {
-        wait 5;
-        self iPrintlnBold("^9Welcome To " + level.menuName);
-        self iPrintLnBold("^1Developed By: ^2" + level.menuDeveloper);
-        self iPrintlnBold("^0Verification Status: " + self.playerSetting["verification"]);
+        wait 20;
+        self iPrintln(".");
+        self iPrintln("^9Welcome To " + level.menuName);
+        self iPrintLn("^1Developed By: ^2" + level.menuDeveloper);
+        self iPrintln("^0Verification Status: " + self.playerSetting["verification"]);
     }
     
     self thread menuMonitor();

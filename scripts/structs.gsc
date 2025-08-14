@@ -86,6 +86,41 @@ addOptBool(var, name, func, input1, input2, input3, input4)
     
     self.menu_B[menu][count] = (isDefined(var) && var) ? true : undefined;
 }
+addOptIncSlider(name, func, min, start, max, increment, input1, input2, input3, input4)
+{
+    menu = self.temp["memory"];
+    count = self.menu["items"][menu].name.size;
+    
+    if(isDefined(name))
+        self.menu["items"][menu].name[count] = name;
+    if(isDefined(func))
+        self.menu["items"][menu].func[count] = func;
+    if(isDefined(input1))
+        self.menu["items"][menu].input1[count] = input1;
+    if(isDefined(input2))
+        self.menu["items"][menu].input2[count] = input2;
+    if(isDefined(input3))
+        self.menu["items"][menu].input3[count] = input3;
+    if(isDefined(input4))
+        self.menu["items"][menu].input4[count] = input4;
+    if(isDefined(min))
+        self.menu["items"][menu].incslidermin[count] = min;
+    if(isDefined(start))
+        self.menu["items"][menu].incsliderstart[count] = start;
+    if(isDefined(max))
+        self.menu["items"][menu].incslidermax[count] = max;
+    self.menu["items"][menu].intincrement[count] = (isDefined(increment) && increment) ? increment : 1;
+    self.menu["items"][menu].incslider[count] = true;
+    
+    if(min == -1)
+    {
+        self.menu["items"][menu].incslidermin[count] = 0;
+        self.menu_SS[menu][count] = start != min ? start : 0;
+    }
+    
+    if(!isDefined(self.menu_SS[menu][count]))
+        self.menu_SS[menu][count] = min;
+}
 
 newMenu(menu)
 {

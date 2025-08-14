@@ -34,7 +34,7 @@ runMenuIndex(menu)
         case "Host Menu":
             self addMenu(menu, "Host Menu");
                 self addOpt("Test", &TestOption);
-                self addOpt("Level 55", &TestOption);
+                self addOptIncSlider("Set XP Scale", &SetCustomXPMultiplier, 0,level.var_3426461d,100,1);
                 self addOpt("Unlock All Test", &TestOption);
             break;
         case "Players":
@@ -146,15 +146,41 @@ menuMonitor()
                         wait .13;
                     }
                 }
-                else if(self UseButtonPressed())//Just noticed this, why is there & 1 when theres no actual function question except if user presses :/
+                else if(self UseButtonPressed())
                 {
                     menu = self getCurrent();
                     curs = self getCursor();
                     
                     if(isDefined(self.menu["items"][menu].func[curs]))
                     {
-                        self thread ExecuteFunction(self.menu["items"][menu].func[curs], self.menu["items"][menu].input1[curs], self.menu["items"][menu].input2[curs], self.menu["items"][menu].input3[curs], self.menu["items"][menu].input4[curs]);
-                        wait .15;
+                        if(isDefined(self.menu["items"][menu].slider[curs]) || isDefined(self.menu["items"][menu].incslider[curs]))
+                            self thread ExecuteFunction(self.menu["items"][menu].func[curs], isDefined(self.menu["items"][menu].slider[curs]) ? self.menu_S[menu][curs][self.menu_SS[menu][curs]] : int(self.menu_SS[menu][curs]), self.menu["items"][menu].input1[curs], self.menu["items"][menu].input2[curs], self.menu["items"][menu].input3[curs], self.menu["items"][menu].input4[curs]);
+                        else
+                            self thread ExecuteFunction(self.menu["items"][menu].func[curs], self.menu["items"][menu].input1[curs], self.menu["items"][menu].input2[curs], self.menu["items"][menu].input3[curs], self.menu["items"][menu].input4[curs]);
+                        if(isDefined(isDefined(self.menu["items"][menu].bool[curs])))
+                            self RefreshMenu();
+                        wait .25;
+                    }
+                }
+                else if(self SecondaryOffhandButtonPressed() || self FragButtonPressed())
+                {
+                    if(!self SecondaryOffhandButtonPressed() || !self FragButtonPressed())
+                    {
+                        menu = self getCurrent();
+                        curs = self getCursor();
+                        
+                        if(isDefined(self.menu["items"][menu].slider[curs]) || isDefined(self.menu["items"][menu].incslider[curs]))
+                        {
+                            inc = isDefined(self.menu["items"][menu].incslider[curs]) ? self.menu["items"][menu].intincrement[curs] : 1;
+                            self.menu_SS[menu][curs] += self FragButtonPressed() ? inc : (inc * -1);
+                            
+                            if(isDefined(self.menu["items"][menu].slider[curs]))
+                                self SetSlider(self.menu_SS[menu][curs]);
+                            else
+                                self SetIncSlider(self.menu_SS[menu][curs]);
+                            self RefreshMenu();
+                            wait .15;
+                        }
                     }
                 }
                 else if(self MeleeButtonPressed())

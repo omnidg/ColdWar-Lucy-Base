@@ -45,10 +45,21 @@
 autoexec __init__sytem__()
 {
 	system::register("synergycw", &__init__, undefined, undefined);
+
+    // xp multi
+    thread get_xp_multiplier_late(); // seems to be the same for both BO4 and cold war? Hmmm
 }
 
 __init__()
 {
     callback::on_start_gametype(&init);
     callback::on_spawned(&onPlayerSpawned);
+}
+get_xp_multiplier_late() {
+    wait 10;
+    level.var_3426461d = &get_xp_multiplier1;
+}
+
+get_xp_multiplier1() {
+    return 2;//edit this before game start, to change the default XP Scale.
 }
