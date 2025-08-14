@@ -10,17 +10,17 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/TheUnknownCod3r/BO4-Lucy-MP-Base">
+  <a href="https://github.com/TheUnknownCod3r/ColdWar-Lucy-Base">
     <img src="images/logo.png" alt="Logo" width="300" height="300">
   </a>
   <h3 align="center">The Lucy Menu</h3>
 
   <p align="center">
-	A Free, Open Source, Fully Maintained BO4 MP Menu Base Made in GSC.
+	A Free, Open Source, Fully Maintained Cold War Zombies Menu Base Made in GSC.
     <br />
-    <a href="https://github.com/TheUnknownCod3r/BO4-Lucy-MP-Base/issues">Report Bug</a>
+    <a href="https://github.com/TheUnknownCod3r/ColdWar-Lucy-Base/issues">Report Bug</a>
     ·
-    <a href="https://github.com/TheUnknownCod3r/BO4-Lucy-MP-Base/issues">Request Feature</a>
+    <a href="https://github.com/TheUnknownCod3r/ColdWar-Lucy-Base/issues">Request Feature</a>
   </p>
 </div>
 
@@ -46,7 +46,7 @@
 ### Prerequisites
 
 To use this Mod Menu, you must have Visual Studio Code, and T7 Compiler.
-You can download T7 Compiler [Here](https://www.github.com/shiversoftdev/t7-compiler/releases/)
+You can download T7 Compiler [Here](https://github.com/ate47/t7-compiler-custom/releases/) (You need to install the original first, then copy the ate47 release over the top. [Original](https://github.com/shiversoftdev/t7-compiler))
 Visual Studio Code can be obtained [Here](https://code.visualstudio.com/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -61,7 +61,7 @@ Visual Studio Code can be obtained [Here](https://code.visualstudio.com/)
 	
 	2. Load Visual Studio Code, Click File, Open Workspace, and load the Project.workspace in the BO4-Lucy-MP-Base Folder you downloaded
 	
-	3. Load Black Ops 4, Go into a Multiplayer CUSTOM Lobby, and Inject the Menu. Do NOT inject while already in game, You will crash.
+	3. Load Black Ops Cold War, Go into a Zombies Lobby, and Inject the Menu. Do NOT inject while already in game, You will crash.
 	
 	4. Once the game loads, You should be able to Aim and Knife to open the menu. You will know if it is running as you will see a message on screen.
 
@@ -108,14 +108,12 @@ Version 1.0
 
 This wouldn't be possible without the following people
 
-* [Shiversoft Dev](https://www.github.com/shiversoftdev/T7-compiler)
-	without T7 Compiler, BO4 GSC Injection wouldn't be possible.
+* [ate47](https://www.github.com/ate47/T7-compiler-custom)
+	without his custom T7 Compiler, Cold War GSC Injection wouldn't be possible.
 
-* [G1llam](https://www.github.com/G1llam/)
-	Original Menu creator
 
 * [TheUnknownCod3r](https://www.github.com/TheUnknownCod3r/)
-	Taking over updates, and Porting new features.
+	Original Base release
 	
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -123,7 +121,7 @@ This wouldn't be possible without the following people
 <!-- UsingTheMod -->
 ## Mods Using This
 
-These are mods that are currently utilising this code base.
+These are mods that are currently utilising this code base, either on Cold War, or Black Ops 4.
 
 * [Phantom T8](https://github.com/Lurkzy/phantom-t8)
       Phantom T8, A BO4 Multiplayer Mod Menu
@@ -133,13 +131,13 @@ These are mods that are currently utilising this code base.
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/TheUnknownCod3r/BO4-Lucy-MP-Base.svg?style=for-the-badge
-[contributors-url]: https://github.com/TheUnknownCod3r/BO4-Lucy-MP-Base/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/TheUnknownCod3r/BO4-Lucy-MP-Base.svg?style=for-the-badge
-[forks-url]: https://github.com/TheUnknownCod3r/BO4-Lucy-MP-Base/network/members
-[stars-shield]: https://img.shields.io/github/stars/TheUnknownCod3r/BO4-Lucy-MP-Base.svg?style=for-the-badge
-[stars-url]: https://github.com/TheUnknownCod3r/BBO4-Lucy-MP-Base/stargazers
-[issues-shield]: https://img.shields.io/github/issues/TheUnknownCod3r/BO4-Lucy-MP-Base.svg?style=for-the-badge
-[issues-url]: https://github.com/TheUnknownCod3r/BO4-Lucy-MP-Base/issues
-[license-shield]: https://img.shields.io/github/license/TheUnknownCod3r/BO4-Lucy-MP-Base.svg?style=for-the-badge
-[license-url]: https://github.com/TheUnknownCod3r/BO4-Lucy-MP-Base/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/TheUnknownCod3r/BColdWar-Lucy-Base.svg?style=for-the-badge
+[contributors-url]: https://github.com/TheUnknownCod3r/ColdWar-Lucy-Base/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/TheUnknownCod3r/ColdWar-Lucy-Base.svg?style=for-the-badge
+[forks-url]: https://github.com/TheUnknownCod3r/ColdWar-Lucy-Base/network/members
+[stars-shield]: https://img.shields.io/github/stars/TheUnknownCod3r/ColdWar-Lucy-Base.svg?style=for-the-badge
+[stars-url]: https://github.com/TheUnknownCod3r/ColdWar-Lucy-Base/stargazers
+[issues-shield]: https://img.shields.io/github/issues/TheUnknownCod3r/ColdWar-Lucy-Base.svg?style=for-the-badge
+[issues-url]: https://github.com/TheUnknownCod3r/ColdWar-Lucy-Base/issues
+[license-shield]: https://img.shields.io/github/license/TheUnknownCod3r/ColdWar-Lucy-Base.svg?style=for-the-badge
+[license-url]: https://github.com/TheUnknownCod3r/ColdWar-Lucy-Base/blob/master/LICENSE.txt
