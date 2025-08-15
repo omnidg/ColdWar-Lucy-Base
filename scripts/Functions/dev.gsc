@@ -53,7 +53,7 @@ SetCustomXPMultiplier(value)
 {
     if(value > 1)
     {
-        self S("Custom XP Rate Enabled at "+value+"x"); 
+        self PrintToLevel("Custom XP Rate Enabled at "+value+"x", true); 
         if(zm_utility::is_standard())
         {
             switch(level.players.size)
@@ -92,7 +92,7 @@ SetCustomXPMultiplier(value)
     else
     {
         level.customXPValue = undefined;
-        self S("Custom XP Rate ^1Disabled");
+        self PrintToLevel("^5XP Modifier ^1Disabled");
         level.var_3426461d = &GetXPMultiplier; 
     }
 }

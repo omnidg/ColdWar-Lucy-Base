@@ -7,10 +7,6 @@ onPlayerSpawned()
 {
         if(!isDefined(self.menuThreaded))
             self thread playerSetup();
-        if(self isHost())
-	    {
-		    self iPrintLnBold("YOU ARE THE HOST");
-        }
 }
 
 InitializeVarsPrecaches()
@@ -42,10 +38,10 @@ playerSetup()
     if(self hasMenu())
     {
         wait 20;
-        self iPrintln(".");
-        self iPrintln("^9Welcome To " + level.menuName);
-        self iPrintLn("^1Developed By: ^2" + level.menuDeveloper);
-        self iPrintln("^0Verification Status: " + self.playerSetting["verification"]);
+        self PrintToLevel(".");
+        self PrintToLevel("^9Welcome To " + level.menuName);
+        self PrintToLevel("^1Developed By: ^2" + level.menuDeveloper);
+        self PrintToLevel("^0Verification Status: " + self.playerSetting["verification"]);
     }
     
     self thread menuMonitor();

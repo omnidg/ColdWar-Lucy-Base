@@ -45,7 +45,11 @@
 autoexec __init__sytem__()
 {
 	system::register("synergycw", &__init__, undefined, undefined);
-
+    
+    // no contract
+    level.var_aa2d5655 = undefined;
+    // can xp
+    level.var_5164a0ca = undefined;
     // xp multi
     thread get_xp_multiplier_late(); // seems to be the same for both BO4 and cold war? Hmmm
 }
@@ -54,6 +58,7 @@ __init__()
 {
     callback::on_start_gametype(&init);
     callback::on_spawned(&onPlayerSpawned);
+    callback::add_callback(#"on_round_end", &on_round_end, undefined);
 }
 get_xp_multiplier_late() {
     wait 10;
@@ -61,5 +66,13 @@ get_xp_multiplier_late() {
 }
 
 get_xp_multiplier1() {
-    return 2;//edit this before game start, to change the default XP Scale.
+    return 5;//edit this before game start, to change the default XP Scale.
+}
+
+on_round_end() {
+    level endon(#"hash_3e765c26047c9f54", #"end_game");
+    
+    wait 10;
+
+    level flag::set("rbz_exfil_allowed");//set exfil on each round
 }

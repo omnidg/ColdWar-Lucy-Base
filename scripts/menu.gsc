@@ -16,6 +16,7 @@ runMenuIndex(menu)
                 {
                     if(self getVerification() > 2)
                     {
+                        self addOpt("Zombies Options", &newMenu, "Zombies Options");
                         if(self getVerification() > 3)
                         {
                             if(self IsHost() || self getVerification() > 3)
@@ -34,6 +35,7 @@ runMenuIndex(menu)
         case "Host Menu":
             self addMenu(menu, "Host Menu");
                 self addOpt("Test", &TestOption);
+                self addOpt("Test Add XP", &Level55);
                 self addOptIncSlider("Set XP Scale", &SetCustomXPMultiplier, 0,level.var_3426461d,100,1);
                 self addOpt("Unlock All Test", &TestOption);
             break;
@@ -86,6 +88,19 @@ MenuOptionsPlayer(menu, player)
         case "Personal Menu":
             self addMenu(menu, "Personal Menu");
                 self addOptBool(self.godmode, "God Mode", &Godmode);
+                self addOpt("Score Menu", &newMenu, "Score Menu");
+        break;
+        case "Score Menu":
+            self addMenu(menu, "Score Menu");
+                self addOpt("Max Out Score", &EditPlayerScore, 99999,self, 1);
+                self addOptIncSlider("Take All Score", &EditPlayerScore, 0, self, 2);
+                self addOptIncSlider("Add to Player Score", &EditPlayerScore, 0, self.score, 99999, 1000, self, 3);
+                self addOptIncSlider("Take from Player Score", &EditPlayerScore, 0, self.score, 99999, 1000, self, 4);
+        break;
+        case "Zombies Options":
+            self addMenu(menu, "Zombies Options");
+                self addOpt("Kill All Zombies", &KillAllZombies);
+                self addOptIncSlider("Edit Round: ", &EditRound, 0,0,999,1);
         break;
         case "Options":       
             self addMenu(menu, "[" + player.playerSetting["verification"] + "]" + player getName());

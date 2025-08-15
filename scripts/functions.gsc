@@ -10,7 +10,7 @@ ClientOpts(func, player)
 
 TestOption()
 {
-    self iPrintLn("Test");
+    self PrintToLevel("Test");
 }
 
 S(Message)

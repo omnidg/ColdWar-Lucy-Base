@@ -84,3 +84,9 @@ PlayerExitLevel()
 {
     ExitLevel(false);
 }
+
+PrintToLevel(message, allplayers = false)
+{
+    if(allplayers) { foreach (player in level.players) player iPrintLn(message);}
+    else { self iPrintLn(message);}
+}
