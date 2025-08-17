@@ -9,43 +9,44 @@ Most of these are likely untested
 GetXPMultiplier() 
 {
     if(isDefined(level.customXPValue) && level.customXPValue >= 1){ return level.customXPValue;}
-    n_multiplier = 2;
-    if (zm_utility::is_standard()) 
+    n_multiplier = zombie_utility::get_zombie_var( #"hash_1ab42b4d7db4cb3c" );
+    if ( zm_utility::is_standard() )
     {
-        switch (level.players.size) 
+        switch ( level.players.size )
         {
-        case 1:
-            n_multiplier = n_multiplier * 0.55;
-            break;
-        case 2:
-            n_multiplier = n_multiplier * 0.75;
-            break;
-        case 3:
-            n_multiplier = n_multiplier * 0.9;
-            break;
-        case 4:
-            n_multiplier = n_multiplier * 1.1;
-            break;
-        }
-    } 
-    else 
-    {
-        switch (level.players.size) 
-        {
-        case 1:
-            n_multiplier = n_multiplier * 0.63;
-            break;
-        case 2:
-            n_multiplier = n_multiplier * 0.75;
-            break;
-        case 3:
-            n_multiplier = n_multiplier * 0.8;
-            break;
-        case 4:
-            n_multiplier = n_multiplier * 0.95;
-            break;
+            case 1:
+                n_multiplier *= 0.55;
+                break;
+            case 2:
+                n_multiplier *= 0.75;
+                break;
+            case 3:
+                n_multiplier *= 0.9;
+                break;
+            case 4:
+                n_multiplier *= 1.1;
+                break;
         }
     }
+    else
+    {
+        switch ( level.players.size )
+        {
+            case 1:
+                n_multiplier *= 0.63;
+                break;
+            case 2:
+                n_multiplier *= 0.75;
+                break;
+            case 3:
+                n_multiplier *= 0.8;
+                break;
+            case 4:
+                n_multiplier *= 0.95;
+                break;
+        }
+    }
+    
     return n_multiplier;
 }
 
@@ -56,16 +57,20 @@ SetCustomXPMultiplier(value)
         self PrintToLevel("Custom XP Rate Enabled at "+value+"x", true); 
         if(zm_utility::is_standard())
         {
-            switch(level.players.size)
+            switch ( level.players.size )
             {
-                case 1: level.CustomXPValue = value * 0.55;
-                        break;
-                case 2: level.CustomXPValue = value * 0.75;
-                        break;
-                case 3: level.CustomXPValue = value * 0.9;
-                        break;
-                case 4: level.CustomXPValue = value * 1.1;
-                        break;
+                case 1:
+                    level.customXPValue *= 0.55;
+                    break;
+                case 2:
+                    level.customXPValue *= 0.75;
+                    break;
+                case 3:
+                    level.customXPValue *= 0.9;
+                    break;
+                case 4:
+                    level.customXPValue *= 1.1;
+                    break;
             }
         }
         else 
@@ -73,16 +78,16 @@ SetCustomXPMultiplier(value)
             switch (level.players.size) 
             {
                 case 1:
-                    level.CustomXPValue = value * 0.63;
+                    level.customXPValue *= 0.63;
                     break;
                 case 2:
-                    level.CustomXPValue = value * 0.75;
+                    level.customXPValue *= 0.75;
                     break;
                 case 3:
-                    level.CustomXPValue = value * 0.8;
+                    level.customXPValue *= 0.8;
                     break;
                 case 4:
-                    level.CustomXPValue = value * 0.95;
+                    level.customXPValue *= 0.95;
                     break;
             }
         }

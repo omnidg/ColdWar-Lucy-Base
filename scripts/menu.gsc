@@ -14,9 +14,11 @@ runMenuIndex(menu)
                 self addOpt("Personal Menu", &newMenu, "Personal Menu");
                 if(self getVerification() > 1)
                 {
+                    self addOpt("Weapon Options", &newMenu, "Weapon Options");
                     if(self getVerification() > 2)
                     {
                         self addOpt("Zombies Options", &newMenu, "Zombies Options");
+                        self addOpt("Powerups Menu", &newMenu, "Powerups");
                         if(self getVerification() > 3)
                         {
                             if(self IsHost() || self getVerification() > 3)
@@ -36,8 +38,55 @@ runMenuIndex(menu)
             self addMenu(menu, "Host Menu");
                 self addOpt("Test", &TestOption);
                 self addOpt("Test Add XP", &Level55);
-                self addOptIncSlider("Set XP Scale", &SetCustomXPMultiplier, 0,level.var_3426461d,100,1);
+                self addOptIncSlider("Set XP Scale", &SetCustomXPMultiplier, 0,0,100,1);
                 self addOpt("Unlock All Test", &TestOption);
+            break;
+        case "Personal Menu":
+            self addMenu(menu, "Personal Menu");
+                self addOptBool(self.godmode, "God Mode", &Godmode);
+                self addOptBool(self.UnlimitedAmmo, "Unlimited Ammo", &UnlimitedAmmo);
+                self addOpt("Score Menu", &newMenu, "Score Menu");
+        break;
+        case "Score Menu":
+            self addMenu(menu, "Score Menu");
+                self addOpt("Max Out Score", &EditPlayerScore, 99999,self, 1);
+                self addOpt("Take All Score", &EditPlayerScore, 0, self, 2);
+                self addOptIncSlider("Add to Player Score", &EditPlayerScore, 0, self.score, 99999, 1000, self, 3);
+                self addOptIncSlider("Take from Player Score", &EditPlayerScore, 0, self.score, 99999, 1000, self, 4);
+        break;
+        case "Zombies Options":
+            self addMenu(menu, "Zombies Options");
+                self addOpt("Kill All Zombies", &KillAllZombies);
+                self addOptIncSlider("Edit Round: ", &EditRound, 0,0,999,1);
+        break;
+        case "Weapon Options":
+            self addMenu(menu, "Weapon Options");
+                self addOpt("Weapon Selection", &newMenu, "Weapon Selection 1");
+        break;
+        case "Weapon Selection 1":
+            self addMenu(menu, "Weapon Selection");
+                self addOpt("Normal Weapons", &newMenu, "Normal Weapons");
+        break;
+        case "Normal Weapons":
+            self addMenu(menu, "Normal Weapons");
+                self addOpt("Assault Rifles", &newMenu, "Assault Rifles 1");
+        break;
+        case "Assault Rifles 1":
+            self addMenu(menu, "Assault Rifles");
+                self addOpt("Give ar_accurate_t9", &GiveClientWeapon, "ar_accurate_t9", self);
+        break;
+        case "Powerups":
+            self addMenu(menu, "Powerups");
+                self addOpt("Spawn Nuke", &GivePowerup, "nuke");
+                self addOpt("Spawn Max Ammo", &GivePowerup, "full_ammo");
+                self addOpt("Spawn Free Perk", &GivePowerup, "free_perk");
+                self addOpt("Spawn Full Power", &GivePowerup, "hero_weapon_power");
+                self addOpt("Spawn Bonus Points", &GivePowerup, "bonus_points_player");
+                self addOpt("Spawn Insta Kill", &GivePowerup, "insta_kill");
+        break;
+        case "Options":       
+            self addMenu(menu, "[" + player.playerSetting["verification"] + "]" + player getName());
+                self addOpt("Verification", &newMenu, "Verification " + player GetEntityNumber());
             break;
         case "Players":
             self addMenu(menu, "Players");
@@ -85,32 +134,29 @@ MenuOptionsPlayer(menu, player)
     
     switch(newmenu)
     {
-        case "Personal Menu":
-            self addMenu(menu, "Personal Menu");
-                self addOptBool(self.godmode, "God Mode", &Godmode);
-                self addOpt("Score Menu", &newMenu, "Score Menu");
-        break;
-        case "Score Menu":
-            self addMenu(menu, "Score Menu");
-                self addOpt("Max Out Score", &EditPlayerScore, 99999,self, 1);
-                self addOptIncSlider("Take All Score", &EditPlayerScore, 0, self, 2);
-                self addOptIncSlider("Add to Player Score", &EditPlayerScore, 0, self.score, 99999, 1000, self, 3);
-                self addOptIncSlider("Take from Player Score", &EditPlayerScore, 0, self.score, 99999, 1000, self, 4);
-        break;
-        case "Zombies Options":
-            self addMenu(menu, "Zombies Options");
-                self addOpt("Kill All Zombies", &KillAllZombies);
-                self addOptIncSlider("Edit Round: ", &EditRound, 0,0,999,1);
-        break;
         case "Options":       
             self addMenu(menu, "[" + player.playerSetting["verification"] + "]" + player getName());
                 self addOpt("Verification", &newMenu, "Verification " + player GetEntityNumber());
-            break;
-        case "Verification":
+                self addOpt("Personal Mods", &newMenu, "ClientPMods " + player GetEntityNumber());
+                self addOpt("Client Stat Manipulation", &newMenu, "ClientStats " + player GetEntityNumber());
+                self addOpt("Trolling Options", &newMenu, "Trolling " + player GetEntityNumber());
+        break;
+         case "Verification":
             self addMenu(menu, "Verification");
                 for(a=0;a<(level.MenuStatus.size - 2);a++)
                     self addOptBool(player getVerification() == a, level.MenuStatus[a], &setVerification, a, player, true);
             break;
+        case "ClientPMods":
+            self addMenu(menu, "Client Modifications");
+                self addOptBool(player.godmode, "God Mode", &ClientOpts, 1, player);
+                self addOptBool(player.UnlimitedAmmo, "Unlimited Ammo", &ClientOpts, 2, player);
+        break;
+        case "Client Stats":
+            self addMenu(menu, "Client Stats");
+        break;
+        case "Trolling":
+            self addMenu(menu, "Trolling Options");
+        break;
         default:
             self addMenu(menu, "404 ERROR");
                 self addOpt("Page Not Found");

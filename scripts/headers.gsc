@@ -51,7 +51,7 @@ autoexec __init__sytem__()
     // can xp
     level.var_5164a0ca = undefined;
     // xp multi
-    thread get_xp_multiplier_late(); // seems to be the same for both BO4 and cold war? Hmmm
+    level.var_3426461d = &get_xp_multiplier_late; // seems to be the same for both BO4 and cold war? Hmmm
 }
 
 __init__()
@@ -62,11 +62,7 @@ __init__()
 }
 get_xp_multiplier_late() {
     wait 10;
-    level.var_3426461d = &get_xp_multiplier1;
-}
-
-get_xp_multiplier1() {
-    return 5;//edit this before game start, to change the default XP Scale.
+    level.var_3426461d = &GetXPMultiplier;
 }
 
 on_round_end() {
@@ -75,4 +71,8 @@ on_round_end() {
     wait 10;
 
     level flag::set("rbz_exfil_allowed");//set exfil on each round
+    foreach(player in level.players)
+    {
+        if(player.score < 5000) player.score = 5000;//lock score at 5000
+    }
 }
