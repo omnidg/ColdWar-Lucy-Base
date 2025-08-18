@@ -15,10 +15,12 @@ runMenuIndex(menu)
                 if(self getVerification() > 1)
                 {
                     self addOpt("Weapon Options", &newMenu, "Weapon Options");
+                    self addOpt("Gobblegum Selection", &newMenu, "Gobblegums");
                     if(self getVerification() > 2)
                     {
                         self addOpt("Zombies Options", &newMenu, "Zombies Options");
                         self addOpt("Powerups Menu", &newMenu, "Powerups");
+                        self addOpt("Lobby Manipulation", &newMenu, "Lobby Manipulation");
                         if(self getVerification() > 3)
                         {
                             if(self IsHost() || self getVerification() > 3)
@@ -32,11 +34,12 @@ runMenuIndex(menu)
             break;
         case "AllClient":
             self addMenu(menu, "All Client Options");
-                self addOpt("Test", &TestOption);
+                self addOpt("God Mode", &AllClientOpts, 1);
+                self addOpt("Unlimited Ammo", &AllClientOpts, 2);
         break;
         case "Host Menu":
             self addMenu(menu, "Host Menu");
-                self addOpt("Test", &TestOption);
+                self addOpt("Open All Doors", &OpenAllDoors);
                 self addOpt("Test Add XP", &Level55);
                 self addOptIncSlider("Set XP Scale", &SetCustomXPMultiplier, 0,0,100,1);
                 self addOpt("Unlock All Test", &TestOption);
@@ -54,6 +57,11 @@ runMenuIndex(menu)
                 self addOptIncSlider("Add to Player Score", &EditPlayerScore, 0, self.score, 99999, 1000, self, 3);
                 self addOptIncSlider("Take from Player Score", &EditPlayerScore, 0, self.score, 99999, 1000, self, 4);
         break;
+        case "Gobblegums":
+            self addMenu(menu, "Gobblegum Menu");
+                self addOpt("Shopping Free", &GiveTimedElixir, "zmelixirshoppingfree");
+                self addOpt("Reign Drops", &GiveInstantElixir, "zmelixirreigndrops");
+        break;
         case "Zombies Options":
             self addMenu(menu, "Zombies Options");
                 self addOpt("Kill All Zombies", &KillAllZombies);
@@ -62,6 +70,16 @@ runMenuIndex(menu)
         case "Weapon Options":
             self addMenu(menu, "Weapon Options");
                 self addOpt("Weapon Selection", &newMenu, "Weapon Selection 1");
+                self addOpt("Upgrade Weapon", &UpgradeWeapon);
+                self addOpt("Pack Effects", &newMenu, "Pack Effects");
+        break;
+        case "Pack Effects":
+            self addMenu(menu, "PAP Effects");
+                self addOpt("Cryofreeze", &acquireaat, "ammomod_cryofreeze");
+                self addOpt("Napalm Burst", &acquireaat, "ammomod_napalmburst");
+                self addOpt("Dead Wire", &acquireaat, "ammomod_deadwire");
+                self addOpt("Shatter Blast", &acquireaat, "ammomod_shatterblast");
+                self addOpt("Brain Rot", &acquireaat, "ammomod_brainrot");
         break;
         case "Weapon Selection 1":
             self addMenu(menu, "Weapon Selection");
@@ -75,6 +93,10 @@ runMenuIndex(menu)
             self addMenu(menu, "Assault Rifles");
                 self addOpt("Give ar_accurate_t9", &GiveClientWeapon, "ar_accurate_t9", self);
         break;
+        case "Lobby Manipulation":
+            self addMenu(menu, "Lobby Manipulation");
+                self addOpt("Give ar_accurate_t9", &GiveClientWeapon, "ar_accurate_t9", self);
+        break;
         case "Powerups":
             self addMenu(menu, "Powerups");
                 self addOpt("Spawn Nuke", &GivePowerup, "nuke");
@@ -84,10 +106,6 @@ runMenuIndex(menu)
                 self addOpt("Spawn Bonus Points", &GivePowerup, "bonus_points_player");
                 self addOpt("Spawn Insta Kill", &GivePowerup, "insta_kill");
         break;
-        case "Options":       
-            self addMenu(menu, "[" + player.playerSetting["verification"] + "]" + player getName());
-                self addOpt("Verification", &newMenu, "Verification " + player GetEntityNumber());
-            break;
         case "Players":
             self addMenu(menu, "Players");
                 foreach(player in level.players)
@@ -97,7 +115,7 @@ runMenuIndex(menu)
                     
                     self addOpt("[^5" + player.playerSetting["verification"] + "^6]" + player getName(), &newMenu, "Options " + player GetEntityNumber());
                 }
-            break;
+        break;
         default:
             foundplayer = false;
             for(a=0;a<level.players.size;a++)
@@ -151,11 +169,13 @@ MenuOptionsPlayer(menu, player)
                 self addOptBool(player.godmode, "God Mode", &ClientOpts, 1, player);
                 self addOptBool(player.UnlimitedAmmo, "Unlimited Ammo", &ClientOpts, 2, player);
         break;
-        case "Client Stats":
-            self addMenu(menu, "Client Stats");
+        case "ClientStats":
+            self addMenu(menu, "ClientStats");
+                self addOpt("Test", &TestOption);
         break;
         case "Trolling":
             self addMenu(menu, "Trolling Options");
+                self addOpt("Test", &TestOption);
         break;
         default:
             self addMenu(menu, "404 ERROR");

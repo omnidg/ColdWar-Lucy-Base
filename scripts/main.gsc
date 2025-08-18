@@ -15,6 +15,8 @@ InitializeVarsPrecaches()
         return;
     level.InitializeVarsPrecaches = true;
     level.menuName = "The Lucy Base";
+    level._SynWeapons = getArrayKeys(level.zombie_weapons);
+    level._SynBGB          = getArrayKeys(level.bgb);
     level.menuDeveloper = "MrFawkes1337 | CF499";
     level.AutoVerify = 0;
     level.MenuStatus = StrTok("None, Verified, VIP, Co-Host, Admin, Host, Developer", ",");
@@ -65,4 +67,3 @@ defineVariables()
     self.menu["currentMenu"] = "Main";
     self.menu["curs"][self.menu["currentMenu"]] = 0;
 }
-

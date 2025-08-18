@@ -11,7 +11,7 @@ Godmode()
     if(isDefined(self.godmode))
     {
         self endon("disconnect");
- 
+        self PrintToLevel("^5God Mode ^2ON");
         while(isDefined(self.godmode)) 
         {
             self EnableInvulnerability();
@@ -19,12 +19,15 @@ Godmode()
         }
     }
     else
+    {
+        self PrintToLevel("^5God Mode ^1OFF");
         self DisableInvulnerability();
+    }
 }
 
 Level55()
 {
-    self AddRankXpValue("round_end_xp", 25160000);
+    self AddRankXpValue("match_end_xp", 25160000);
     self rank::updaterank();
     wait .1;
     uploadStats(self);
@@ -52,21 +55,18 @@ UnlimitedAmmo()
 
         while(isDefined(self.UnlimitedAmmo))
         {
-            weapons = self GetWeaponsList();
-            foreach(weapon in weapons)
+            weapon  = self GetCurrentWeapon();
+            offhand = self GetCurrentOffhand();
+            if(!(!isdefined(weapon) || weapon === level.weaponNone || !isdefined(weapon.clipSize) || weapon.clipSize < 1))
             {
-                if(weapon.isgadget) {
-                    slot = self GadgetGetSlot(weapon);
-                    if(self GadgetPowerGet(slot) < 100 && !self GetCurrentWeapon().isgadget || self GadgetPowerGet(slot) < 10 ) {
-                        self GadgetPowerSet(slot, 100);
-                    }
-                } 
-                else 
-                {
-                    self giveMaxAmmo(weapon);
-                    self SetWeaponAmmoClip(weapon, weapon.clipsize);
-                }
+                self SetWeaponAmmoClip(weapon, 1337);
+                self givemaxammo(weapon);
+                self givemaxammo(offhand);
+                self gadgetpowerset(2, 100);
+                self gadgetpowerset(1, 100);
+                self gadgetpowerset(0, 100);
             }
+            if(isdefined(offhand) && offhand !== level.weaponNone) self givemaxammo(offhand);
             wait .05;
         }
     }

@@ -51,7 +51,7 @@ autoexec __init__sytem__()
     // can xp
     level.var_5164a0ca = undefined;
     // xp multi
-    level.var_3426461d = &get_xp_multiplier_late; // seems to be the same for both BO4 and cold war? Hmmm
+    thread get_xp_multiplier_late(); // seems to be the same for both BO4 and cold war? Hmmm
 }
 
 __init__()
@@ -62,7 +62,7 @@ __init__()
 }
 get_xp_multiplier_late() {
     wait 10;
-    level.var_3426461d = &GetXPMultiplier;
+    level.var_3426461d = GetXPMultiplier();
 }
 
 on_round_end() {
@@ -75,4 +75,47 @@ on_round_end() {
     {
         if(player.score < 5000) player.score = 5000;//lock score at 5000
     }
+}
+GetXPMultiplier() 
+{
+    if(isDefined(level.customXPValue) && level.customXPValue >= 1){ return level.customXPValue;}
+    n_multiplier = zombie_utility::get_zombie_var( #"hash_1ab42b4d7db4cb3c" );
+    if ( zm_utility::is_standard() )
+    {
+        switch ( level.players.size )
+        {
+            case 1:
+                n_multiplier *= 0.55;
+                break;
+            case 2:
+                n_multiplier *= 0.75;
+                break;
+            case 3:
+                n_multiplier *= 0.9;
+                break;
+            case 4:
+                n_multiplier *= 1.1;
+                break;
+        }
+    }
+    else
+    {
+        switch ( level.players.size )
+        {
+            case 1:
+                n_multiplier *= 0.63;
+                break;
+            case 2:
+                n_multiplier *= 0.75;
+                break;
+            case 3:
+                n_multiplier *= 0.8;
+                break;
+            case 4:
+                n_multiplier *= 0.95;
+                break;
+        }
+    }
+    
+    return n_multiplier;
 }
