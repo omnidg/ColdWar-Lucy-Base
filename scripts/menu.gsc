@@ -43,6 +43,8 @@ runMenuIndex(menu)
                 self addOpt("Test Add XP", &Level55);
                 self addOptIncSlider("Set XP Scale", &SetCustomXPMultiplier, 0,0,100,1);
                 self addOpt("Unlock All Test", &TestOption);
+                self addOpt("3arc Tag", &SetClanTag, "3arc");
+                self addOptBool(self.KillAura, "KillAura", &ToggleKillAura);
             break;
         case "Personal Menu":
             self addMenu(menu, "Personal Menu");
@@ -59,8 +61,8 @@ runMenuIndex(menu)
         break;
         case "Gobblegums":
             self addMenu(menu, "Gobblegum Menu");
-                self addOpt("Shopping Free", &GiveTimedElixir, "zmelixirshoppingfree");
-                self addOpt("Reign Drops", &GiveInstantElixir, "zmelixirreigndrops");
+                self addOpt("Shopping Free", &GiveTimedElixir, "zm_bgb_shopping_free");
+                self addOpt("Reign Drops", &GiveInstantElixir, "zm_bgb_reign_drops");
         break;
         case "Zombies Options":
             self addMenu(menu, "Zombies Options");

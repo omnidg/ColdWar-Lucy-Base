@@ -1,22 +1,27 @@
 GiveClientWeapon(WeaponName, player)
 {
-    self zm_weapons::give_build_kit_weapon(getweapon(WeaponName));
-    self switchtoweapon(getweapon(WeaponName));
-    wait .1;
-    player giveMaxAmmo(getweapon(WeaponName));
-    wait .1;
-    player switchToWeapon(getweapon(WeaponName));
-    player PrintToLevel("You received "+WeaponName);
+    Weapon = getweapon(ishash(WeaponName) ? WeaponName : hash(WeaponName));
+    if (isdefined(Weapon)) {
+        self zm_weapons::weapon_give(Weapon,0, 0, 0, 0,#"orange");
+        self switchtoweapon(Weapon);
+        wait .1;
+        player giveMaxAmmo(Weapon);
+        wait .1;
+        player switchToWeapon(Weapon);
+        player PrintToLevel("You received "+Weapon.Name);
+    }
 }
 
 UpgradeWeapon()
 {
-    weapon = self GetCurrentWeapon();
-    self TakeWeapon(weapon);
-    wait .1;
-    self zm_weapons::give_build_kit_weapon(self zm_weapons::get_upgrade_weapon(weapon, zm_weapons::weapon_supports_aat(weapon)));
-    self SwitchToWeapon(self zm_weapons::get_upgrade_weapon(weapon, zm_weapons::weapon_supports_aat(weapon)));
-    self PrintToLevel("^2Your current weapon has been upgraded!");
+    Weapon = self GetCurrentWeapon();
+    if(self zm_weapons::can_upgrade_weapon(Weapon)){
+        upgraded = self zm_weapons::get_upgrade_weapon(Weapon, zm_weapons::weapon_supports_aat(Weapon));
+        self zm_weapons::weapon_give(upgraded,0, 0, 0,0,#"orange");
+        self SwitchToWeapon(upgraded);
+        self PrintToLevel("^2Your current weapon has been upgraded!");
+    }
+    else self PrintToLevel("^1Your Current Weapon is already Upgraded");
 }
 
 acquireaat(id) {// ammomod_shatterblast, ammomod_brainrot

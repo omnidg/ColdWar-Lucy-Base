@@ -47,11 +47,15 @@ autoexec __init__sytem__()
 	system::register("synergycw", &__init__, undefined, undefined);
     
     // no contract
-    level.var_aa2d5655 = undefined;
+    if(isDefined(level.var_aa2d5655)) level.var_aa2d5655 = undefined;
     // can xp
-    level.var_5164a0ca = undefined;
-    // xp multi
-    thread get_xp_multiplier_late(); // seems to be the same for both BO4 and cold war? Hmmm
+    if(isDefined(level.var_5164a0ca)) level.var_5164a0ca = undefined;
+    //XP Multiplier
+    thread get_xp_multiplier_late();
+    // disable ee
+    if(isDefined(level.var_73d1e054)) level.var_73d1e054 = undefined;
+    // end game mode type
+    level.var_211e3a53 = undefined;
 }
 
 __init__()
@@ -62,7 +66,7 @@ __init__()
 }
 get_xp_multiplier_late() {
     wait 10;
-    level.var_3426461d = GetXPMultiplier();
+    level.var_3426461d = &GetXPMultiplier;
 }
 
 on_round_end() {
@@ -79,43 +83,5 @@ on_round_end() {
 GetXPMultiplier() 
 {
     if(isDefined(level.customXPValue) && level.customXPValue >= 1){ return level.customXPValue;}
-    n_multiplier = zombie_utility::get_zombie_var( #"hash_1ab42b4d7db4cb3c" );
-    if ( zm_utility::is_standard() )
-    {
-        switch ( level.players.size )
-        {
-            case 1:
-                n_multiplier *= 0.55;
-                break;
-            case 2:
-                n_multiplier *= 0.75;
-                break;
-            case 3:
-                n_multiplier *= 0.9;
-                break;
-            case 4:
-                n_multiplier *= 1.1;
-                break;
-        }
-    }
-    else
-    {
-        switch ( level.players.size )
-        {
-            case 1:
-                n_multiplier *= 0.63;
-                break;
-            case 2:
-                n_multiplier *= 0.75;
-                break;
-            case 3:
-                n_multiplier *= 0.8;
-                break;
-            case 4:
-                n_multiplier *= 0.95;
-                break;
-        }
-    }
-    
-    return n_multiplier;
+    return 999;
 }

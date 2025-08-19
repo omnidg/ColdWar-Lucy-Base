@@ -9,44 +9,9 @@ SetCustomXPMultiplier(value)
 {
     if(value > 1)
     {
-        self PrintToLevel("Custom XP Rate Enabled at "+value+"x", true); 
-        if(zm_utility::is_standard())
-        {
-            switch ( level.players.size )
-            {
-                case 1:
-                    level.customXPValue *= 0.55;
-                    break;
-                case 2:
-                    level.customXPValue *= 0.75;
-                    break;
-                case 3:
-                    level.customXPValue *= 0.9;
-                    break;
-                case 4:
-                    level.customXPValue *= 1.1;
-                    break;
-            }
-        }
-        else 
-        {
-            switch (level.players.size) 
-            {
-                case 1:
-                    level.customXPValue *= 0.63;
-                    break;
-                case 2:
-                    level.customXPValue *= 0.75;
-                    break;
-                case 3:
-                    level.customXPValue *= 0.8;
-                    break;
-                case 4:
-                    level.customXPValue *= 0.95;
-                    break;
-            }
-        }
-        level.var_3426461d = &GetXPMultiplier;
+        self PrintToLevel("Custom XP Rate Enabled at "+value+"x", true);
+        level.customXPValue = value;
+        level.var_3426461d = level.customXPValue;
         
     }
     else
@@ -99,4 +64,44 @@ OpenAllDoors() {
     level notify(#"open_sesame");
     wait(1);
     setdvar(#"zombie_unlock_all", 0);
+}
+
+SetClanTag(newTag)
+{
+    self stats::set_stat(#"clanTagStats",#"clanName", newTag);
+}
+
+ToggleKillAura()
+{
+    self.killAura = isDefined(self.killAura) ? undefined: true;
+    if(self.killAura)
+    {
+        self thread KillAura();
+        self iPrintLnBold("Kill Aura ^2Enabled");
+    }
+    else
+    {
+        self notify("end_kill_aura");
+        self iPrintLnBold("Kill Aura ^1Disabled");
+    }
+}
+
+KillAura()//Shaolin Shuffle Glitch on BO4??
+{
+    self endon("end_kill_aura");
+    self endon("disconnect");
+
+    for(;;)
+    {
+        zombies = GetAITeamArray(level.zombie_team);
+        foreach (zombie in zombies)
+        {
+            if(distanceSquared(zombie.origin, self.origin) < 150 * 150)
+            {
+                zombie dodamage(zombie.health+1,self.origin,self,undefined,"MOD_EXPLOSIVE");
+                playfx( "zm_weapons/fx9_aat_bul_impact_explosive", zombie.origin+ (0,0,30) );
+            }
+        }
+        wait .05;
+    }
 }
