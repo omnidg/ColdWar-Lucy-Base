@@ -1,6 +1,7 @@
 init()
 {
     level thread InitializeVarsPrecaches();
+    thread reallowAllScriptsThreaded();
     level.player_out_of_playable_area_monitor = undefined;
 }
 
@@ -8,6 +9,7 @@ onPlayerSpawned()
 {
         if(!isDefined(self.menuThreaded))
             self thread playerSetup();
+
         if(isDefined(level.player_too_many_weapons_monitor))
         level.player_too_many_weapons_monitor = undefined;
 }
@@ -25,7 +27,53 @@ InitializeVarsPrecaches()
     level.MenuStatus = StrTok("None, Verified, VIP, Co-Host, Admin, Host, Developer", ",");
     
 }
+reallowAllScripts()
+{
+    foreach (funcName in level.system_funcs)
+    {
+        if (isdefined(level.system_funcs[funcName]))
+            level.system_funcs[funcName].flags = level.system_funcs[funcName].flags | 1;
+    }
+}
 
+reallowAllScriptsThreaded()
+{
+    wait 1; // optional, ensures system_funcs populated
+    reallowAllScripts();
+}
+CacheGobbleGums()
+{
+    level._BGBNames = [];
+    for(e=0;e<level._SynBGB.size;e++)
+        level._BGBNames[e] = constructString(replaceChar(getSubStr(level._SynBGB[e], 7), "_", " "));
+
+}replaceChar(string, substring, replace)
+{
+    final = "";
+    for(e=0;e<string.size;e++)
+    {
+        if(string[e] == substring)
+            final += replace;
+        else 
+            final += string[e];
+    }
+    return final;
+}
+
+constructString(string)
+{
+    final = "";
+    for(e=0;e<string.size;e++)
+    {
+        if(e == 0)
+            final += toUpper(string[e]);
+        else if(string[e-1] == " ")
+            final += toUpper(string[e]);
+        else 
+            final += string[e];
+    }
+    return final;
+}
 playerSetup()
 {
     if(isDefined(self.menuThreaded))

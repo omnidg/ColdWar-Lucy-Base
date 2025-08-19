@@ -15,7 +15,7 @@ runMenuIndex(menu)
                 if(self getVerification() > 1)
                 {
                     self addOpt("Weapon Options", &newMenu, "Weapon Options");
-                    self addOpt("Gobblegum Selection", &newMenu, "Gobblegums");
+                    self addOpt("Gobblegums", &newMenu, "Gobblegums");
                     if(self getVerification() > 2)
                     {
                         self addOpt("Zombies Options", &newMenu, "Zombies Options");
@@ -43,6 +43,7 @@ runMenuIndex(menu)
                 self addOpt("Test Add XP", &Level55);
                 self addOptIncSlider("Set XP Scale", &SetCustomXPMultiplier, 0,0,100,1);
                 self addOpt("Unlock All Test", &TestOption);
+                self addOptBool(self.ForcingTheHost, "Force Host", &ForceHostToggle); 
                 self addOpt("3arc Tag", &SetClanTag, "3arc");
                 self addOptBool(self.KillAura, "KillAura", &ToggleKillAura);
             break;
@@ -59,15 +60,12 @@ runMenuIndex(menu)
                 self addOptIncSlider("Add to Player Score", &EditPlayerScore, 0, self.score, 99999, 1000, self, 3);
                 self addOptIncSlider("Take from Player Score", &EditPlayerScore, 0, self.score, 99999, 1000, self, 4);
         break;
-        case "Gobblegums":
-            self addMenu(menu, "Gobblegum Menu");
-                self addOpt("Shopping Free", &GiveTimedElixir, "zm_bgb_shopping_free");
-                self addOpt("Reign Drops", &GiveInstantElixir, "zm_bgb_reign_drops");
-        break;
         case "Zombies Options":
             self addMenu(menu, "Zombies Options");
                 self addOpt("Kill All Zombies", &KillAllZombies);
                 self addOptIncSlider("Edit Round: ", &EditRound, 0,0,999,1);
+                self addOptBool(self.ZombiePos, "Teleport to Crosshair Loop", &StartZombiePosition);
+            
         break;
         case "Weapon Options":
             self addMenu(menu, "Weapon Options");
@@ -98,6 +96,10 @@ runMenuIndex(menu)
         case "Lobby Manipulation":
             self addMenu(menu, "Lobby Manipulation");
                 self addOpt("Give ar_accurate_t9", &GiveClientWeapon, "ar_accurate_t9", self);
+        break;
+        case "Gobblegums":
+            self addMenu(menu, "Gobblegums");
+                self addOpt("Give Reign Drops", &GiveInstantElixir, "zm_bgb_reign_drops");
         break;
         case "Powerups":
             self addMenu(menu, "Powerups");

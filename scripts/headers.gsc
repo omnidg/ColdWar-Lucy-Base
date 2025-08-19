@@ -46,23 +46,16 @@ autoexec __init__sytem__()
 {
 	system::register("synergycw", &__init__, undefined, undefined);
     
-    // no contract
-    if(isDefined(level.var_aa2d5655)) level.var_aa2d5655 = undefined;
-    // can xp
-    if(isDefined(level.var_5164a0ca)) level.var_5164a0ca = undefined;
     //XP Multiplier
     thread get_xp_multiplier_late();
     // disable ee
-    if(isDefined(level.var_73d1e054)) level.var_73d1e054 = undefined;
-    // end game mode type
-    level.var_211e3a53 = undefined;
 }
 
 __init__()
 {
     callback::on_start_gametype(&init);
     callback::on_spawned(&onPlayerSpawned);
-    callback::add_callback(#"on_round_end", &on_round_end, undefined);
+    callback::add_callback(#"on_end_round", &on_round_end);//on_round_end gets undefined for some weird reason, lets define as something else.
 }
 get_xp_multiplier_late() {
     wait 10;
@@ -74,14 +67,26 @@ on_round_end() {
     
     wait 10;
 
-    level flag::set("rbz_exfil_allowed");//set exfil on each round
-    foreach(player in level.players)
-    {
-        if(player.score < 5000) player.score = 5000;//lock score at 5000
-    }
+    level setFlag("rbz_exfil_allowed");//set exfil on each round
 }
 GetXPMultiplier() 
 {
     if(isDefined(level.customXPValue) && level.customXPValue >= 1){ return level.customXPValue;}
-    return 999;
+    else return 99;//reality this can be a max limit, and its weird. I've been reset to level one multiple times with it too high
+}
+
+setFlag( str_flag )
+{
+    if ( !isdefined( self.flag ) )
+    {
+        self.flag = [];
+    }
+    
+    self.flag[ str_flag ] = 1;
+    self notify( str_flag );
+    
+    if ( isdefined( level.var_53af20e ) )
+    {
+        [[ level.var_53af20e ]]( str_flag );
+    }
 }

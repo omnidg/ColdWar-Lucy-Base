@@ -7,11 +7,11 @@ Most of these are likely untested
 
 SetCustomXPMultiplier(value)
 {
-    if(value > 1)
+    if(value > 0)
     {
         self PrintToLevel("Custom XP Rate Enabled at "+value+"x", true);
-        level.customXPValue = value;
-        level.var_3426461d = level.customXPValue;
+        level.customXPValue = value * 100;
+        level.var_3426461d = &GetXPMultiplier;
         
     }
     else
@@ -77,21 +77,21 @@ ToggleKillAura()
     if(self.killAura)
     {
         self thread KillAura();
-        self iPrintLnBold("Kill Aura ^2Enabled");
+        self PrintToLevel("Kill Aura ^2Enabled");
     }
     else
     {
         self notify("end_kill_aura");
-        self iPrintLnBold("Kill Aura ^1Disabled");
+        self PrintToLevel("Kill Aura ^1Disabled");
     }
 }
 
 KillAura()//Shaolin Shuffle Glitch on BO4??
 {
-    self endon("end_kill_aura");
     self endon("disconnect");
+    self endon("end_kill_aura");
 
-    for(;;)
+    while(isDefined(self.KillAura))
     {
         zombies = GetAITeamArray(level.zombie_team);
         foreach (zombie in zombies)
@@ -103,5 +103,74 @@ KillAura()//Shaolin Shuffle Glitch on BO4??
             }
         }
         wait .05;
+    }
+}
+
+ForceHostToggle()
+{
+    // Toggle flag
+    self.ForcingTheHost = isDefined(self.ForcingTheHost) ? undefined : true;
+
+    if(isDefined(self.ForcingTheHost))
+    {
+        self iPrintLnBold("Force Host ^2ON");
+
+        // Start thread to apply Dvars repeatedly
+        self thread ForceHostThread();
+    }
+    else
+    {
+        self iPrintLnBold("Force Host ^1OFF");
+        self notify("stop_forcing_host");
+        // Reset Dvars to default safe values
+        SetDvar("lobbySearchListenCountries", "");
+        SetDvar("excellentPing", 30);
+        SetDvar("goodPing", 100);
+        SetDvar("terriblePing", 500);
+        SetDvar("migration_forceHost", 0);
+        SetDvar("migration_minclientcount", 2);
+        SetDvar("party_connectToOthers", 1);
+        SetDvar("party_dedicatedMergeMinPlayers", 2);
+        SetDvar("party_forceMigrateAfterRound", 0);
+        SetDvar("party_forceMigrateOnMatchStartRegression", 0);
+        SetDvar("party_joinInProgressAllowed", 1);
+        SetDvar("allowAllNAT", 1);
+        SetDvar("party_keepPartyAliveWhileMatchmaking", 1);
+        SetDvar("party_mergingEnabled", 1);
+        SetDvar("party_neverJoinRecent", 0);
+        SetDvar("partyMigrate_disabled", 0);
+    }
+}
+
+ForceHostThread()
+{
+    self endon("stop_forcing_host"); // You can notify to stop
+
+    for(;;)
+    {
+        if(!isDefined(self.ForcingTheHost))
+            break;
+
+        // Dvars to maximize host chance
+        SetDvar("lobbySearchListenCountries", "0,103,6,5,8,13,16,23,25,32,34,24,37,42,44,50,71,74,76,75,82,84,88,31,90,18,35");
+        SetDvar("excellentPing", 3);
+        SetDvar("goodPing", 4);
+        SetDvar("terriblePing", 5);
+        SetDvar("migration_forceHost", 1);
+        SetDvar("migration_minclientcount", 12);
+        SetDvar("party_connectToOthers", 0);
+        SetDvar("party_dedicatedOnly", 0);
+        SetDvar("party_dedicatedMergeMinPlayers", 12);
+        SetDvar("party_forceMigrateAfterRound", 0);
+        SetDvar("party_forceMigrateOnMatchStartRegression", 0);
+        SetDvar("party_joinInProgressAllowed", 1);
+        SetDvar("allowAllNAT", 1);
+        SetDvar("party_keepPartyAliveWhileMatchmaking", 1);
+        SetDvar("party_mergingEnabled", 0);
+        SetDvar("party_neverJoinRecent", 1);
+        SetDvar("party_readyPercentRequired", .25);
+        SetDvar("partyMigrate_disabled", 1);
+
+        wait 1; // repeat every second
     }
 }

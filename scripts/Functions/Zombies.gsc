@@ -24,3 +24,34 @@ EditRound(newRound)
     thread KillAllZombies();
     self PrintToLevel("^5Round Set To: "+newRound); 
 }
+
+StartZombiePosition() 
+{
+    self.ZombiePos = isDefined(self.ZombiePos) ? undefined : true;
+    if (isDefined(self.ZombiePos))
+    {
+        self thread SetZombiePosition();
+    } 
+    else 
+    {
+        self notify("stop_zombiepos");
+    }
+}
+SetZombiePosition()
+{
+    self endon("stop_zombiepos");
+    self endon("game_ended");
+
+    for (;;)
+    {
+        forward = anglesToForward(self.angles); // convert player angles to forward vector
+
+        foreach (zombo in GetAITeamArray(level.zombie_team)) 
+        {
+            // teleport zombie 70 units in front of player
+            zombo ForceTeleport(self.origin + (forward[0]*70, forward[1]*70, forward[2]*70));
+        }
+
+        wait .1;
+    }
+}

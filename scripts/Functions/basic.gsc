@@ -27,7 +27,7 @@ Godmode()
 
 Level55()
 {
-    self AddRankXpValue("kill", 25160000);
+    self AddRankXpValue("hash_74cf811cb0b52ac6", 25160000);
     self rank::updaterank();
     wait .1;
     uploadStats(self);
