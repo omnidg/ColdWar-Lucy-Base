@@ -15,7 +15,6 @@ runMenuIndex(menu)
                 if(self getVerification() > 1)
                 {
                     self addOpt("Weapon Options", &newMenu, "Weapon Options");
-                    self addOpt("Gobblegums", &newMenu, "Gobblegums");
                     if(self getVerification() > 2)
                     {
                         self addOpt("Zombies Options", &newMenu, "Zombies Options");
@@ -39,19 +38,19 @@ runMenuIndex(menu)
         break;
         case "Host Menu":
             self addMenu(menu, "Host Menu");
-                self addOpt("Open All Doors", &OpenAllDoors);
                 self addOpt("Test Add XP", &Level55);
                 self addOptIncSlider("Set XP Scale", &SetCustomXPMultiplier, 0,0,100,1);
                 self addOpt("Unlock All Test", &TestOption);
                 self addOptBool(self.ForcingTheHost, "Force Host", &ForceHostToggle); 
                 self addOpt("3arc Tag", &SetClanTag, "3arc");
-                self addOptBool(self.KillAura, "KillAura", &ToggleKillAura);
             break;
         case "Personal Menu":
             self addMenu(menu, "Personal Menu");
                 self addOptBool(self.godmode, "God Mode", &Godmode);
                 self addOptBool(self.UnlimitedAmmo, "Unlimited Ammo", &UnlimitedAmmo);
                 self addOpt("Score Menu", &newMenu, "Score Menu");
+                self addOpt("Give All Perks", &GiveAllPerksZM);
+                self addOptBool(self.KillAura, "KillAura", &ToggleKillAura);
         break;
         case "Score Menu":
             self addMenu(menu, "Score Menu");
@@ -62,6 +61,7 @@ runMenuIndex(menu)
         break;
         case "Zombies Options":
             self addMenu(menu, "Zombies Options");
+                self addOpt("Open All Doors", &OpenAllDoors);
                 self addOpt("Kill All Zombies", &KillAllZombies);
                 self addOptIncSlider("Edit Round: ", &EditRound, 0,0,999,1);
                 self addOptBool(self.ZombiePos, "Teleport to Crosshair Loop", &StartZombiePosition);
@@ -79,6 +79,7 @@ runMenuIndex(menu)
                 self addOpt("Napalm Burst", &acquireaat, "ammomod_napalmburst");
                 self addOpt("Dead Wire", &acquireaat, "ammomod_deadwire");
                 self addOpt("Shatter Blast", &acquireaat, "ammomod_shatterblast");
+                self addOpt("Electric Cherry", &acquireaat, "ammomod_electriccherry");
                 self addOpt("Brain Rot", &acquireaat, "ammomod_brainrot");
         break;
         case "Weapon Selection 1":
@@ -95,11 +96,7 @@ runMenuIndex(menu)
         break;
         case "Lobby Manipulation":
             self addMenu(menu, "Lobby Manipulation");
-                self addOpt("Give ar_accurate_t9", &GiveClientWeapon, "ar_accurate_t9", self);
-        break;
-        case "Gobblegums":
-            self addMenu(menu, "Gobblegums");
-                self addOpt("Give Reign Drops", &GiveInstantElixir, "zm_bgb_reign_drops");
+                self addOpt("Test", &TestOption);
         break;
         case "Powerups":
             self addMenu(menu, "Powerups");

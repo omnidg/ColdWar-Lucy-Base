@@ -90,3 +90,13 @@ PrintToLevel(message, allplayers = false)
     if(allplayers) { foreach (player in level.players) player iPrintLn(message);}
     else { self iPrintLn(message);}
 }
+
+spawnSM(origin, model, angles)//wpn_t9_streak_care_package_friendly_world
+{
+    ent = Spawn("script_model", origin);
+    ent SetModel(model);
+    if(isDefined(angles))
+        ent.angles = angles;
+    
+    return ent;
+}

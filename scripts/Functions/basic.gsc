@@ -27,7 +27,8 @@ Godmode()
 
 Level55()
 {
-    self AddRankXpValue("hash_74cf811cb0b52ac6", 25160000);
+    self AddRankXpValue("hash_43ad5d1b08145b1f", 25160000);
+    //self.var_361d484b += 25160000;
     self rank::updaterank();
     wait .1;
     uploadStats(self);
@@ -77,4 +78,22 @@ GivePowerup(Powerup)
 {
     self zm_powerups::specific_powerup_drop(Powerup, self.origin, undefined, undefined, undefined, 1);
     self PrintToLevel("^5Spawned Powerup: "+powerup);
+}
+
+GiveAllPerksZM()
+{
+	a_str_perks = getarraykeys( level._custom_perks );
+	foreach(str_perk in a_str_perks)
+	{
+		if(!self hasperk(str_perk))
+		{
+			self zm_perks::wait_give_perk(str_perk);
+			if(isdefined(level.perk_bought_func))
+			{
+				self [[level.perk_bought_func]](str_perk);
+			}
+		}
+        wait .1;
+	}
+    self PrintToLevel("All Perks ^2Given");
 }
