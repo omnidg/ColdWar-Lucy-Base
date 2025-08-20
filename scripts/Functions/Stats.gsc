@@ -15,10 +15,10 @@ LookupWeaponLevels()//credit ate47 / the atian menu
 
         if(!isDefined(weap)) continue;
 
-        class = util::getweaponclass(wp);
-        if(!isDefined(levels[cls])) levels[cls] = [];
+        class = util::getweaponclass(weap);
+        if(!isDefined(levels[class])) levels[class] = [];
 
-        levels[cls][weap] = xp;
+        levels[class][weap] = xp;
     }
     return levels;
 }

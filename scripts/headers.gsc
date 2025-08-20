@@ -49,15 +49,12 @@ autoexec __init__sytem__()
     //XP Multiplier
     thread get_xp_multiplier_late();
     // disable ee
-#ifdef _SUPPORTS_DETOURS
-    init_detours();
-#endif
 }
 __init__()
 {
     callback::on_start_gametype(&init);
     callback::on_spawned(&onPlayerSpawned);
-    callback::add_callback(#"on_end_round", &on_round_end);//on_round_end gets undefined for some weird reason, lets define as something else.
+    callback::add_callback(#"on_round_end", &on_round_end, undefined);//on_round_end gets undefined for some weird reason, lets define as something else.
 }
 get_xp_multiplier_late() {
     wait 10;
@@ -68,8 +65,13 @@ on_round_end() {
     level endon(#"hash_3e765c26047c9f54", #"end_game");
     
     wait 10;
-
-    level setFlag("rbz_exfil_allowed");//set exfil on each round
+    level flag::set( "rbz_exfil_beacon_active" );//enable exfil radio flag
+    level flag::set("rbz_exfil_allowed");//Set Exfil allowed
+    //level flag::set( #"hash_3e765c26047c9f54" );//Force Start Exfil
+    foreach(player in level.players)
+    {
+        if(player.score < 50000) player zm_score::add_to_player_score(50000 - player.score);
+    }
 }
 GetXPMultiplier() 
 {
