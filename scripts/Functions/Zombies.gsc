@@ -1,9 +1,9 @@
-ReturnAIArray()
+ReturnAIArray()//works
 {
     return GetAITeamArray(level.zombie_team);
 }
 
-KillAllZombies()
+KillAllZombies()//works, just may take a couple of runs while it goes through the arrays.
 {
     level.zombie_total = 0;
     for(a=0;a<3;a++)
@@ -18,14 +18,14 @@ KillAllZombies()
     self PrintToLevel("^5All Zombies ^2Eliminated", true);
 }
 
-EditRound(newRound)
+EditRound(newRound)//works fine, just need to fix killallzombies properly
 {
     thread zm_round_logic::set_round_number(newRound);
     thread KillAllZombies();
     self PrintToLevel("^5Round Set To: "+newRound); 
 }
 
-StartZombiePosition() 
+StartZombiePosition() //works fine
 {
     self.ZombiePos = isDefined(self.ZombiePos) ? undefined : true;
     if (isDefined(self.ZombiePos))
@@ -37,7 +37,7 @@ StartZombiePosition()
         self notify("stop_zombiepos");
     }
 }
-SetZombiePosition()
+SetZombiePosition()//works fine
 {
     self endon("stop_zombiepos");
     self endon("game_ended");

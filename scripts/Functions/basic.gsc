@@ -4,7 +4,7 @@ Basic Modifications
 ###########################################
 */
 
-Godmode()
+Godmode()//works fine
 {
     self.godmode = isDefined(self.godmode) ? undefined : true;
  
@@ -25,7 +25,7 @@ Godmode()
     }
 }
 
-Level55()
+Level55()//need to look at this
 {
     self AddRankXpValue("hash_43ad5d1b08145b1f", 25160000);
     //self.var_361d484b += 25160000;
@@ -35,7 +35,7 @@ Level55()
     self PrintToLevel("^2In order for the rank to save, please end the game via the pause menu and not the fast end!!!");
 }
 
-EditPlayerScore(val, player, which)
+EditPlayerScore(val, player, which)//works fine
 {
     switch (which)
     {
@@ -46,7 +46,7 @@ EditPlayerScore(val, player, which)
     }
 }
 
-UnlimitedAmmo()
+UnlimitedAmmo()//works, need to look at gadgets
 {
     self.UnlimitedAmmo = isDefined(self.UnlimitedAmmo) ? undefined : true;
     if(isDefined(self.UnlimitedAmmo))
@@ -74,13 +74,13 @@ UnlimitedAmmo()
     else self PrintToLevel("^5Unlimited Ammo ^1Off");
 }
 
-GivePowerup(Powerup)
+GivePowerup(Powerup)//works
 {
     self zm_powerups::specific_powerup_drop(Powerup, self.origin, undefined, undefined, undefined, 1);
     self PrintToLevel("^5Spawned Powerup: "+powerup);
 }
 
-GiveAllPerksZM()
+GiveAllPerksZM()//works
 {
 	a_str_perks = getarraykeys( level._custom_perks );
 	foreach(str_perk in a_str_perks)

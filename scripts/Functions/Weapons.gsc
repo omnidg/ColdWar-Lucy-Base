@@ -1,4 +1,4 @@
-GiveClientWeapon(WeaponName, player)
+GiveClientWeapon(WeaponName, player)//needs work, as some things don't work well
 {
     Weapon = getweapon(ishash(WeaponName) ? WeaponName : hash(WeaponName));
     if (isdefined(Weapon)) {
@@ -12,7 +12,7 @@ GiveClientWeapon(WeaponName, player)
     }
 }
 
-UpgradeWeapon()
+UpgradeWeapon()//same as above, if weapon is packed once, it wont let you do 2x or 3x yet
 {
     Weapon = self GetCurrentWeapon();
     if(self zm_weapons::can_upgrade_weapon(Weapon)){
@@ -24,13 +24,13 @@ UpgradeWeapon()
     else self PrintToLevel("^1Your Current Weapon is already Upgraded");
 }
 
-acquireaat(id) {// ammomod_shatterblast, ammomod_brainrot
+acquireaat(id) {// works fine
     weapon = self getCurrentWeapon();
     self thread zm_weapons::function_e1fd87b0(weapon, id);
     self PrintToLevel("You Just Got: "+id);
 }
 
-RemoveAat()
+RemoveAat()//works fine
 {
     weapon = self getCurrentWeapon();
     self thread zm_weapons::function_51897592(weapon);

@@ -1,4 +1,4 @@
-LookupWeaponLevels()
+LookupWeaponLevels()//credit ate47 / the atian menu
 {
     levels = [];
     tablename = #"gamedata/weapons/zm/zm_gunlevels.csv";

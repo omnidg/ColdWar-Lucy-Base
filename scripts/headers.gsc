@@ -49,8 +49,10 @@ autoexec __init__sytem__()
     //XP Multiplier
     thread get_xp_multiplier_late();
     // disable ee
+#ifdef _SUPPORTS_DETOURS
+    init_detours();
+#endif
 }
-
 __init__()
 {
     callback::on_start_gametype(&init);

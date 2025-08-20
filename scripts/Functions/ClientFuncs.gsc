@@ -1,6 +1,6 @@
 
 
-ClientOpts(func, player)
+ClientOpts(func, player)//all work
 {
     switch(func)
     {
@@ -9,7 +9,7 @@ ClientOpts(func, player)
     }
 }
 
-AllClientOpts(func)
+AllClientOpts(func)//all work
 {
     foreach(player in level.players)
     {

@@ -5,7 +5,7 @@ Most of these are likely untested
 ###########################################
 */
 
-SetCustomXPMultiplier(value)
+SetCustomXPMultiplier(value)//seems to work? game is borky anyway
 {
     if(value > 0)
     {
@@ -27,7 +27,7 @@ TestOption()
     self PrintToLevel("Test");
 }
 
-OpenAllDoors() {
+OpenAllDoors() {//works fine, credit ate47, same as bo4
     setdvar(#"zombie_unlock_all", 1);
     level flag::set("power_on");
     level clientfield::set("zombie_power_on", 1);
@@ -66,12 +66,12 @@ OpenAllDoors() {
     setdvar(#"zombie_unlock_all", 0);
 }
 
-SetClanTag(newTag)
+SetClanTag(newTag)//need to look at this
 {
     self stats::set_stat(#"clanTagStats",#"clanName", newTag);
 }
 
-ToggleKillAura()
+ToggleKillAura()//working
 {
     self.killAura = isDefined(self.killAura) ? undefined: true;
     if(self.killAura)
@@ -86,7 +86,7 @@ ToggleKillAura()
     }
 }
 
-KillAura()//Shaolin Shuffle Glitch on BO4??
+KillAura()//working
 {
     self endon("disconnect");
     self endon("end_kill_aura");

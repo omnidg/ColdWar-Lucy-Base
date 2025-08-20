@@ -85,13 +85,13 @@ PlayerExitLevel()
     ExitLevel(false);
 }
 
-PrintToLevel(message, allplayers = false)
+PrintToLevel(message, allplayers = false)//works fine
 {
     if(allplayers) { foreach (player in level.players) player iPrintLn(message);}
     else { self iPrintLn(message);}
 }
 
-spawnSM(origin, model, angles)//wpn_t9_streak_care_package_friendly_world
+spawnSM(origin, model, angles)//wpn_t9_streak_care_package_friendly_world, not sure if working
 {
     ent = Spawn("script_model", origin);
     ent SetModel(model);
