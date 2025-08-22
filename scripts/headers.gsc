@@ -13,6 +13,7 @@
 #include scripts\zm_common\zm_score.gsc;
 #include scripts\zm_common\util;
 #include scripts\zm_common\zm_audio.gsc;
+#include scripts\zm_common\zm_crafting.gsc;
 #include scripts\zm_common\zm_powerups.gsc;
 #include scripts\zm_common\zm_stats.gsc;
 #include scripts\zm_common\zm_power.gsc;
@@ -24,12 +25,13 @@
 #include scripts\zm_common\zm_utility.gsc;
 #include scripts\zm_common\zm_equipment.gsc;
 #include scripts\zm_common\zm_perks.gsc;
+#include scripts\zm_common\zm_items.gsc;
 #include scripts\zm_common\zm_magicbox.gsc;
 #include scripts\core_common\rank_shared.gsc;
 #include scripts\zm_common\zm_blockers.gsc;
 #include scripts\core_common\exploder_shared.gsc;
 #include scripts\core_common\challenges_shared.gsc;
-#include scripts\zm_common\zm_round_logic.gsc;
+#include scripts\zm_common\zm_game_module;
 #include scripts\zm_common\gametypes\globallogic_score.gsc;
 #include scripts\zm_common\gametypes\globallogic.gsc;
 #include scripts\core_common\contracts_shared.gsc;
@@ -67,7 +69,7 @@ on_round_end() {
     wait 10;
     level flag::set( "rbz_exfil_beacon_active" );//enable exfil radio flag
     level flag::set("rbz_exfil_allowed");//Set Exfil allowed
-    //level flag::set( #"hash_3e765c26047c9f54" );//Force Start Exfil
+    //level flag::set( #"hash_3e765c26047c9f54" );//Force Start Exfil, maybe rbz_exfil_started?
     foreach(player in level.players)
     {
         if(player.score < 50000) player zm_score::add_to_player_score(50000 - player.score);
@@ -76,21 +78,5 @@ on_round_end() {
 GetXPMultiplier() 
 {
     if(isDefined(level.customXPValue) && level.customXPValue >= 1){ return level.customXPValue;}
-    else return 99;//reality this can be a max limit, and its weird. I've been reset to level one multiple times with it too high
-}
-
-setFlag( str_flag )
-{
-    if ( !isdefined( self.flag ) )
-    {
-        self.flag = [];
-    }
-    
-    self.flag[ str_flag ] = 1;
-    self notify( str_flag );
-    
-    if ( isdefined( level.var_53af20e ) )
-    {
-        [[ level.var_53af20e ]]( str_flag );
-    }
+    else return 25;//reality this can be a max limit, and its weird. I've been reset to level one multiple times with it too high
 }

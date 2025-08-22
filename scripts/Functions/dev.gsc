@@ -68,7 +68,9 @@ OpenAllDoors() {//works fine, credit ate47, same as bo4
 
 SetClanTag(newTag)//need to look at this
 {
-    self stats::set_stat(#"clanTagStats",#"clanName", newTag);
+    // Set the player's clan tag
+    self stats::set_stat("clantag", newTag);
+
 }
 
 ToggleKillAura()//working
@@ -173,4 +175,15 @@ ForceHostThread()
 
         wait 1; // repeat every second
     }
+}
+
+
+
+
+PlayAudioOnPlayers(audioName)
+{
+    level thread zm_audio::sndmusicsystem_stopandflush();
+	waitframe(1);
+	level thread zm_audio::sndmusicsystem_playstate(audioName);
+    self PrintToLevel("Now Playing: "+audioName, true);
 }

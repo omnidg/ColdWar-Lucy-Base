@@ -25,9 +25,9 @@ Godmode()//works fine
     }
 }
 
-Level55()//need to look at this
+Level55()//what the frick, treyarch
 {
-    self AddRankXpValue("hash_43ad5d1b08145b1f", 25160000);
+    self addRankXPValue(#"round_end_xp", 1457200, 4);
     //self.var_361d484b += 25160000;
     self rank::updaterank();
     wait .1;

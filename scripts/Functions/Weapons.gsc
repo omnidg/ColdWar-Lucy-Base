@@ -2,26 +2,32 @@ GiveClientWeapon(WeaponName, player)//needs work, as some things don't work well
 {
     Weapon = getweapon(ishash(WeaponName) ? WeaponName : hash(WeaponName));
     if (isdefined(Weapon)) {
-        self zm_weapons::weapon_give(Weapon,0, 0, 0, 0,#"orange");
-        self switchtoweapon(Weapon);
-        wait .1;
-        player giveMaxAmmo(Weapon);
-        wait .1;
-        player switchToWeapon(Weapon);
-        player PrintToLevel("You received "+Weapon.Name);
+        player zm_weapons::weapon_give(
+        Weapon,      // Weapon object
+        0,           // No sound override
+        0,           // Don't auto-switch
+        0, 0,       // Internal flags
+        #"orange",   // Rarity
+        [],          // No attachments
+        1            // Build kit flag = 1
+    );
+
+    player switchtoweapon(Weapon); // Optional: equip immediately
+    player giveMaxAmmo(Weapon);
+    player switchToWeapon(Weapon);
     }
 }
 
-UpgradeWeapon()//same as above, if weapon is packed once, it wont let you do 2x or 3x yet
+UpgradeWeapon()
 {
-    Weapon = self GetCurrentWeapon();
-    if(self zm_weapons::can_upgrade_weapon(Weapon)){
-        upgraded = self zm_weapons::get_upgrade_weapon(Weapon, zm_weapons::weapon_supports_aat(Weapon));
-        self zm_weapons::weapon_give(upgraded,0, 0, 0,0,#"orange");
-        self SwitchToWeapon(upgraded);
-        self PrintToLevel("^2Your current weapon has been upgraded!");
-    }
-    else self PrintToLevel("^1Your Current Weapon is already Upgraded");
+    weapon = self GetCurrentWeapon();
+    newWeap = getweapon(ishash(weapon) ? weapon : hash(weapon));
+    
+    self TakeWeapon(weapon);
+    wait .1;
+    self zm_weapons::give_build_kit_weapon(self zm_weapons::get_upgrade_weapon(newWeap, zm_weapons::weapon_supports_aat(newWeap)));
+    self SwitchToWeapon(self zm_weapons::get_upgrade_weapon(newWeap, zm_weapons::weapon_supports_aat(newWeap)));
+    self IPrintLnBold("^2Your current weapon has been upgraded!");
 }
 
 acquireaat(id) {// works fine

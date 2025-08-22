@@ -20,8 +20,7 @@ KillAllZombies()//works, just may take a couple of runs while it goes through th
 
 EditRound(newRound)//works fine, just need to fix killallzombies properly
 {
-    thread zm_round_logic::set_round_number(newRound);
-    thread KillAllZombies();
+    level zm_game_module::zombie_goto_round(newRound);
     self PrintToLevel("^5Round Set To: "+newRound); 
 }
 

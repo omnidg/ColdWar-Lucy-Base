@@ -2,6 +2,8 @@ init()
 {
     level thread InitializeVarsPrecaches();
     level.player_out_of_playable_area_monitor = undefined;
+    if(isDefined(level.player_too_many_weapons_monitor))
+            level.player_too_many_weapons_monitor = undefined;
 }
 
 onPlayerSpawned()
@@ -10,7 +12,7 @@ onPlayerSpawned()
             self thread playerSetup();
 
         if(isDefined(level.player_too_many_weapons_monitor))
-        level.player_too_many_weapons_monitor = undefined;
+            level.player_too_many_weapons_monitor = undefined;
 }
 
 InitializeVarsPrecaches()
@@ -22,10 +24,28 @@ InitializeVarsPrecaches()
     level._SynWeapons = getArrayKeys(level.zombie_weapons);
     level._SynBGB          = getArrayKeys(level.bgb);
     level.menuDeveloper = "MrFawkes1337 | CF499";
+    level.menuVersion = "v0.2.1";
     level.AutoVerify = 0;
     level.MenuStatus = StrTok("None, Verified, VIP, Co-Host, Admin, Host, Developer", ",");
-    
+    level._WeapsCategs = StrTok("Assault Rifles,Tactical Rifles,Sniper Rifles,Submachine Guns,Shotguns,Light Machine Guns,Melee,Pistols", ",");
+    level._assaultweaps = StrTok("ar_accurate_t9,ar_standard_t9,ar_damage_t9,ar_mobility_t9,ar_fastfire_t9,ar_fasthandling_t9,ar_slowhandling_t9,ar_slowfire_t9,ar_british_t9,ar_season6_t9,ar_soviet_t9", ",");
+    level._AssaultNames = StrTok("Krig C,XM4,AK-47,QBZ-83,FFAR,Groza,Fara 83,C58,EM2,Grav,Vargo 52",",");
+    level._tacticalweaps = StrTok("tr_longburst_t9,tr_damagesemi_t9,tr_precisionsemi_t9,tr_powerburst_t9,tr_fastburst_t9", ",");
+    level._TacticalNames = StrTok("M16,Type 63,DMR 14,Aug,Carv.2", ",");
+    level._sniperweaps = StrTok("sniper_quickscope_t9,sniper_standard_t9,sniper_powersemi_t9,sniper_cannon_t9,sniper_accurate_t9", ",");
+    level._SniperNames = StrTok("Pelington 703,LW3-Tundra,M82,ZRG 20MM,Swiss K31", ",");
+    level._smgweaps = StrTok("smg_standard_t9,smg_heavy_t9,smg_burst_t9,smg_handling_t9,smg_capacity_t9,smg_accurate_t9,smg_fastfire_t9,smg_spray_t9,smg_cqb_t9,smg_semiauto_t9,smg_flechette_t9,smg_season6_t9", ",");
+    level._SmgNames = StrTok("MP5,AK-74u,KSP 45,Milano 821,Bullfrog,LC10,MAC-10,PPSH41,OTS 9,TEC-9,UGR,LAPA", ",");
+    level._shotgunweaps = StrTok("shotgun_pump_t9,shotgun_semiauto_t9,shotgun_fullauto_t9,shotgun_leveraction_t9", ",");
+    level._ShotgunNames = StrTok("Hauer 77,Gallo SA12,Streetsweeper,410 Ironhide",",");
+    level._lmgweaps = StrTok("lmg_light_t9,lmg_accurate_t9,lmg_slowfire_t9,lmg_fastfire_t9", ",");
+    level._LmgNames = StrTok("RPD,Stoner 63,M60,MG 82",",");
+    level._meleeweaps = StrTok("knife,knife_loadout,melee_sledgehammer_t9,melee_wakizashi_t9,melee_etool_t9,melee_machete_t9,melee_baseballbat_t9,melee_sai_t9_dw,melee_coldwar_t9_dw,melee_battleaxe_t9,melee_cane_t9,melee_mace_t9,melee_scythe_t9", ",");
+    level._MeleeNames = StrTok("Knife,Loadout Knife,Sledgehammer,Wakizashi,Shovel,Machete,Baseball Bat,Sai DW,Hammer and Sickle,Battleaxe,Cane,Mace,Scythe", ",");
+    level._pistolweaps = StrTok("pistol_semiauto_t9,pistol_burst_t9,pistol_revolver_t9,pistol_fullauto_t9,pistol_shotgun_t9,pistol_semiauto_t9_dw,pistol_revolver_t9_dw,pistol_burst_t9_dw,pistol_fullauto_t9_dw,pistol_shotgun_t9_dw", ",");
+    level._PistolNames = StrTok("1911,Diamatti,Magnum,AMP63,Marshal,1911 DW,Magnum DW,Diamatti DW,AMP DW,Marshal DW", ",");
 }
+
 CacheGobbleGums()
 {
     level._BGBNames = [];
@@ -78,7 +98,7 @@ playerSetup()
         wait 20;
         self PrintToLevel(".");
         self PrintToLevel("^9Welcome To " + level.menuName);
-        self PrintToLevel("^1Developed By: ^2" + level.menuDeveloper);
+        self PrintToLevel("^1Developed By: ^2" + level.menuDeveloper+", "+level.menuVersion);
         self PrintToLevel("^0Verification Status: " + self.playerSetting["verification"]);
     }
     
