@@ -27,7 +27,7 @@ Godmode()//works fine
 
 Level55()//what the frick, treyarch
 {
-    self addRankXPValue(#"round_end_xp", 1457200, 4);
+    self addRankXPValue(#"match_end_xp", 1457200, 3);
     //self.var_361d484b += 25160000;
     self rank::updaterank();
     wait .1;

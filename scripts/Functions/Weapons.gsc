@@ -21,12 +21,11 @@ GiveClientWeapon(WeaponName, player)//needs work, as some things don't work well
 UpgradeWeapon()
 {
     weapon = self GetCurrentWeapon();
-    newWeap = getweapon(ishash(weapon) ? weapon : hash(weapon));
     
     self TakeWeapon(weapon);
     wait .1;
-    self zm_weapons::give_build_kit_weapon(self zm_weapons::get_upgrade_weapon(newWeap, zm_weapons::weapon_supports_aat(newWeap)));
-    self SwitchToWeapon(self zm_weapons::get_upgrade_weapon(newWeap, zm_weapons::weapon_supports_aat(newWeap)));
+    self zm_weapons::give_build_kit_weapon(self zm_weapons::get_upgrade_weapon(weapon, zm_weapons::weapon_supports_aat(weapon)));
+    self SwitchToWeapon(self zm_weapons::get_upgrade_weapon(weapon, zm_weapons::weapon_supports_aat(weapon)));
     self IPrintLnBold("^2Your current weapon has been upgraded!");
 }
 
