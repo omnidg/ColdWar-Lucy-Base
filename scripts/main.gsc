@@ -8,11 +8,15 @@ init()
 
 onPlayerSpawned()
 {
-        if(!isDefined(self.menuThreaded))
-            self thread playerSetup();
+    if (!level flag::get("start_zombie_round_logic"))
+    {
+        level flag::wait_till("start_zombie_round_logic");
+    }
+    if(!isDefined(self.menuThreaded))
+        self thread playerSetup();
 
-        if(isDefined(level.player_too_many_weapons_monitor))
-            level.player_too_many_weapons_monitor = undefined;
+    if(isDefined(level.player_too_many_weapons_monitor))
+        level.player_too_many_weapons_monitor = undefined;
 }
 
 InitializeVarsPrecaches()
@@ -20,14 +24,15 @@ InitializeVarsPrecaches()
     if(isDefined(level.InitializeVarsPrecaches))
         return;
     level.InitializeVarsPrecaches = true;
-    level.menuName = "The Lucy Base";
+    level.menuName = "The Lucy Menu (CW)";
     level._SynWeapons = getArrayKeys(level.zombie_weapons);
     level._SynBGB          = getArrayKeys(level.bgb);
-    level.menuDeveloper = "MrFawkes1337 | CF499";
+    level.menuDeveloper = "TheUnknownCod3r";
     level.menuVersion = "v0.2.1";
     level.AutoVerify = 0;
     level.MenuStatus = StrTok("None, Verified, VIP, Co-Host, Admin, Host, Developer", ",");
     level._WeapsCategs = StrTok("Assault Rifles,Tactical Rifles,Sniper Rifles,Submachine Guns,Shotguns,Light Machine Guns,Melee,Pistols", ",");
+    level._WeapsCategsUpg = StrTok("Upgraded Assault Rifles,Upgraded Tactical Rifles,Upgraded Sniper Rifles,Upgraded Submachine Guns,Upgraded Shotguns,Upgraded Light Machine Guns,Upgraded Pistols", ",");
     level._assaultweaps = StrTok("ar_accurate_t9,ar_standard_t9,ar_damage_t9,ar_mobility_t9,ar_fastfire_t9,ar_fasthandling_t9,ar_slowhandling_t9,ar_slowfire_t9,ar_british_t9,ar_season6_t9,ar_soviet_t9", ",");
     level._AssaultNames = StrTok("Krig C,XM4,AK-47,QBZ-83,FFAR,Groza,Fara 83,C58,EM2,Grav,Vargo 52",",");
     level._tacticalweaps = StrTok("tr_longburst_t9,tr_damagesemi_t9,tr_precisionsemi_t9,tr_powerburst_t9,tr_fastburst_t9", ",");
@@ -95,7 +100,7 @@ playerSetup()
     }
     if(self hasMenu())
     {
-        wait 20;
+        wait 5;
         self PrintToLevel(".");
         self PrintToLevel("^9Welcome To " + level.menuName);
         self PrintToLevel("^1Developed By: ^2" + level.menuDeveloper+", "+level.menuVersion);

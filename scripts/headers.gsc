@@ -12,6 +12,7 @@
 #include scripts\zm_common\gametypes\dev.gsc;
 #include scripts\zm_common\zm_score.gsc;
 #include scripts\zm_common\util;
+#include scripts\weapons\weaponobjects;
 #include scripts\zm_common\zm_audio.gsc;
 #include scripts\zm_common\zm_crafting.gsc;
 #include scripts\zm_common\zm_powerups.gsc;
@@ -31,7 +32,7 @@
 #include scripts\zm_common\zm_blockers.gsc;
 #include scripts\core_common\exploder_shared.gsc;
 #include scripts\core_common\challenges_shared.gsc;
-#include scripts\zm_common\zm_game_module;
+#include scripts\zm_common\zm_game_module.gsc;
 #include scripts\zm_common\gametypes\globallogic_score.gsc;
 #include scripts\zm_common\gametypes\globallogic.gsc;
 #include scripts\core_common\contracts_shared.gsc;
@@ -65,7 +66,6 @@ get_xp_multiplier_late() {
 
 on_round_end() {
     level endon(#"hash_3e765c26047c9f54", #"end_game");
-    
     wait 10;
     level flag::set( "rbz_exfil_beacon_active" );//enable exfil radio flag
     level flag::set("rbz_exfil_allowed");//Set Exfil allowed

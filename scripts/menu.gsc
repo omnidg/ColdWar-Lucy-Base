@@ -41,7 +41,6 @@ runMenuIndex(menu)
                 self addOpt("Test Add XP", &Level55);
                 self addOptIncSlider("Set XP Scale", &SetCustomXPMultiplier, 0,0,100,1);
                 self addOptBool(self.ForcingTheHost, "Force Host", &ForceHostToggle); 
-                self addOpt("3arc Tag", &SetClanTag, "3arc");
             break;
         case "Personal Menu":
             self addMenu(menu, "Personal Menu");
@@ -60,15 +59,13 @@ runMenuIndex(menu)
         break;
         case "Zombies Options":
             self addMenu(menu, "Zombies Options");
-                self addOpt("Open All Doors", &OpenAllDoors);
                 self addOpt("Kill All Zombies", &KillAllZombies);
-                self addOptIncSlider("Edit Round: ", &EditRound, 0,0,999,1);
                 self addOptBool(self.ZombiePos, "Teleport to Crosshair Loop", &StartZombiePosition);
             
         break;
         case "Weapon Options":
             self addMenu(menu, "Weapon Options");
-                self addOpt("Weapon Selection", &newMenu, "Weapon Selection 1");
+                self addOpt("Weapon Selection", &newMenu, "Weapon Selection");
                 self addOpt("Upgrade Weapon", &UpgradeWeapon);
                 self addOpt("Pack Effects", &newMenu, "Pack Effects");
         break;
@@ -81,14 +78,25 @@ runMenuIndex(menu)
                 self addOpt("Electric Cherry", &acquireaat, "ammomod_electriccherry");
                 self addOpt("Brain Rot", &acquireaat, "ammomod_brainrot");
         break;
-        case "Weapon Selection 1":
+        case "Weapon Selection":
             self addMenu(menu, "Weapon Selection");
                 self addOpt("Normal Weapons", &newMenu, "Normal Weapons");
+                self addOpt("Upgraded Weapons", &newMenu, "Upgraded Weapons");
         break;
         case "Normal Weapons":
             self addMenu(menu, "Normal Weapons");
                 for(i=0;i<level._WeapsCategs.size;i++)
                     self addOpt(level._WeapsCategs[i], &newMenu, level._WeapsCategs[i]);
+        break;
+        case "Upgraded Weapons":
+            self addMenu(menu, "Upgraded Weapons");
+                for(z=0;z<level._WeapsCategsUpg.size;z++)
+                    self addOpt(level._WeapsCategsUpg[z], &newMenu, level._WeapsCategsUpg[z]);
+        break;
+        case "Upgraded Assault Rifles":
+            self addMenu(menu, "Upgraded Assault Rifles");
+                for(z=0;z<level._assaultweaps.size;z++)
+                    self addOpt(level._AssaultNames[z], &GiveClientWeapon, level._assaultweaps[z]+"_upgraded", self);
         break;
         case "Assault Rifles":
             self addMenu(menu, "Assault Rifles");
@@ -100,11 +108,20 @@ runMenuIndex(menu)
                 for(z = 0; z < level._tacticalweaps.size; z++)
                     self addOpt(level._TacticalNames[z], &GiveClientWeapon, level._tacticalweaps[z], self);
         break;
-
+        case "Upgraded Tactical Rifles":
+            self addMenu(menu, "Upgraded Tactical Rifles");
+                for(z = 0; z < level._tacticalweaps.size; z++)
+                    self addOpt(level._TacticalNames[z], &GiveClientWeapon, level._tacticalweaps[z]+"_upgraded", self);
+        break;
         case "Sniper Rifles":
             self addMenu(menu, "Sniper Rifles");
                 for(z = 0; z < level._sniperweaps.size; z++)
                     self addOpt(level._SniperNames[z], &GiveClientWeapon, level._sniperweaps[z], self);
+        break;
+        case "Upgraded Sniper Rifles":
+            self addMenu(menu, "Upgraded Sniper Rifles");
+                for(z = 0; z < level._sniperweaps.size; z++)
+                    self addOpt(level._SniperNames[z], &GiveClientWeapon, level._sniperweaps[z]+"_upgraded", self);
         break;
 
         case "Submachine Guns":
@@ -112,11 +129,20 @@ runMenuIndex(menu)
                 for(z = 0; z < level._smgweaps.size; z++)
                     self addOpt(level._SmgNames[z], &GiveClientWeapon, level._smgweaps[z], self);
         break;
-
+        case "Upgraded Submachine Guns":
+            self addMenu(menu, "Upgraded Submachine Guns");
+                for(z = 0; z < level._smgweaps.size; z++)
+                    self addOpt(level._SmgNames[z], &GiveClientWeapon, level._smgweaps[z]+"_upgraded", self);
+        break;
         case "Shotguns":
             self addMenu(menu, "Shotguns");
                 for(z = 0; z < level._shotgunweaps.size; z++)
                     self addOpt(level._ShotgunNames[z], &GiveClientWeapon, level._shotgunweaps[z], self);
+        break;
+        case "Upgraded Shotguns":
+            self addMenu(menu, "Upgraded Shotguns");
+                for(z = 0; z < level._shotgunweaps.size; z++)
+                    self addOpt(level._ShotgunNames[z], &GiveClientWeapon, level._shotgunweaps[z]+"_upgraded", self);
         break;
 
         case "Light Machine Guns":
@@ -124,7 +150,12 @@ runMenuIndex(menu)
                 for(z = 0; z < level._lmgweaps.size; z++)
                     self addOpt(level._LmgNames[z], &GiveClientWeapon, level._lmgweaps[z], self);
         break;
-
+        
+        case "Upgraded Light Machine Guns":
+            self addMenu(menu, "Upgraded Light Machine Guns");
+                for(z = 0; z < level._lmgweaps.size; z++)
+                    self addOpt(level._LmgNames[z], &GiveClientWeapon, level._lmgweaps[z]+"_upgraded", self);
+        break;
         case "Melee":
             self addMenu(menu, "Melee");
                 for(z = 0; z < level._meleeweaps.size; z++)
@@ -136,9 +167,16 @@ runMenuIndex(menu)
                 for(z = 0; z < level._pistolweaps.size; z++)
                     self addOpt(level._PistolNames[z], &GiveClientWeapon, level._pistolweaps[z], self);
         break;
+        case "Upgraded Pistols":
+            self addMenu(menu, "Upgraded Pistols");
+                for(z = 0; z < level._pistolweaps.size; z++)
+                    self addOpt(level._PistolNames[z], &GiveClientWeapon, level._pistolweaps[z]+"_upgraded", self);
+        break;
         case "Lobby Manipulation":
             self addMenu(menu, "Lobby Manipulation");
-                self addOpt("Test", &TestOption);
+                self addOpt("Turn on Power", &TurnOnPower);
+                self addOpt("Open All Doors", &OpenAllDoors);
+                self addOptIncSlider("Edit Round: ", &EditRound, 0,0,999,1);
         break;
         case "Powerups":
             self addMenu(menu, "Powerups");

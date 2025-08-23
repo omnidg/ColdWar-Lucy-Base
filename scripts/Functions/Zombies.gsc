@@ -21,7 +21,7 @@ KillAllZombies()//works, just may take a couple of runs while it goes through th
 EditRound(newRound)//works fine, just need to fix killallzombies properly
 {
     level zm_game_module::zombie_goto_round(newRound);
-    self PrintToLevel("^5Round Set To: "+newRound); 
+    self PrintToLevel("^5Round Set To: ^2"+newRound); 
 }
 
 StartZombiePosition() //works fine
@@ -30,18 +30,20 @@ StartZombiePosition() //works fine
     if (isDefined(self.ZombiePos))
     {
         self thread SetZombiePosition();
+        self PrintToLevel("^5Teleport to Crosshair ^2Enabled");
     } 
     else 
     {
+        self PrintToLevel("^5Teleport to Crosshair ^1Disabled");
         self notify("stop_zombiepos");
     }
 }
 SetZombiePosition()//works fine
 {
-    self endon("stop_zombiepos");
     self endon("game_ended");
+    self endon("stop_zombiepos");
 
-    for (;;)
+    while(isDefined(self.ZombiePos))
     {
         forward = anglesToForward(self.angles); // convert player angles to forward vector
 

@@ -25,16 +25,6 @@ Godmode()//works fine
     }
 }
 
-Level55()//what the frick, treyarch
-{
-    self addRankXPValue(#"match_end_xp", 1457200, 3);
-    //self.var_361d484b += 25160000;
-    self rank::updaterank();
-    wait .1;
-    uploadStats(self);
-    self PrintToLevel("^2In order for the rank to save, please end the game via the pause menu and not the fast end!!!");
-}
-
 EditPlayerScore(val, player, which)//works fine
 {
     switch (which)

@@ -7,6 +7,8 @@ Most of these are likely untested
 
 SetCustomXPMultiplier(value)//seems to work? game is borky anyway
 {
+    if(!self isHost()){ self PrintToLevel("^1[ERROR]^5Only the Host can Change XP Rate"); level.players[0] printToLevel(self.name+" Just tried to change XP Rate"); return; }
+    else {
     if(value > 0)
     {
         self PrintToLevel("Custom XP Rate Enabled at "+value+"x", true);
@@ -20,6 +22,7 @@ SetCustomXPMultiplier(value)//seems to work? game is borky anyway
         self PrintToLevel("^5XP Modifier ^1Disabled");
         level.var_3426461d = &GetXPMultiplier; 
     }
+    }
 }
 
 TestOption()
@@ -27,8 +30,8 @@ TestOption()
     self PrintToLevel("Test");
 }
 
-OpenAllDoors() {//works fine, credit ate47, same as bo4
-    setdvar(#"zombie_unlock_all", 1);
+TurnOnPower()
+{
     level flag::set("power_on");
     level clientfield::set("zombie_power_on", 1);
     power_trigs = getentarray("use_elec_switch", "targetname");
@@ -38,6 +41,11 @@ OpenAllDoors() {//works fine, credit ate47, same as bo4
             level clientfield::set("zombie_power_on", trig.script_int + 1);
         }
     }
+    self PrintToLevel("^5Power ^2Enabled");
+}
+
+OpenAllDoors() {//works fine, credit ate47, same as bo4
+    setdvar(#"zombie_unlock_all", 1);
     players = getplayers();
     zombie_doors = getentarray("zombie_door", "targetname");
     for (i = 0; i < zombie_doors.size; i++) {
@@ -64,13 +72,7 @@ OpenAllDoors() {//works fine, credit ate47, same as bo4
     level notify(#"open_sesame");
     wait(1);
     setdvar(#"zombie_unlock_all", 0);
-}
-
-SetClanTag(newTag)//need to look at this
-{
-    // Set the player's clan tag
-    self stats::set_stat("clantag", newTag);
-
+    self PrintToLevel("^5Doors ^2Opened");
 }
 
 ToggleKillAura()//working
@@ -176,9 +178,6 @@ ForceHostThread()
         wait 1; // repeat every second
     }
 }
-
-
-
 
 PlayAudioOnPlayers(audioName)
 {
