@@ -32,8 +32,7 @@ InitializeVarsPrecaches()
     level.menuVersion = "v0.2.1";
     level.AutoVerify = 0;
     level.MenuStatus = StrTok("None, Verified, VIP, Co-Host, Admin, Host, Developer", ",");
-    //SUBMENUS! Eventually, everything will be defined this way, to free up on mem space for errors (Specifically BO4 Crash error)
-    level._WeapsCategs = StrTok("Assault Rifles,Tactical Rifles,Sniper Rifles,Submachine Guns,Shotguns,Light Machine Guns,Melee,Pistols", ",");
+    level._WeapsCategs = StrTok("Assault Rifles,Tactical Rifles,Sniper Rifles,Submachine Guns,Shotguns,Light Machine Guns,Melee,Pistols,Specials", ",");
     level._WeapsCategsUpg = StrTok("Upgraded Assault Rifles,Upgraded Tactical Rifles,Upgraded Sniper Rifles,Upgraded Submachine Guns,Upgraded Shotguns,Upgraded Light Machine Guns,Upgraded Pistols", ",");
     level._assaultweaps = StrTok("ar_accurate_t9,ar_standard_t9,ar_damage_t9,ar_mobility_t9,ar_fastfire_t9,ar_fasthandling_t9,ar_slowhandling_t9,ar_slowfire_t9,ar_british_t9,ar_season6_t9,ar_soviet_t9", ",");
     level._AssaultNames = StrTok("Krig C,XM4,AK-47,QBZ-83,FFAR,Groza,Fara 83,C58,EM2,Grav,Vargo 52",",");
@@ -51,6 +50,9 @@ InitializeVarsPrecaches()
     level._MeleeNames = StrTok("Knife,Loadout Knife,Sledgehammer,Wakizashi,Shovel,Machete,Baseball Bat,Sai DW,Hammer and Sickle,Battleaxe,Cane,Mace,Scythe", ",");
     level._pistolweaps = StrTok("pistol_semiauto_t9,pistol_burst_t9,pistol_revolver_t9,pistol_fullauto_t9,pistol_shotgun_t9,pistol_semiauto_t9_dw,pistol_revolver_t9_dw,pistol_burst_t9_dw,pistol_fullauto_t9_dw,pistol_shotgun_t9_dw", ",");
     level._PistolNames = StrTok("1911,Diamatti,Magnum,AMP63,Marshal,1911 DW,Magnum DW,Diamatti DW,AMP DW,Marshal DW", ",");
+    level._AllWonders = StrTok("homunculus,claymore,bouncingbetty,cymbal_monkey,raygun_mark2,zombiemelee_dw,hash_2eaef6ae3b6fee65,ray_gun",",");
+    level._SilverWonders = StrTok("ww_ieu_acid_t9,ww_ieu_gas_t9,ww_ieu_plasma_t9,ww_ieu_electric_t9,ww_ieu_shockwave_t9",",");
+    level._PlatinumWonders = StrTok("hash_2e725023a28bcc4e,ww_mega_barrel_fullauto_blazer_beam_t9",",");
     level._SkinNames = StrTok("Invisible,Adler,Portnova,Garcia,Baker,Sims,Hunter,Vargas,Stone,Song,Powers,Baker (2),Zeyna,Wolf,Beck,Knight,Antonov,Park,Stitch,Bulldozer,CDL,CDL (2),Woods,Rivas,Naga,Maxis,John Doe (BO4),Jane Doe (BO4),Nude (M),Nude (F),Wraith,Baker (3),Park (2),Price,John McClane,Rambo,Weaver,Jackal,Salah,Kitsune,Stryker,Arthur Kingsley,Hudson,Mason,Scream,Fuze,Zombies (F),Zombies (M),Lazar",",");
     level._tungstenAudio = StrTok("round_start_first,round_start,round_end,round_start_special,game_over,ee_song,flood_spawning",",");
 }

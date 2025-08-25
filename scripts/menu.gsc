@@ -184,6 +184,20 @@ runMenuIndex(menu)
                 for(z = 0; z < level._pistolweaps.size; z++)
                     self addOpt(level._PistolNames[z], &GiveClientWeapon, level._pistolweaps[z]+"_upgraded", self);
         break;
+        case "Specials":
+            self addMenu(menu, "Special Weapons");
+                for(z=0;z<level._AllWonders.size;z++)
+                    self addOpt(level._AllWonders[z], &GiveClientWeapon, level._AllWonders[z]);
+                if(GetTehMap() == "Die Maschine"){
+                    for(v=0;v<level._SilverWonders.size;v++)
+                        self addOpt(level._SilverWonders[v], &GiveClientWeapon, level._SilverWonders[v]);
+                }
+                else if(GetTehMap() == "Mauer Der Toten")
+                {
+                    for(v=0;v<level._PlatinumWonders.size;v++)
+                        self addOpt(level._PlatinumWonders[v], &GiveClientWeapon, level._PlatinumWonders[v]);
+                }
+        break;
         case "Lobby Manipulation":
             self addMenu(menu, "Lobby Manipulation");
                 self addOpt("Turn on Power", &TurnOnPower);

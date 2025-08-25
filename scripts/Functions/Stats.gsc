@@ -46,11 +46,11 @@ lookup_group_name(str) {
 }
 CompleteActiveContracts(player)
 {
-    foreach(index, contract in player.pers["contracts"])
+    foreach ( var_38280f2f, var_5ceb23d0 in player.pers[ #"contracts" ] )
     {
-        contractValue = contract.target_value;
-        if(isDefined(contractValue) && contractValue)
-            contract.current_value = contractValue;
+        contractValue = var_5ceb23d0.target_value;
+        if ( isdefined( var_5ceb23d0.target_value)  && var_5ceb23d0.target_value)
+            var_5ceb23d0.current_value = var_5ceb23d0.target_value;
     }
 }
 

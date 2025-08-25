@@ -39,3 +39,42 @@ RemoveAat()//works fine
     self thread zm_weapons::function_51897592(weapon);
     self PrintToLevel("^5AAT ^1Removed");
 }
+
+magicbullets()
+{
+    self.magicBullets = isDefined(self.magicBullets) ? undefined : true;
+    if(isDefined(self.magicBullets))
+    {
+        self.bulletEffectType = getweapon( #"flak_drone_rocket" );
+        self PrintToLevel("Magic Bullets Enabled, Effect: Rocket Launcher");
+        while(isDefined(self.magicBullets))
+        {
+            self waittill(#"weapon_fired");
+            MagicBullet(getWeapon(self.bulletEffectType), self getEye(), BulletTrace(self getEye(), self getEye() + anglesToForward(self getPlayerAngles())  * 100000, false, self)["position"], self);
+            wait .25;
+        }
+    }
+    else 
+    {
+        self PrintToLevel("Magic Bullets ^1Disabled");
+        self.bulletEffectType=undefined;
+    }
+}
+
+changeBulletType(val)
+{
+    if(isDefined(self.bulletEffectType))
+    {
+        switch(val)
+        {
+            case 0: self.bulletEffectType=  "minigun"; self PrintToLevel("Bullet Effect Set To: Minigun"); break;
+            case 1: self.bulletEffectType = "special_ballisticknife_t9_dw_upgraded"; self PrintToLevel("Bullet Effect Set To: Ballistic Knife"); break;
+            case 2: self.bulletEffectType = "launcher_standard_t9_upgraded"; self PrintToLevel("Bullet Effect Set To: Rocket Launcher"); break;
+            case 3: self.bulletEffectType = "ray_gun"; self PrintToLevel("Bullet Effect Set To: Ray Gun"); break;
+        }
+    }
+    else
+    {
+        self PrintToLevel("Custom Bullet Effects are not Enabled");
+    }
+}
