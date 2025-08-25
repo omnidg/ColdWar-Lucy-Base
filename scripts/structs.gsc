@@ -6,14 +6,14 @@ addMenu(menu, title)
         self.menu["items"][menu] = SpawnStruct();
     if(!isDefined(self.menuParent))
         self.menuParent = [];
-    
+        
     if(!isDefined(self.temp))
         self.temp = [];
     if(isDefined(title))
         self.menu["items"][menu].title = title;
     if(isDefined(menu))
         self.temp["memory"] = menu;
-    
+
     self.menu["items"][menu].name = [];
     self.menu["items"][menu].name2 = [];
     self.menu["items"][menu].func = [];
@@ -122,6 +122,32 @@ addOptIncSlider(name, func, min, start, max, increment, input1, input2, input3, 
         self.menu_SS[menu][count] = min;
 }
 
+addOptSlider(name, func, vals, input1, input2, input3, input4)
+{
+    if(!isDefined(vals))
+        vals = "undefined slider";
+    
+    menu = self.temp["memory"];
+    count = self.menu["items"][menu].name.size;
+    
+    self.menu_S[menu][count] = StrTok(vals, ";");
+    if(isDefined(name))
+        self.menu["items"][menu].name[count] = name;
+    if(isDefined(func))
+        self.menu["items"][menu].func[count] = func;
+    if(isDefined(input1))
+        self.menu["items"][menu].input1[count] = input1;
+    if(isDefined(input2))
+        self.menu["items"][menu].input2[count] = input2;
+    if(isDefined(input3))
+        self.menu["items"][menu].input3[count] = input3;
+    if(isDefined(input4))
+        self.menu["items"][menu].input4[count] = input4;
+    self.menu["items"][menu].slider[count] = true;
+    
+    if(!isDefined(self.menu_SS[menu][count]))
+        self.menu_SS[menu][count] = 0;
+}
 newMenu(menu)
 {
     self endon("disconnect");

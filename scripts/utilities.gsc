@@ -16,6 +16,34 @@ isInMenu()
     return true;
 }
 
+GetTehMap()
+{
+    switch(level.script)
+    {
+        case "zm_silver": return "Die Maschine"; break;
+        case "zm_gold": return "Firebase Z"; break;
+        case "zm_platinum": return "Mauer Der Toten"; break;
+        case "zm_tungsten": return "Forsaken"; break;
+        case "zm_deadops3": return "Dead Ops Arcade 3"; break;
+        case "outbreak_alpine": return "Alpine"; break;
+        case "outbreak_ruka": return "Ruka"; break;
+        case "outbreak_golova": return "Golova"; break;
+        case "outbreak_sanatorium": return "Sanatorium"; break;
+        case "outbreak_duga": return "Duga"; break;
+        case "outbreak_zoo": return "Zoo"; break;
+        case "outbreak_collateral": return "Collateral"; break;
+        case "outbreak_armada": return "Armada"; break;
+        case "onslaught_thepines": return "The Pines"; break;
+        case "onslaught_raid": return "Raid"; break;
+        case "onslaught_express": return "Express"; break;
+        case "onslaught_kgb": return "KGB"; break;
+        case "onslaught_icbm": return "ICBM"; break;
+        case "onslaught_ubahn": return "U-Bahn"; break;
+        case "onslaught_sanatorium": return "Sanatorium"; break;
+        case "onslaught_mansion": return "Mansion"; break;
+        default: return "Unknown Map"; break;
+    }
+}
 isInArray(array, text)
 {
     for(a=0;a<array.size;a++)

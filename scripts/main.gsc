@@ -27,10 +27,12 @@ InitializeVarsPrecaches()
     level.menuName = "The Lucy Menu (CW)";
     level._SynWeapons = getArrayKeys(level.zombie_weapons);
     level._SynBGB          = getArrayKeys(level.bgb);
+    level._SynKillstreaks = getArrayKeys(level.killstreaks);
     level.menuDeveloper = "TheUnknownCod3r";
     level.menuVersion = "v0.2.1";
     level.AutoVerify = 0;
     level.MenuStatus = StrTok("None, Verified, VIP, Co-Host, Admin, Host, Developer", ",");
+    //SUBMENUS! Eventually, everything will be defined this way, to free up on mem space for errors (Specifically BO4 Crash error)
     level._WeapsCategs = StrTok("Assault Rifles,Tactical Rifles,Sniper Rifles,Submachine Guns,Shotguns,Light Machine Guns,Melee,Pistols", ",");
     level._WeapsCategsUpg = StrTok("Upgraded Assault Rifles,Upgraded Tactical Rifles,Upgraded Sniper Rifles,Upgraded Submachine Guns,Upgraded Shotguns,Upgraded Light Machine Guns,Upgraded Pistols", ",");
     level._assaultweaps = StrTok("ar_accurate_t9,ar_standard_t9,ar_damage_t9,ar_mobility_t9,ar_fastfire_t9,ar_fasthandling_t9,ar_slowhandling_t9,ar_slowfire_t9,ar_british_t9,ar_season6_t9,ar_soviet_t9", ",");
@@ -49,6 +51,8 @@ InitializeVarsPrecaches()
     level._MeleeNames = StrTok("Knife,Loadout Knife,Sledgehammer,Wakizashi,Shovel,Machete,Baseball Bat,Sai DW,Hammer and Sickle,Battleaxe,Cane,Mace,Scythe", ",");
     level._pistolweaps = StrTok("pistol_semiauto_t9,pistol_burst_t9,pistol_revolver_t9,pistol_fullauto_t9,pistol_shotgun_t9,pistol_semiauto_t9_dw,pistol_revolver_t9_dw,pistol_burst_t9_dw,pistol_fullauto_t9_dw,pistol_shotgun_t9_dw", ",");
     level._PistolNames = StrTok("1911,Diamatti,Magnum,AMP63,Marshal,1911 DW,Magnum DW,Diamatti DW,AMP DW,Marshal DW", ",");
+    level._SkinNames = StrTok("Invisible,Adler,Portnova,Garcia,Baker,Sims,Hunter,Vargas,Stone,Song,Powers,Baker (2),Zeyna,Wolf,Beck,Knight,Antonov,Park,Stitch,Bulldozer,CDL,CDL (2),Woods,Rivas,Naga,Maxis,John Doe (BO4),Jane Doe (BO4),Nude (M),Nude (F),Wraith,Baker (3),Park (2),Price,John McClane,Rambo,Weaver,Jackal,Salah,Kitsune,Stryker,Arthur Kingsley,Hudson,Mason,Scream,Fuze,Zombies (F),Zombies (M),Lazar",",");
+    level._tungstenAudio = StrTok("round_start_first,round_start,round_end,round_start_special,game_over,ee_song,flood_spawning",",");
 }
 
 CacheGobbleGums()

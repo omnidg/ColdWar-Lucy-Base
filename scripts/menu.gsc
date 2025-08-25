@@ -40,8 +40,19 @@ runMenuIndex(menu)
             self addMenu(menu, "Host Menu");
                 self addOpt("Test Add XP", &Level55);
                 self addOptIncSlider("Set XP Scale", &SetCustomXPMultiplier, 0,0,100,1);
-                self addOptBool(self.ForcingTheHost, "Force Host", &ForceHostToggle); 
+                self addOpt("Give Chopper Gunner", &GiveClientWeapon, "chopper_gunner", self);
+                self addOpt("Give Crystals", &GiveCrystals, self);
+                self addOptBool(self.ForcingTheHost, "Force Host", &ForceHostToggle);
+                self addOpt("Skin Selection", &newMenu, "Skin Selection");
+                self addOpt("Play EE Song", &PlayAudioOnPlayers, "ee_song");
+                self addOpt("Unlock All Weapons", &UnlockAllWeapons);
+                self addOpt("Complete All Contracts", &CompleteActiveContracts, self);
             break;
+        case "Skin Selection":
+            self addMenu(menu, "Skin Selection");
+                for(t=0;t<49;t++)
+                    self addOpt("Skin: "+level._SkinNames[t], &SetPlayerSkin,t);
+        break;
         case "Personal Menu":
             self addMenu(menu, "Personal Menu");
                 self addOptBool(self.godmode, "God Mode", &Godmode);
@@ -87,6 +98,7 @@ runMenuIndex(menu)
             self addMenu(menu, "Normal Weapons");
                 for(i=0;i<level._WeapsCategs.size;i++)
                     self addOpt(level._WeapsCategs[i], &newMenu, level._WeapsCategs[i]);
+                    self addOpt(GetTehMap()+" Weapons", &newMenu, GetTehMap()+" Weapons");
         break;
         case "Upgraded Weapons":
             self addMenu(menu, "Upgraded Weapons");

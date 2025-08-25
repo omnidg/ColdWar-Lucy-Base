@@ -1,18 +1,20 @@
-#include scripts\core_common\struct;
-#include scripts\core_common\callbacks_shared;
-#include scripts\core_common\clientfield_shared;
-#include scripts\core_common\math_shared;
-#include scripts\core_common\system_shared;
-#include scripts\core_common\util_shared;
-#include scripts\core_common\hud_util_shared;
-#include scripts\core_common\hud_message_shared;
-#include scripts\core_common\hud_shared;
-#include scripts\core_common\array_shared;
-#include scripts\core_common\flag_shared;
+#include scripts\core_common\struct.gsc;
+#include scripts\core_common\callbacks_shared.gsc;
+#include scripts\core_common\clientfield_shared.gsc;
+#include scripts\core_common\math_shared.gsc;
+#include scripts\core_common\system_shared.gsc;
+#include scripts\core_common\util_shared.gsc;
+#include scripts\core_common\hud_util_shared.gsc;
+#include scripts\core_common\hud_message_shared.gsc;
+#include scripts\core_common\hud_shared.gsc;
+#include scripts\core_common\array_shared.gsc;
+#include scripts\killstreaks\killstreaks_shared.gsc;
+#include scripts\killstreaks\killstreaks_util.gsc;
+#include scripts\core_common\flag_shared.gsc;
 #include scripts\zm_common\gametypes\dev.gsc;
 #include scripts\zm_common\zm_score.gsc;
-#include scripts\zm_common\util;
-#include scripts\weapons\weaponobjects;
+#include scripts\zm_common\util.gsc;
+#include scripts\weapons\weaponobjects.gsc;
 #include scripts\zm_common\zm_audio.gsc;
 #include scripts\zm_common\zm_crafting.gsc;
 #include scripts\zm_common\zm_powerups.gsc;
@@ -42,6 +44,8 @@
 #include scripts\zm_common\zm_laststand.gsc;
 #include scripts\core_common\laststand_shared.gsc;
 #include scripts\zm_common\zm_bgb.gsc;
+#include scripts\zm_common\zm_zonemgr.gsc;
+#include scripts\zm_common\zm_sq.gsc;
 
 #namespace synergycw;
 
@@ -62,6 +66,7 @@ __init__()
 get_xp_multiplier_late() {
     wait 10;
     level.var_3426461d = &GetXPMultiplier;
+    level.xpmodifiercallback = &GetXPMultiplier;
 }
 
 on_round_end() {

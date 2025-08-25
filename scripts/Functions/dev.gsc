@@ -12,7 +12,7 @@ SetCustomXPMultiplier(value)//seems to work? game is borky anyway
     if(value > 0)
     {
         self PrintToLevel("Custom XP Rate Enabled at "+value+"x", true);
-        level.customXPValue = value * 100;
+        level.customXPValue = value;
         level.var_3426461d = &GetXPMultiplier;
         
     }
@@ -85,7 +85,7 @@ ToggleKillAura()//working
     }
     else
     {
-        self notify("end_kill_aura");
+        self notify(#"end_kill_aura");
         self PrintToLevel("Kill Aura ^1Disabled");
     }
 }
@@ -110,6 +110,21 @@ KillAura()//working
     }
 }
 
+ChangeMap(Mapname)
+{
+    self PrintToLevel("Map Changing To "+Mapname);
+    wait 0.5;
+    setDvar("ls_mapname", Mapname);
+    setDvar("mapname", Mapname);
+    setDvar("party_mapname", Mapname);
+    setDvar("ui_mapname", Mapname);
+    setDvar("ui_currentmap", Mapname);
+    setDvar("ui_previewmap", Mapname);
+    setDvar("ui_showmap", Mapname);
+    map(Mapname);
+}
+
+
 ForceHostToggle()
 {
     // Toggle flag
@@ -117,14 +132,14 @@ ForceHostToggle()
 
     if(isDefined(self.ForcingTheHost))
     {
-        self iPrintLnBold("Force Host ^2ON");
+        self PrintToLevel("Force Host ^2ON");
 
         // Start thread to apply Dvars repeatedly
         self thread ForceHostThread();
     }
     else
     {
-        self iPrintLnBold("Force Host ^1OFF");
+        self PrintToLevel("Force Host ^1OFF");
         self notify("stop_forcing_host");
         // Reset Dvars to default safe values
         SetDvar("lobbySearchListenCountries", "");
@@ -184,5 +199,21 @@ PlayAudioOnPlayers(audioName)
     level thread zm_audio::sndmusicsystem_stopandflush();
 	waitframe(1);
 	level thread zm_audio::sndmusicsystem_playstate(audioName);
-    self PrintToLevel("Now Playing: "+audioName, true);
+    self PrintToLevel("^5Now Playing: ^2"+audioName, true);
+}
+
+SetPlayerSkin(skinId)//int skinId
+{
+    self setspecialistindex(skinId);
+    self setcharacteroutfit(0);
+    self setcharacterwarpaintoutfit(0);
+    self function_ab96a9b5("head", 0);
+    self function_ab96a9b5("headgear", 0);
+    self function_ab96a9b5("arms", 0);
+    self function_ab96a9b5("torso", 0);
+    self function_ab96a9b5("legs", 0);
+    self function_ab96a9b5("palette", 0);
+    self function_ab96a9b5("warpaint", 0);
+    self function_ab96a9b5("decal", 0);
+    self PrintToLevel("^5Skin Changed");
 }
