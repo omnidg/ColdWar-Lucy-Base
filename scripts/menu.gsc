@@ -79,6 +79,8 @@ runMenuIndex(menu)
                 self addOpt("Weapon Selection", &newMenu, "Weapon Selection");
                 self addOpt("Upgrade Weapon", &UpgradeWeapon);
                 self addOpt("Pack Effects", &newMenu, "Pack Effects");
+                self addOptBool(self.magicBullets, "Magic Bullets", &magicbullets);
+                self addOptSlider("Set Bullet Effect", &changeBulletType, "Minigun;Ballistic Knife;Rocket Launcher;Ray Gun;");
         break;
         case "Pack Effects":
             self addMenu(menu, "PAP Effects");
@@ -98,7 +100,6 @@ runMenuIndex(menu)
             self addMenu(menu, "Normal Weapons");
                 for(i=0;i<level._WeapsCategs.size;i++)
                     self addOpt(level._WeapsCategs[i], &newMenu, level._WeapsCategs[i]);
-                    self addOpt(GetTehMap()+" Weapons", &newMenu, GetTehMap()+" Weapons");
         break;
         case "Upgraded Weapons":
             self addMenu(menu, "Upgraded Weapons");
@@ -187,15 +188,15 @@ runMenuIndex(menu)
         case "Specials":
             self addMenu(menu, "Special Weapons");
                 for(z=0;z<level._AllWonders.size;z++)
-                    self addOpt(level._AllWonders[z], &GiveClientWeapon, level._AllWonders[z]);
+                    self addOpt(level._AllWonders[z], &GiveClientWeapon, level._AllWonders[z], self);
                 if(GetTehMap() == "Die Maschine"){
                     for(v=0;v<level._SilverWonders.size;v++)
-                        self addOpt(level._SilverWonders[v], &GiveClientWeapon, level._SilverWonders[v]);
+                        self addOpt(level._SilverWonders[v], &GiveClientWeapon, level._SilverWonders[v], self);
                 }
                 else if(GetTehMap() == "Mauer Der Toten")
                 {
                     for(v=0;v<level._PlatinumWonders.size;v++)
-                        self addOpt(level._PlatinumWonders[v], &GiveClientWeapon, level._PlatinumWonders[v]);
+                        self addOpt(level._PlatinumWonders[v], &GiveClientWeapon, level._PlatinumWonders[v], self);
                 }
         break;
         case "Lobby Manipulation":

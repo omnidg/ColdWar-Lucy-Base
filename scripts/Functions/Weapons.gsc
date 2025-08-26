@@ -46,11 +46,11 @@ magicbullets()
     if(isDefined(self.magicBullets))
     {
         self.bulletEffectType = getweapon( #"flak_drone_rocket" );
-        self PrintToLevel("Magic Bullets Enabled, Effect: Rocket Launcher");
+        self PrintToLevel("Magic Bullets Enabled, Effect: Flak Drone");
         while(isDefined(self.magicBullets))
         {
             self waittill(#"weapon_fired");
-            MagicBullet(getWeapon(self.bulletEffectType), self getEye(), BulletTrace(self getEye(), self getEye() + anglesToForward(self getPlayerAngles())  * 100000, false, self)["position"], self);
+            MagicBullet(getWeapon(self.bulletEffectType), self getPlayerCameraPos(), BulletTrace(self getPlayerCameraPos(), self getPlayerCameraPos() + anglesToForward(self getPlayerAngles())  * 100000, false, self)["position"], self);
             wait .25;
         }
     }

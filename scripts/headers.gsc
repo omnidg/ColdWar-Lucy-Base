@@ -66,7 +66,6 @@ __init__()
 get_xp_multiplier_late() {
     wait 10;
     level.var_3426461d = &GetXPMultiplier;
-    level.xpmodifiercallback = &GetXPMultiplier;
 }
 
 on_round_end() {
