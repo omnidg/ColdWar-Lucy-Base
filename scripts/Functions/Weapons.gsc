@@ -45,8 +45,8 @@ magicbullets()
     self.magicBullets = isDefined(self.magicBullets) ? undefined : true;
     if(isDefined(self.magicBullets))
     {
-        self.bulletEffectType = getweapon( #"flak_drone_rocket" );
-        self PrintToLevel("Magic Bullets Enabled, Effect: Flak Drone");
+        self.bulletEffectType = "ray_gun";
+        self PrintToLevel("Magic Bullets Enabled, Effect: Ray Gun");
         while(isDefined(self.magicBullets))
         {
             self waittill(#"weapon_fired");

@@ -80,7 +80,7 @@ runMenuIndex(menu)
                 self addOpt("Upgrade Weapon", &UpgradeWeapon);
                 self addOpt("Pack Effects", &newMenu, "Pack Effects");
                 self addOptBool(self.magicBullets, "Magic Bullets", &magicbullets);
-                self addOptSlider("Set Bullet Effect", &changeBulletType, "Minigun;Ballistic Knife;Rocket Launcher;Ray Gun;");
+                self addOptIncSlider("Set Bullet Effect", &changeBulletType, 0,0,4,1);
         break;
         case "Pack Effects":
             self addMenu(menu, "PAP Effects");

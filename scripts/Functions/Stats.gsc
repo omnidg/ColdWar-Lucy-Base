@@ -44,7 +44,7 @@ lookup_group_name(str) {
     default: return "" + str;
     }
 }
-CompleteActiveContracts(player)
+CompleteActiveContracts(player)//works now, ive unlocked 2x double XP tokens with it.
 {
     foreach ( var_38280f2f, var_5ceb23d0 in player.pers[ #"contracts" ] )
     {
@@ -54,7 +54,7 @@ CompleteActiveContracts(player)
     }
 }
 
-Level55()
+Level55()//still iffy, need to work on this
 {
     // Amount of XP to add
     new_xp = 25160000;
@@ -87,30 +87,40 @@ UnlockAllWeapons()
     self PrintToLevel("Weapon Groups: "+levels.size);
     foreach(groupname,wps in levels){
         self PrintToLevel("GroupName: "+groupname+", Weapon Size: "+wps.size);
-        foreach(weap, lvl in wps){
-            if(!isDefined(weap.name)){
+        foreach(w, lvl in wps){
+            if (!isdefined(w.name)) {
                 continue;
             }
-            weapon = weap.name;
+            weapon = w.name;
             self PrintToLevel("Weapon: "+weapon);
-            if(!isDefined(weap)){ break;}
+            if(!isDefined(w))
+            {
+                 break;
+            }
+
             curr = self getCurrentWeapon();
             if(isDefined(curr) && self hasWeapon(curr)){
                 self takeWeapon(curr);
             }
-            self giveWeapon(weap);
-            self switchToWeapon(weap);
+
+            self giveWeapon(w);
+            self switchToWeapon(w);
+
             killsneeded = 15;
             while(killsneeded){
                 foreach(zombie in getaiteamarray(level.zombie_team)){
                     if(isDefined(zombie)){
-                        zombie doDamage(zombie.maxHealth+999,zombie.origin,self,"none","MOD_HEADSHOT",0,weap);
+                        zombie doDamage(zombie.maxHealth+999,zombie.origin,self,"none","MOD_HEADSHOT",0,w);
                         killsneeded--;
                     }
-                    if(!killsneeded) break;
+                    if(!killsneeded)
+                    {
+                        break;
+                    }
                 }
-                wait 1;
+                waitframe(1);
             }
+
             //now we have the xp neeed, we can set stats
             for(tableid=2;tableid<3;tableid++)
             {
