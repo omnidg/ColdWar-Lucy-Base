@@ -46,6 +46,7 @@ runMenuIndex(menu)
                 self addOpt("Skin Selection", &newMenu, "Skin Selection");
                 self addOpt("Play EE Song", &PlayAudioOnPlayers, "ee_song");
                 self addOpt("Unlock All Weapons", &UnlockAllWeapons);
+                self addOpt("SetLevelTest",&SetLevelTest);
                 self addOpt("Complete All Contracts", &CompleteActiveContracts, self);
             break;
         case "Skin Selection":

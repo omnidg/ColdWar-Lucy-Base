@@ -1,0 +1,732 @@
+//Dumped from hashed tables @ ate47 BOCW Source, file_411deaf0bb60ba86.csv & more.
+
+
+0	25029533	#hash_32057107e70e1a58	#character_outfit	#legendary	0	0	#season_6	#glint	0
+0	23301724	#hash_2f6c1064aadc32d8	#character_outfit	#epic	0	0	#	#glint	0
+0	28900186	#wristaccessory_t9_s6_analog_camo	#hash_c70e59dba98cf81	#epic	0	0	#	#	0
+0	23332437	#hash_720612855745b906	#hash_d48e5f30cecb510	#legendary	0	0	#	#	0
+1	21024002	#hash_2c5d59bffb3e2e8d	#sticker	#legendary	0	1	#	#	19
+1		#hash_769362c66e49d02	#hash_5c4342abb0ab9b66	#legendary	0	1	#	#	19
+2	26978427	#hash_5b91cff18a119980	#calling_card	#epic	0	0	#	#	0
+3	19262075	#weapon_xp_token_legendary	#hash_7c692b8eb31f67eb	#legendary	0	0	#	#	0
+4	24514929	#t9_charm_tinfoil_hat	#charm	#rare	0	0	#	#	0
+5	18981443	#hash_268e40b9618806d9	#blueprint	#legendary	0	0	#	#glint	0
+6		#hash_7bb2d755872a5be5	#currency	#legendary	0	1	#	#	20
+6		#hash_44263413c8be122d	#hash_5c4342abb0ab9b66	#epic	0	1	#	#	20
+7	32109261	#player_xp_token_legendary	#hash_7c692b8eb31f67eb	#legendary	0	0	#	#	0
+8	21335341	#hash_6e27ffcd58154612	#hash_27fcf589ae53da66	#epic	0	0	#	#	21
+8		#hash_132af4c99921f356	#hash_6e2e66060a72f89c	#epic	0	0	#	#	21
+9	25874571	#hash_2bd41ff527009bf2	#emblem	#legendary	0	0	#	#	0
+10	26734961	#hash_6a5c65cdaab4597f	#character_outfit	#rare	0	0	#	#glint	0
+11	31942878	#hash_1227fd9b7c52c241	#sticker	#rare	0	1	#	#	22
+11		#hash_3c0da32c4238c3f0	#hash_5c4342abb0ab9b66	#rare	0	1	#	#	22
+12		#hash_7bb2d755872a5be5	#currency	#legendary	0	0	#	#	0
+13	19262075	#weapon_xp_token_legendary	#hash_7c692b8eb31f67eb	#legendary	0	0	#	#	0
+14	26601427	#reticle_127	#reticle	#rare	0	0	#	#	0
+15	32505630	#shotgun_leveraction_t9	#weapon	#base	0	1	#season_6	#glint	23
+15		#hash_4b5aeffeb304e89b	#hash_5c4342abb0ab9b66	#rare	0	1	#	#	23
+16	24241868	#loot_ges_mtx_t9_coin_trick	#gesture	#epic	0	0	#	#	0
+17		#hash_7bb2d755872a5be5	#currency	#legendary	0	0	#	#	0
+18	27758681	#hash_39a3542bc747165b	#blueprint	#epic	0	0	#	#glint	0
+19	26076459	#execution_176	#execution	#legendary	0	0	#	#	0
+20	33276521	#hash_58bdd911cfb7855e	#character_outfit	#rare	0	0	#	#glint	0
+21	28379454	#hash_77b73b46f77045e	#blueprint	#legendary	0	1	#	#glint	24
+21		#hash_2403c25a988d0f2e	#hash_5c4342abb0ab9b66	#legendary	0	1	#	#	24
+22	20181455	#player_xp_token_epic	#hash_7c692b8eb31f67eb	#epic	0	0	#	#	0
+23		#hash_7bb2d755872a5be5	#currency	#legendary	0	0	#	#	0
+24	18921520	#hash_3b4900db72b849ad	#blueprint	#rare	0	1	#	#glint	25
+24		#hash_4384f740cdc947a9	#hash_5c4342abb0ab9b66	#epic	0	1	#	#	25
+25	22654383	#weapon_xp_token_rare	#hash_7c692b8eb31f67eb	#rare	0	0	#	#	0
+26	23296813	#hash_7ae2a204e33e1ef8	#hash_27fcf589ae53da66	#rare	0	0	#	#	26
+26		#hash_20a849b8859d4343	#hash_6e2e66060a72f89c	#rare	0	0	#	#	26
+27	18107645	#hash_2c70743726b8c63f	#blueprint	#legendary	0	0	#	#glint	0
+28	18612187	#reticle_128	#reticle	#rare	0	1	#	#	27
+28		#hash_34820684fec4a43c	#hash_5c4342abb0ab9b66	#rare	0	1	#	#	27
+29	30886333	#player_xp_token_common	#hash_7c692b8eb31f67eb	#common	0	0	#	#	0
+30	24233494	#hash_392b805cbb625b04	#character_outfit	#rare	0	0	#	#glint	0
+31	28682315	#ar_season6_t9	#weapon	#base	0	1	#season_6	#glint	28
+31		#hash_1b0b7f1e564236a7	#hash_5c4342abb0ab9b66	#epic	0	1	#	#	28
+32		#hash_7bb2d755872a5be5	#currency	#legendary	0	0	#	#	0
+33	17888966	#hash_46ac830866c0b4fa	#calling_card	#legendary	0	0	#	#	0
+34	31575860	#wristaccessory_t9_s6_digital_rank_carnival	#hash_c70e59dba98cf81	#legendary	0	1	#	#	29
+34		#hash_4a13e5b1ca0f78da	#hash_5c4342abb0ab9b66	#epic	0	1	#	#	29
+35	27693744	#hash_53f8e815d4366d9	#blueprint	#rare	0	0	#	#glint	0
+36	28150952	#weapon_xp_token_epic	#hash_7c692b8eb31f67eb	#epic	0	0	#	#	0
+37	30043258	#loot_ges_mtx_t9_jack_o_lantern	#gesture	#epic	0	1	#	#	30
+37		#hash_46d0be033c9a4dca	#hash_5c4342abb0ab9b66	#epic	0	1	#	#	30
+38	22981600	#hash_7cf4358fc796649d	#blueprint	#legendary	0	0	#	#glint	0
+39	24504984	#hash_2de076c0c869f95d	#hash_27fcf589ae53da66	#rare	0	1	#	#	31
+39		#hash_16c28eeaec8b7a57	#hash_5c4342abb0ab9b66	#legendary	0	1	#	#	31
+40	25463644	#hash_2b11b1309eb42465	#character_outfit	#rare	0	0	#	#glint	0
+41		#hash_7bb2d755872a5be5	#currency	#legendary	0	0	#	#	0
+42	18436852	#hash_17a4acfef6ea287c	#blueprint	#epic	0	0	#	#glint	0
+43	32109261	#player_xp_token_legendary	#hash_7c692b8eb31f67eb	#legendary	0	0	#	#	0
+44	24574394	#hash_284b9ec95c2d77a8	#emblem	#legendary	0	1	#	#	32
+44		#hash_104e74bcbbf349f8	#hash_5c4342abb0ab9b66	#rare	0	1	#	#	32
+45	31146040	#hash_39dfb62ce12eef34	#blueprint	#rare	0	0	#	#glint	0
+46	27032621	#weapon_xp_token_common	#hash_7c692b8eb31f67eb	#common	0	0	#	#	0
+47	28184936	#reticle_129	#reticle	#rare	0	0	#	#	0
+48		#hash_7bb2d755872a5be5	#currency	#legendary	0	1	#	#	33
+48		#hash_5bd9712946e2ce95	#hash_5c4342abb0ab9b66	#epic	0	1	#	#	33
+49	24622988	#hash_59b6aa64537fd03d	#calling_card	#epic	0	0	#	#	0
+50	32514034	#hash_23707b25f492eef7	#character_outfit	#rare	0	0	#	#glint	0
+51	24307508	#hash_3e82ed22a696db47	#blueprint	#epic	0	0	#	#glint	0
+52	25958736	#hash_125d2301512cdb81	#emblem	#rare	0	0	#	#	0
+53	30886333	#player_xp_token_common	#hash_7c692b8eb31f67eb	#common	0	0	#	#	0
+54	27683293	#t9_charm_keycat	#charm	#rare	0	0	#	#	0
+55	21031894	#hash_160151b7a5b91988	#blueprint	#legendary	0	1	#	#glint	34
+55		#hash_7a444a35bb6d70f6	#hash_5c4342abb0ab9b66	#rare	0	1	#	#	34
+56		#hash_7bb2d755872a5be5	#currency	#legendary	0	0	#	#	0
+57	19262075	#weapon_xp_token_legendary	#hash_7c692b8eb31f67eb	#legendary	0	0	#	#	0
+58	29946798	#hash_3e421fb160f4bbd2	#sticker	#rare	0	0	#	#	0
+59	24437685	#hash_335f64e18f5119b3	#blueprint	#epic	0	0	#	#glint	0
+60	32275365	#hash_3cb1e0be51380861	#character_outfit	#rare	0	0	#	#glint	0
+61	30076507	#reticle_130	#reticle	#rare	0	1	#	#	35
+61		#hash_35a4018fca76fe63	#hash_5c4342abb0ab9b66	#epic	0	1	#	#	35
+62	30189985	#wristaccessory_t9_s6_analog_blue_chroma	#hash_c70e59dba98cf81	#epic	0	0	#	#	0
+63	27431022	#player_xp_token_rare	#hash_7c692b8eb31f67eb	#rare	0	0	#	#	0
+64	20568285	#hash_37648acf24f60574	#calling_card	#legendary	0	1	#	#	36
+64		#hash_1ea729dd9aa85a84	#hash_5c4342abb0ab9b66	#legendary	0	1	#	#	36
+65	33000158	#hash_88c46b732746747	#blueprint	#legendary	0	0	#	#glint	0
+66		#hash_7bb2d755872a5be5	#currency	#legendary	0	0	#	#	0
+67	32265349	#hash_2017f040fa09f97f	#sticker	#rare	0	1	#	#	37
+67		#hash_6099448253617451	#hash_5c4342abb0ab9b66	#epic	0	1	#	#	37
+68	22654383	#weapon_xp_token_rare	#hash_7c692b8eb31f67eb	#rare	0	0	#	#	0
+69	33056425	#t9_charm_class_ring	#charm	#epic	0	0	#	#	0
+70	33348132	#hash_527f027814a0cda0	#character_outfit	#rare	0	0	#	#glint	0
+71	26148149	#hash_2fc7404a58592c4	#blueprint	#legendary	0	0	#	#glint	0
+72	28594179	#battletrack_pack_season6_all_blops	#hash_221a99278de5ad06	#legendary	0	1	#	#	38
+72		#hash_57cee4008c2e9432	#hash_5c4342abb0ab9b66	#epic	0	1	#	#	38
+73	32109261	#player_xp_token_legendary	#hash_7c692b8eb31f67eb	#legendary	0	0	#	#	0
+74		#hash_7bb2d755872a5be5	#currency	#legendary	0	0	#	#	0
+75	32157599	#hash_5e9a6460e219d9dd	#sticker	#legendary	0	0	#	#	0
+76	31911999	#hash_6a1c21140c10e455	#blueprint	#legendary	0	0	#	#glint	0
+77	28574577	#hash_3060843aa2f57b95	#calling_card	#epic	0	1	#	#	39
+77		#hash_67cd006d3da697bf	#hash_5c4342abb0ab9b66	#legendary	0	1	#	#	39
+78	28150952	#weapon_xp_token_epic	#hash_7c692b8eb31f67eb	#epic	0	0	#	#	0
+79	19960698	#hash_34ca8e95a43dac9c	#emblem	#epic	0	0	#	#	0
+80	32126545	#hash_5ff7893b4ae4869	#character_outfit	#rare	0	0	#	#glint	0
+81	18884317	#hash_4e3ef0724a78d955	#blueprint	#legendary	0	1	#	#glint	40
+81		#hash_37ec2a0451a2de9f	#hash_5c4342abb0ab9b66	#rare	0	1	#	#	40
+82		#hash_7bb2d755872a5be5	#currency	#legendary	0	0	#	#	0
+83	30886333	#player_xp_token_common	#hash_7c692b8eb31f67eb	#common	0	0	#	#	0
+84	30352066	#t9_charm_skateboard_dragon	#charm	#epic	0	1	#	#	41
+84		#hash_536b3814ecb21512	#hash_5c4342abb0ab9b66	#epic	0	1	#	#	41
+85	18143495	#hash_c18fd968c6143ea	#blueprint	#legendary	0	0	#	#glint	0
+86	18608845	#hash_6fda879cec8f3189	#sticker	#rare	0	0	#	#	0
+87	19262075	#weapon_xp_token_legendary	#hash_7c692b8eb31f67eb	#legendary	0	0	#	#	0
+88	28376757	#reticle_131	#reticle	#rare	0	1	#	#	42
+88		#hash_6873cb3af6fa5f7d	#hash_5c4342abb0ab9b66	#rare	0	1	#	#	42
+89	27340002	#hash_7e5982fba3a15c77	#blueprint	#legendary	0	0	#	#glint	0
+90	29179808	#hash_eb6cb3186a90797	#character_outfit	#epic	0	0	#	#glint	0
+91		#hash_7bb2d755872a5be5	#currency	#legendary	0	0	#	#	0
+92	32240940	#hash_6c0441871146e54a	#calling_card	#legendary	0	0	#	#	0
+93	19356901	#wristaccessory_t9_s6_digital_atomic_ash	#hash_c70e59dba98cf81	#legendary	0	0	#	#	0
+94	25298873	#hash_328b109c1fa645e6	#emblem	#epic	0	1	#	#	43
+94		#hash_334d71c9aa099cc0	#hash_5c4342abb0ab9b66	#epic	0	1	#	#	43
+95	33462081	#hash_673911d7d45c9f19	#blueprint	#ultra	0	0	#season_6	#glint	0
+96	32109261	#player_xp_token_legendary	#hash_7c692b8eb31f67eb	#legendary	0	0	#	#	0
+97	32961194	#t9_charm_surve_van	#charm	#legendary	0	0	#	#	0
+98		#hash_7bb2d755872a5be5	#currency	#legendary	0	1	#	#	44
+98		#hash_1f96b85dea239d6b	#hash_5c4342abb0ab9b66	#epic	0	1	#	#	44
+99	18752142	#hash_7c18ff4c028a263	#emblem	#legendary	0	0	#	#	0
+100	21448806	#hash_7e8f20868bb9ff35	#character_outfit	#ultra	0	0	#season_6	#glint	0
+100	21685006	#hash_16767c1bd7734feb	#blueprint	#legendary	0	0	#season_6	#glint	0
+100	19300414	#hash_548d4c5ac44529c4	#hash_27fcf589ae53da66	#legendary	0	0	#	#	45
+100		#hash_1f4f65de01c937c0	#hash_6e2e66060a72f89c	#legendary	0	0	#	#	45
+100	23274714	#hash_169191badd25b52e	#emblem	#legendary	0	0	#	#	0
+
+0	29774561	#hash_11d1a36105fc322	#character_outfit	#legendary	0	0	#lightning	#glint	0
+0	28713239	#hash_2ab22d2db270cc78	#character_outfit	#rare	0	0	#	#glint	0
+0	26000645	#wristaccessory_t9_s1_digital_inteculo_01	#hash_c70e59dba98cf81	#epic	0	0	#	#	0
+0	24458083	#hash_69dfc052972318cd	#hash_d48e5f30cecb510	#legendary	0	0	#	#	0
+1	26154881	#battletrack_pack_season1_blackopsmixtape1	#hash_221a99278de5ad06	#legendary	0	1	#	#	0
+2	33053645	#hash_75fb7298c4e6ddda	#calling_card	#epic	0	0	#	#	0
+3	19262075	#weapon_xp_token_legendary	#hash_7c692b8eb31f67eb	#legendary	0	0	#	#	0
+4	28479857	#t9_charm_chess_queen	#charm	#rare	0	0	#	#	0
+5	20918470	#hash_691ef851a54ac24b	#blueprint	#epic	0	0	#	#glint	0
+6		#hash_7bb2d755872a5be5	#currency	#legendary	0	1	#	#	0
+7	32109261	#player_xp_token_legendary	#hash_7c692b8eb31f67eb	#legendary	0	0	#	#	0
+8	28198769	#hash_1e5d0347949a0c1c	#hash_27fcf589ae53da66	#rare	0	0	#	#	1
+8		#hash_28c16cc88ac9bf64	#hash_6e2e66060a72f89c	#rare	0	0	#	#	1
+9	18950904	#hash_55f8e7c73fd7a967	#emblem	#legendary	0	0	#	#	0
+10	19419857	#hash_1a6d1c81883b4456	#character_outfit	#rare	0	0	#	#glint	0
+11	20502510	#hash_3ef90ec9e4c58d24	#sticker	#rare	0	1	#	#	0
+12		#hash_7bb2d755872a5be5	#currency	#legendary	0	0	#	#	0
+13	19262075	#weapon_xp_token_legendary	#hash_7c692b8eb31f67eb	#legendary	0	0	#	#	0
+14	31745367	#reticle_32	#reticle	#epic	0	0	#	#	0
+15	32224192	#smg_fastfire_t9	#weapon	#base	0	1	#lightning	#glint	0
+16	26848170	#hash_3f011202a9a77730	#calling_card	#epic	0	0	#	#	0
+17		#hash_7bb2d755872a5be5	#currency	#legendary	0	0	#	#	0
+18	25366229	#hash_a04454f1ba66e68	#blueprint	#epic	0	0	#	#glint	0
+19	27010057	#execution_099	#execution	#legendary	0	0	#	#	0
+20	31711313	#hash_699dff9948a45a37	#character_outfit	#rare	0	0	#	#glint	0
+21	30199483	#hash_dcf6d590925461a	#blueprint	#legendary	0	1	#	#glint	0
+22	20181455	#player_xp_token_epic	#hash_7c692b8eb31f67eb	#epic	0	0	#	#	0
+23		#hash_7bb2d755872a5be5	#currency	#legendary	0	0	#	#	0
+24	33470754	#hash_dd97adac088d07c	#blueprint	#rare	0	1	#	#glint	0
+25	22654383	#weapon_xp_token_rare	#hash_7c692b8eb31f67eb	#rare	0	0	#	#	0
+26	19509049	#hash_2694207ffcb2286e	#hash_27fcf589ae53da66	#rare	0	0	#	#	2
+26		#hash_162f77532aa2de43	#hash_6e2e66060a72f89c	#rare	0	0	#	#	2
+27	31726073	#hash_4bf59d3a2a25aefa	#blueprint	#legendary	0	0	#	#glint	0
+28	19812637	#reticle_24	#reticle	#rare	0	1	#	#	0
+29	30886333	#player_xp_token_common	#hash_7c692b8eb31f67eb	#common	0	0	#	#	0
+30	22394513	#hash_28c745b078b9733	#character_outfit	#rare	0	0	#	#glint	0
+31	32571167	#ar_fasthandling_t9	#weapon	#base	0	1	#lightning	#glint	0
+32		#hash_7bb2d755872a5be5	#currency	#legendary	0	0	#	#	0
+33	21143094	#hash_7bb85c11d876f6ad	#calling_card	#epic	0	0	#	#	0
+34	23087142	#wristaccessory_t9_s1_digital_rank_01	#hash_c70e59dba98cf81	#legendary	0	1	#	#	0
+35	21061582	#hash_41932d094d436d8d	#blueprint	#rare	0	0	#	#glint	0
+36	28150952	#weapon_xp_token_epic	#hash_7c692b8eb31f67eb	#epic	0	0	#	#	0
+37	21763743	#hash_1fbeca0cfd96f18a	#emblem	#epic	0	1	#	#	0
+38	27750435	#hash_2e1a1cf118a69317	#blueprint	#epic	0	0	#	#glint	0
+39	19441272	#hash_2df025f3db616de6	#hash_27fcf589ae53da66	#epic	0	1	#	#	3
+39		#hash_8b222643e278e56	#hash_6e2e66060a72f89c	#epic	0	1	#	#	3
+40	24395642	#hash_16a1e75231f6f806	#character_outfit	#rare	0	0	#	#glint	0
+41		#hash_7bb2d755872a5be5	#currency	#legendary	0	0	#	#	0
+42	27452847	#hash_101a556fa3e03382	#blueprint	#legendary	0	0	#	#glint	0
+43	32109261	#player_xp_token_legendary	#hash_7c692b8eb31f67eb	#legendary	0	0	#	#	0
+44	31901783	#battletrack_pack_season1_80shiphop	#hash_221a99278de5ad06	#legendary	0	1	#	#	0
+45	23813545	#hash_6ce32b6464ddcce6	#blueprint	#rare	0	0	#	#glint	0
+46	27032621	#weapon_xp_token_common	#hash_7c692b8eb31f67eb	#common	0	0	#	#	0
+47	25738952	#reticle_22	#reticle	#rare	0	0	#	#	0
+48		#hash_7bb2d755872a5be5	#currency	#legendary	0	1	#	#	0
+49	26751520	#hash_2346c64f84cffdd9	#calling_card	#epic	0	0	#	#	0
+50	21769203	#hash_6fa2d3f940b733f3	#character_outfit	#rare	0	0	#	#glint	0
+51	27393727	#hash_4afcbc81c66e5958	#blueprint	#epic	0	0	#	#glint	0
+52	20764821	#hash_17b9057a5edc958e	#emblem	#rare	0	0	#	#	0
+53	30886333	#player_xp_token_common	#hash_7c692b8eb31f67eb	#common	0	0	#	#	0
+54	32097314	#t9_charm_helicopter	#charm	#rare	0	0	#	#	0
+55	21135268	#hash_40c78ecd9243f0d5	#blueprint	#legendary	0	1	#	#glint	0
+56		#hash_7bb2d755872a5be5	#currency	#legendary	0	0	#	#	0
+57	19262075	#weapon_xp_token_legendary	#hash_7c692b8eb31f67eb	#legendary	0	0	#	#	0
+58	28509001	#hash_7442360b6184a100	#sticker	#rare	0	0	#	#	0
+59	26203304	#hash_6b6c820006ff8f65	#blueprint	#epic	0	0	#	#glint	0
+60	22635828	#hash_30b32a23e2f579a9	#character_outfit	#epic	0	0	#	#glint	0
+61	27220502	#reticle_21	#reticle	#rare	0	1	#	#	0
+62	23866728	#wristaccessory_t9_s1_analog_private_eye_03	#hash_c70e59dba98cf81	#epic	0	0	#	#	0
+63	27431022	#player_xp_token_rare	#hash_7c692b8eb31f67eb	#rare	0	0	#	#	0
+64	31788670	#hash_23403d4f84caa960	#calling_card	#epic	0	1	#	#	0
+65	23700024	#hash_627b9d9372b9e831	#blueprint	#legendary	0	0	#	#glint	0
+66		#hash_7bb2d755872a5be5	#currency	#legendary	0	0	#	#	0
+67	33547406	#hash_1fc93a0cfda0045f	#emblem	#rare	0	1	#	#	0
+68	22654383	#weapon_xp_token_rare	#hash_7c692b8eb31f67eb	#rare	0	0	#	#	0
+69	23987438	#t9_charm_compass	#charm	#epic	0	0	#	#	0
+70	32356724	#hash_202323e97676922c	#character_outfit	#rare	0	0	#	#glint	0
+71	21401337	#hash_555780a380cade2f	#blueprint	#legendary	0	0	#	#glint	0
+72	29747522	#battletrack_pack_season1_80srock	#hash_221a99278de5ad06	#legendary	0	1	#	#	0
+73	32109261	#player_xp_token_legendary	#hash_7c692b8eb31f67eb	#legendary	0	0	#	#	0
+74		#hash_7bb2d755872a5be5	#currency	#legendary	0	0	#	#	0
+75	31401749	#hash_16781caa6186c514	#sticker	#legendary	0	0	#	#glint	0
+76	31297372	#hash_75685ca358f5d6da	#blueprint	#legendary	0	0	#	#glint	0
+77	23284850	#hash_6c56ac0104771c33	#calling_card	#epic	0	1	#	#	0
+78	28150952	#weapon_xp_token_epic	#hash_7c692b8eb31f67eb	#epic	0	0	#	#	0
+79	25416788	#hash_1fccc40cfda324b4	#emblem	#epic	0	0	#	#	0
+80	30089796	#hash_19bb88879fc80150	#character_outfit	#rare	0	0	#	#glint	0
+81	19583081	#hash_3eab3d31e1f8d8e0	#blueprint	#legendary	0	1	#	#glint	0
+82		#hash_7bb2d755872a5be5	#currency	#legendary	0	0	#	#	0
+83	30886333	#player_xp_token_common	#hash_7c692b8eb31f67eb	#common	0	0	#	#	0
+84	22416078	#t9_charm_g_duck	#charm	#epic	0	1	#	#	0
+85	24425291	#hash_1d449fcf49760c2a	#blueprint	#legendary	0	0	#	#glint	0
+86	24660136	#hash_7438460b617c67ab	#sticker	#rare	0	0	#	#	0
+87	19262075	#weapon_xp_token_legendary	#hash_7c692b8eb31f67eb	#legendary	0	0	#	#	0
+88	26608828	#reticle_25	#reticle	#rare	0	0	#	#	0
+89	20417829	#hash_1d5be17d8a029ec9	#blueprint	#legendary	0	0	#	#glint	0
+90	29578215	#hash_4cb3484116a68dd9	#character_outfit	#epic	0	1	#	#glint	0
+91		#hash_7bb2d755872a5be5	#currency	#legendary	0	0	#	#	0
+92	23883853	#hash_db2e7a6242077b5	#calling_card	#epic	0	0	#	#	0
+93	21784614	#wristaccessory_t9_s1_analog_origin_01	#hash_c70e59dba98cf81	#epic	0	0	#	#	0
+94	23107080	#battletrack_pack_season1_80shits	#hash_221a99278de5ad06	#legendary	0	1	#	#	0
+95	26765529	#hash_d0ce59a61619ee8	#blueprint	#legendary	0	0	#	#glint	0
+96	32109261	#player_xp_token_legendary	#hash_7c692b8eb31f67eb	#legendary	0	0	#	#	0
+97	19524120	#t9_charm_hornface	#charm	#legendary	0	0	#	#	0
+98		#hash_7bb2d755872a5be5	#currency	#legendary	0	1	#	#	0
+99	30557676	#hash_1fd34d0cfda8792d	#emblem	#legendary	0	0	#	#	0
+100	31699051	#hash_6aa9ed09476682b7	#character_outfit	#legendary	0	0	#lightning	#glint	0
+100	31774619	#hash_3751613c5a5d395d	#blueprint	#legendary	0	0	#lightning	#glint	0
+100	30387922	#hash_21304b052adb9c75	#hash_27fcf589ae53da66	#legendary	0	0	#	#	4
+100		#hash_d81bc6f57a44b75	#hash_6e2e66060a72f89c	#legendary	0	0	#	#	4
+100	25132137	#hash_606b95204cc2db3a	#emblem	#legendary	0	0	#	#	0
+
+0	28707434	#hash_3fcf22c8c739f535	#character_outfit	#legendary	0	0	#season_4	#glint	0
+0	26534648	#hash_74be9e1ec06fb40f	#character_outfit	#epic	0	0	#	#glint	0
+0	25212762	#wristaccessory_t9_s2_analog_paratroop	#hash_c70e59dba98cf81	#epic	0	0	#	#	0
+0	18809624	#hash_60af018a532f7d24	#hash_d48e5f30cecb510	#legendary	0	0	#	#	0
+1	28704673	#hash_1237ec618bdcd01c	#sticker	#legendary	0	1	#	#	0
+2	30481555	#hash_5fa0b8dfddfe3acb	#calling_card	#epic	0	0	#	#	0
+3	19262075	#weapon_xp_token_legendary	#hash_7c692b8eb31f67eb	#legendary	0	0	#	#	0
+4	32685436	#t9_charm_hottaco	#charm	#rare	0	0	#	#	0
+5	22091988	#hash_53a0b107d90fd9c8	#blueprint	#legendary	0	0	#	#glint	0
+6		#hash_7bb2d755872a5be5	#currency	#legendary	0	1	#	#	0
+7	32109261	#player_xp_token_legendary	#hash_7c692b8eb31f67eb	#legendary	0	0	#	#	0
+8	17959965	#hash_3bd223522069162e	#hash_27fcf589ae53da66	#rare	0	0	#	#	13
+8		#hash_68a2bd4329c868cc	#hash_6e2e66060a72f89c	#rare	0	0	#	#	13
+9	25607178	#hash_408a6f79f0af2a10	#emblem	#legendary	0	0	#	#	0
+10	32845096	#hash_2bd368b584692f72	#character_outfit	#rare	0	0	#	#glint	0
+11	20673795	#hash_997da351c83f2ff	#sticker	#rare	0	0	#	#	0
+12		#hash_7bb2d755872a5be5	#currency	#legendary	0	0	#	#	0
+13	19262075	#weapon_xp_token_legendary	#hash_7c692b8eb31f67eb	#legendary	0	0	#	#	0
+14	30493284	#reticle_90	#reticle	#rare	0	0	#	#	0
+15	27390472	#lmg_fastfire_t9	#weapon	#base	0	1	#season_4	#glint	0
+16	18494854	#loot_ges_mtx_t9_scorpion_shot	#gesture	#legendary	0	0	#	#	0
+17		#hash_7bb2d755872a5be5	#currency	#legendary	0	0	#	#	0
+18	29301630	#hash_5560fd544a44a393	#blueprint	#epic	0	0	#	#glint	0
+19	18501694	#execution_159	#execution	#legendary	0	0	#	#	0
+20	29122772	#hash_308c71923066c17d	#character_outfit	#rare	0	0	#	#glint	0
+21	25456975	#hash_693a64f7cf79592f	#blueprint	#legendary	0	1	#	#glint	0
+22	20181455	#player_xp_token_epic	#hash_7c692b8eb31f67eb	#epic	0	0	#	#	0
+23		#hash_7bb2d755872a5be5	#currency	#legendary	0	0	#	#	0
+24	29700941	#hash_60983e3c058dd5c3	#blueprint	#legendary	0	1	#	#glint	0
+25	22654383	#weapon_xp_token_rare	#hash_7c692b8eb31f67eb	#rare	0	0	#	#	0
+26	33055169	#hash_7d196c38599582e0	#hash_27fcf589ae53da66	#rare	0	0	#	#	14
+26		#hash_7b52bce577198ed8	#hash_6e2e66060a72f89c	#rare	0	0	#	#	14
+27	23996569	#hash_2337f35d5f2ab227	#blueprint	#legendary	0	0	#	#glint	0
+28	21519934	#reticle_91	#reticle	#rare	0	1	#	#	0
+29	30886333	#player_xp_token_common	#hash_7c692b8eb31f67eb	#common	0	0	#	#	0
+30	19740160	#hash_62d26fb9d1315791	#character_outfit	#rare	0	0	#	#glint	0
+31	25073353	#ar_slowfire_t9	#weapon	#base	0	1	#season_4	#glint	0
+32		#hash_7bb2d755872a5be5	#currency	#legendary	0	0	#	#	0
+33	27009349	#hash_2a87c87d063cf6f3	#calling_card	#legendary	0	0	#	#	0
+34	18561343	#wristaccessory_t9_s4_digital_holographic	#hash_c70e59dba98cf81	#legendary	0	1	#	#	0
+35	28067309	#hash_4f63f13b15904e7e	#blueprint	#rare	0	0	#	#glint	0
+36	28150952	#weapon_xp_token_epic	#hash_7c692b8eb31f67eb	#epic	0	0	#	#	0
+37	18064244	#loot_ges_mtx_t9_crank_finger	#gesture	#epic	0	1	#	#	0
+38	33491974	#hash_2181d14dc437a075	#blueprint	#epic	0	0	#	#glint	0
+39	21415515	#hash_e25b54cd27e8269	#hash_27fcf589ae53da66	#epic	0	1	#	#	15
+39		#hash_17fa8ed4b29eb075	#hash_6e2e66060a72f89c	#epic	0	1	#	#	15
+40	32687580	#hash_4f03bd77f36c63d8	#character_outfit	#rare	0	0	#	#glint	0
+41		#hash_7bb2d755872a5be5	#currency	#legendary	0	0	#	#	0
+42	21474582	#hash_3b699bfc0a91f5bd	#blueprint	#legendary	0	0	#	#glint	0
+43	32109261	#player_xp_token_legendary	#hash_7c692b8eb31f67eb	#legendary	0	0	#	#	0
+44	17920452	#hash_d99ffb13cddc8b2	#emblem	#epic	0	1	#	#	0
+45	23775422	#hash_164a6ba7d2e6a3b1	#blueprint	#rare	0	0	#	#glint	0
+46	27032621	#weapon_xp_token_common	#hash_7c692b8eb31f67eb	#common	0	0	#	#	0
+47	32832240	#reticle_92	#reticle	#rare	0	0	#	#	0
+48		#hash_7bb2d755872a5be5	#currency	#legendary	0	1	#	#	0
+49	18337477	#hash_7eee6c91cf8fcbc4	#calling_card	#epic	0	0	#	#	0
+50	18657626	#hash_a7a20d97037cff9	#character_outfit	#rare	0	0	#	#glint	0
+51	30135568	#hash_4e85f4f692876994	#blueprint	#epic	0	0	#	#glint	0
+52	17903814	#hash_53d3e59d23707c78	#emblem	#rare	0	0	#	#	0
+53	30886333	#player_xp_token_common	#hash_7c692b8eb31f67eb	#common	0	0	#	#	0
+54	25968874	#t9_charm_pennyboard	#charm	#rare	0	0	#	#	0
+55	29781668	#hash_718e3a67378b769	#blueprint	#legendary	0	1	#	#glint	0
+56		#hash_7bb2d755872a5be5	#currency	#legendary	0	0	#	#	0
+57	19262075	#weapon_xp_token_legendary	#hash_7c692b8eb31f67eb	#legendary	0	0	#	#	0
+58	25534970	#hash_98deb351c7bbb5d	#sticker	#rare	0	0	#	#	0
+59	31739254	#hash_1beebf8da67d4163	#blueprint	#epic	0	0	#	#glint	0
+60	29226170	#hash_24d9926452fc000d	#character_outfit	#rare	0	0	#	#glint	0
+61	29096308	#reticle_93	#reticle	#rare	0	1	#	#	0
+62	25627884	#wristaccessory_t9_s4_analog_wasteland	#hash_c70e59dba98cf81	#epic	0	0	#	#	0
+63	27431022	#player_xp_token_rare	#hash_7c692b8eb31f67eb	#rare	0	0	#	#	0
+64	20461613	#hash_26ea1378367cd992	#calling_card	#legendary	0	1	#	#	0
+65	28727343	#hash_30eacdbce409d9d9	#blueprint	#legendary	0	0	#	#glint	0
+66		#hash_7bb2d755872a5be5	#currency	#legendary	0	0	#	#	0
+67	23604467	#hash_4ccc3f1b4a508dcc	#emblem	#rare	0	1	#	#	0
+68	22654383	#weapon_xp_token_rare	#hash_7c692b8eb31f67eb	#rare	0	0	#	#	0
+69	25084100	#t9_charm_pirate_skull	#charm	#epic	0	0	#	#	0
+70	27353288	#hash_46c672b6de6bf7fd	#character_outfit	#rare	0	0	#	#glint	0
+71	23480192	#hash_26be6758e8bd0714	#blueprint	#legendary	0	0	#	#glint	0
+72	20770567	#battletrack_pack_season4_blackops4mixtape	#hash_221a99278de5ad06	#legendary	0	1	#	#	0
+73	32109261	#player_xp_token_legendary	#hash_7c692b8eb31f67eb	#legendary	0	0	#	#	0
+74		#hash_7bb2d755872a5be5	#currency	#legendary	0	0	#	#	0
+75	30982431	#hash_66b0f7ec8f9b284e	#sticker	#legendary	0	0	#	#	0
+76	17915477	#hash_356ebcbe067904bd	#blueprint	#legendary	0	0	#	#glint	0
+77	21814859	#hash_e8a3bcc02a7ac8a	#calling_card	#epic	0	1	#	#	0
+78	28150952	#weapon_xp_token_epic	#hash_7c692b8eb31f67eb	#epic	0	0	#	#	0
+79	30173426	#hash_3da54e9112bcb35c	#emblem	#epic	0	0	#	#	0
+80	28521929	#hash_32acccecfa96e49	#character_outfit	#rare	0	0	#	#glint	0
+81	25459755	#hash_37a953fa20ebbf2	#blueprint	#legendary	0	1	#	#glint	0
+82		#hash_7bb2d755872a5be5	#currency	#legendary	0	0	#	#	0
+83	30886333	#player_xp_token_common	#hash_7c692b8eb31f67eb	#common	0	0	#	#	0
+84	28443196	#t9_charm_ram_skull	#charm	#epic	0	1	#	#	0
+85	22012932	#hash_2bd0ca3c811a3d09	#blueprint	#legendary	0	0	#	#glint	0
+86	27277603	#hash_3fbe81c09dbdd5fe	#sticker	#rare	0	0	#	#	0
+87	19262075	#weapon_xp_token_legendary	#hash_7c692b8eb31f67eb	#legendary	0	0	#	#	0
+88	23172793	#reticle_94	#reticle	#rare	0	1	#	#	0
+89	32919511	#hash_53af0b08815be2e	#blueprint	#legendary	0	0	#	#glint	0
+90	30772915	#hash_2ce18a15910056ab	#character_outfit	#epic	0	0	#	#glint	0
+91		#hash_7bb2d755872a5be5	#currency	#legendary	0	0	#	#	0
+92	28910477	#hash_1213164c9d339747	#calling_card	#legendary	0	0	#	#	0
+93	29441483	#wristaccessory_t9_s4_analog_roadwar	#hash_c70e59dba98cf81	#epic	0	0	#	#	0
+94	31586962	#battletrack_pack_season4_80shits2	#hash_221a99278de5ad06	#legendary	0	1	#	#	0
+95	19578398	#hash_403bc9b4b787684d	#blueprint	#ultra	0	0	#season_4	#glint	0
+96	32109261	#player_xp_token_legendary	#hash_7c692b8eb31f67eb	#legendary	0	0	#	#	0
+97	29365945	#t9_charm_pyramid_eye	#charm	#legendary	0	0	#	#	0
+98		#hash_7bb2d755872a5be5	#currency	#legendary	0	1	#	#	0
+99	23898333	#hash_1a32a5a0cf891e8d	#emblem	#legendary	0	0	#	#	0
+100	32963610	#hash_2f29327b100e7fae	#character_outfit	#ultra	0	0	#season_4	#glint	0
+100	19120901	#hash_4ddd757992ce2a4d	#blueprint	#legendary	0	0	#season_4	#glint	0
+100	21306282	#hash_2a5be3a55a49c578	#hash_27fcf589ae53da66	#legendary	0	0	#	#	0
+100	18044960	#hash_189992b48f328a84	#emblem	#legendary	0	0	#	#	0
+
+21755527,#hash_570533cfa49f4767,0,0,#character_outfit,#epic,false,?0
+31927095,#hash_9acf3d96e61da11,0,0,#character_outfit,#epic,false,?0
+31495039,#hash_78bca70cc8609f1c,0,0,#character_outfit,#epic,false,?0
+18419074,#hash_1c703b0a11d2f5dc,0,0,#character_outfit,#legendary,false,?0
+19740160,#hash_62d26fb9d1315791,0,4,#character_outfit,#rare,false,?0
+19260647,#hash_24df53c99f879042,0,0,#character_outfit,#legendary,false,?0
+29879723,#hash_35569e03ea6cc239,0,0,#character_outfit,#epic,false,?0
+26020966,#hash_380da13c4d74e985,0,0,#character_outfit,#legendary,false,?0
+28586769,#hash_7865970bbfcb5957,0,0,#character_outfit,#legendary,false,?0
+27226886,#hash_784a52b6094ea8f2,0,0,#character_outfit,#legendary,false,?0
+21032137,#hash_781e72b60929a467,0,0,#character_outfit,#legendary,false,?0
+18848637,#hash_781a54b609258896,0,0,#character_outfit,#legendary,false,?0
+28131324,#hash_559ef411a7694add,0,0,#character_outfit,#legendary,false,?0
+23172557,#hash_3f5c45118d9722e6,0,0,#character_outfit,#legendary,false,?0
+28506609,#hash_341cbfacc7bad480,0,0,#character_outfit,#epic,false,?0
+30253483,#hash_45d64bf2345dbb66,0,5,#character_outfit,#epic,false,?0
+20747738,#hash_5c2d4dd6bca6d583,0,0,#character_outfit,#rare,false,?0
+24589761,#hash_64ce9b5ef104edb2,0,0,#character_outfit,#rare,false,?0
+18588108,#hash_2d0ebfbf1648a064,0,3,#character_outfit,#epic,false,?0
+27691337,#hash_10d7492e72eefeec,0,0,#character_outfit,#epic,false,?0
+25085943,#hash_a815e364f4c6b87,0,0,#character_outfit,#epic,false,?0
+31711313,#hash_699dff9948a45a37,0,1,#character_outfit,#rare,false,?0
+24724624,#hash_6cd32c71274f2b7f,0,0,#character_outfit,#rare,false,?0
+23572346,#hash_28c6029f91ca4d01,0,0,#character_outfit,#rare,false,?0
+30748943,#hash_435a1e3bf71b0654,0,0,#character_outfit,#legendary,false,?0
+25493352,#hash_33f82242744b4a83,0,0,#character_outfit,#ultra,false,?0
+24067866,#hash_135563d25ac4b5fa,0,0,#character_outfit,#legendary,false,?0
+29512166,#hash_192405b661dc7fea,0,0,#character_outfit,#legendary,false,?0
+31522235,#hash_9b9b422935b8cb4,0,0,#character_outfit,#legendary,false,?0
+33380738,#hash_5b3d790cd77920d0,0,0,#character_outfit,#legendary,false,?0
+29184728,#hash_2ada34abd8b93c17,0,3,#character_outfit,#legendary,false,?0
+25139068,#hash_57424d158ac063f,0,0,#character_outfit,#legendary,false,?0
+26131376,#hash_4190f32f9e84c1c1,0,0,#character_outfit,#legendary,false,?0
+27743617,#hash_5c276caa32610519,0,0,#character_outfit,#legendary,false,?0
+29842205,#hash_5c072d70247fb838,0,3,#character_outfit,#legendary,false,?0
+22982173,#hash_cc640758359e773,0,0,#character_outfit,#epic,false,?0
+23974260,#hash_38145424414fad6c,0,0,#character_outfit,#ultra,false,?0
+30772915,#hash_2ce18a15910056ab,0,4,#character_outfit,#epic,false,?0
+24745356,#hash_193a423055d95ff,0,0,#character_outfit,#epic,false,?0
+21477547,#hash_4505560a931e87e4,0,0,#character_outfit,#epic,false,?0
+24978033,#hash_663f6288a1129131,0,0,#character_outfit,#legendary,false,?0
+21346296,#hash_667149d193bfe35d,0,0,#character_outfit,#legendary,false,?0
+29811989,#hash_51e5d045648aa193,0,3,#character_outfit,#rare,false,?0
+28521929,#hash_32acccecfa96e49,0,4,#character_outfit,#rare,false,?0
+25079672,#hash_71242a4abf933d61,0,5,#character_outfit,#rare,false,?0
+23758463,#hash_294cb106a35ffdce,0,3,#character_outfit,#rare,false,?0
+28983104,#hash_2155b95e7518124a,0,0,#character_outfit,#rare,false,?0
+31152893,#hash_28055bf984d6d836,0,0,#character_outfit,#rare,false,?0
+26648119,#hash_9a7d67a26d71490,0,0,#character_outfit,#epic,false,?0
+30426184,#hash_1c41487a17d73536,0,0,#character_outfit,#legendary,false,?0
+26176132,#hash_51f38727ae44ae60,0,2,#character_outfit,#rare,false,?0
+26231413,#hash_7d7a4489bd62c689,0,0,#character_outfit,#rare,false,?0
+28301872,#hash_3174431b59561153,0,0,#character_outfit,#rare,false,?0
+28541960,#hash_2f4e20cf18f0465a,0,0,#character_outfit,#epic,false,?0
+33136191,#hash_3b6fab6520f4362,0,0,#character_outfit,#epic,false,?0
+27708360,#hash_70434d71ad658a51,0,3,#character_outfit,#rare,false,?0
+23128405,#hash_6332a0b249d809c1,0,0,#character_outfit,#epic,false,?0
+29225026,#hash_479ce25d04049ff9,0,5,#character_outfit,#rare,false,?0
+25719930,#hash_33d1dc65e53a78c3,0,2,#character_outfit,#rare,false,?0
+23706892,#hash_3646b1eb437a28f2,0,0,#character_outfit,#rare,false,?0
+29226170,#hash_24d9926452fc000d,0,4,#character_outfit,#rare,false,?0
+31087490,#hash_2b3d694b70782bc6,0,0,#character_outfit,#epic,false,?0
+33014178,#hash_17960077c878789a,0,0,#character_outfit,#ultra,false,?0
+22885690,#hash_1732e077c823c4df,0,0,#character_outfit,#ultra,false,?0
+31017930,#hash_172ff277c821ad9e,0,0,#character_outfit,#ultra,false,?0
+23781314,#hash_36c1820a2dad2e8,0,0,#character_outfit,#legendary,false,?0
+25840477,#hash_2208a0c6a3f23325,0,0,#character_outfit,#legendary,false,?0
+27983305,#hash_4b987fe3178a9daf,0,5,#character_outfit,#rare,false,?0
+24316813,#hash_40903486743177e0,0,0,#character_outfit,#epic,false,?0
+26940112,#hash_749394f77f68a223,0,0,#character_outfit,#rare,false,?0
+23538140,#hash_76600004397b1b53,0,0,#character_outfit,#rare,false,?0
+17958437,#hash_4e6cbee366e7a047,0,0,#character_outfit,#legendary,false,?0
+27775001,#hash_1d52673b196acf05,0,0,#character_outfit,#legendary,false,?0
+18859803,#hash_400bb44a41677e76,0,0,#character_outfit,#legendary,false,?0
+25451209,#hash_4a3de6052003391b,0,0,#character_outfit,#epic,false,?0
+30973940,#hash_3e1a05d977e5508e,0,0,#character_outfit,#epic,false,?0
+32857016,#hash_c23af0d27c4bb9,0,2,#character_outfit,#rare,false,?0
+24082750,#hash_3494cb974fb2f08d,0,0,#character_outfit,#rare,false,?0
+18779199,#hash_5f2db83d6600e9d2,0,0,#character_outfit,#rare,false,?0
+32126545,#hash_5ff7893b4ae4869,0,6,#character_outfit,#rare,false,?0
+27196287,#hash_727517cb4aea0b55,0,0,#character_outfit,#legendary,false,?0
+32431551,#hash_6a9d8e537cb77556,0,0,#character_outfit,#epic,false,?0
+18538598,#hash_6a559e537c79dae3,0,0,#character_outfit,#epic,false,?0
+24090818,#hash_6a52a0537c77a872,0,0,#character_outfit,#epic,false,?0
+21813096,#hash_58c683a88684fff9,0,5,#character_outfit,#rare,false,?0
+27596347,#hash_38c40664c8bd6b58,0,0,#character_outfit,#rare,false,?0
+24890899,#hash_38c40964c8bd7071,0,0,#character_outfit,#rare,false,?0
+25060718,#hash_134c67b532cd5106,0,3,#character_outfit,#rare,false,?0
+29122772,#hash_308c71923066c17d,0,4,#character_outfit,#rare,false,?0
+22647716,#hash_4a49267cbcce549c,0,0,#character_outfit,#rare,false,?0
+19193984,#hash_4a49297cbcce59b5,0,0,#character_outfit,#rare,false,?0
+22281131,#hash_4a49287cbcce5802,0,0,#character_outfit,#rare,false,?0
+24557757,#hash_4a49237cbcce4f83,0,0,#character_outfit,#rare,false,?0
+22900999,#hash_31030ba9a02e0f94,0,0,#character_outfit,#epic,false,?0
+18384801,#hash_5f228c85b7dbc907,0,5,#character_outfit,#rare,false,?0
+28959666,#hash_1d3b6295241cc4bd,0,2,#character_outfit,#rare,false,?0
+32900857,#hash_2b5e472d27c39d32,0,0,#character_outfit,#rare,false,?0
+24338611,#hash_7c7cb30a62f8e1ab,0,0,#character_outfit,#epic,false,?0
+21949385,#hash_759e8c0a5f97981d,0,3,#character_outfit,#rare,false,?0
+29921110,#hash_50fcb8f1af5b24f3,0,0,#character_outfit,#rare,false,?0
+23943274,#hash_50fcb9f1af5b26a6,0,0,#character_outfit,#rare,false,?0
+24233494,#hash_392b805cbb625b04,0,6,#character_outfit,#rare,false,?0
+18802465,#hash_3a5b029a9d8ad057,0,0,#character_outfit,#legendary,false,?0
+32856883,#hash_743f84f37b1a455c,0,0,#character_outfit,#legendary,false,?0
+32164388,#hash_514ef11726a278c,0,0,#character_outfit,#legendary,false,?0
+27722861,#hash_3aae88aabb257aac,0,0,#character_outfit,#legendary,false,?0
+25810449,#hash_5383de253b027bfe,0,0,#character_outfit,#ultra,false,?0
+22623623,#hash_300776b6702bacc,0,0,#character_outfit,#legendary,false,?0
+26077362,#hash_5d637b11f414c03,0,0,#character_outfit,#legendary,false,?0
+27101498,#hash_51c700cc3eff041e,0,0,#character_outfit,#epic,false,?0
+18021952,#hash_27d02aa393619160,0,0,#character_outfit,#legendary,false,?0
+24512620,#hash_22296a1142e71137,0,0,#character_outfit,#epic,false,?0
+22635828,#hash_30b32a23e2f579a9,0,1,#character_outfit,#epic,false,?0
+21015607,#hash_ed9b49dab99a3c6,0,0,#character_outfit,#rare,false,?0
+25410064,#hash_7ea4490c3595163a,0,3,#character_outfit,#rare,false,?0
+19829922,#hash_467c873280c6b6bb,0,0,#character_outfit,#rare,false,?0
+22195380,#hash_2338639080003842,0,0,#character_outfit,#legendary,false,?0
+27183682,#hash_26481c147d71b49b,0,0,#character_outfit,#legendary,false,?0
+18192515,#hash_9bc08d0ea37bfbe,0,0,#character_outfit,#epic,false,?0
+29692895,#hash_7d897cb34a61f323,0,0,#character_outfit,#epic,false,?0
+31056274,#hash_18df71f944c47ace,0,0,#character_outfit,#epic,false,?0
+26486606,#hash_5b08789667e9416f,0,0,#character_outfit,#epic,false,?0
+24455218,#hash_388aedfcd0a5a15f,0,0,#character_outfit,#epic,false,?0
+29382924,#hash_79ef07872dc7cb6e,0,0,#character_outfit,#legendary,false,?0
+23502127,#hash_2d9dba2ced1e39a7,0,0,#character_outfit,#legendary,false,?0
+24373477,#hash_8539005bb394d6e,0,0,#character_outfit,#legendary,false,?0
+33323298,#hash_33ae8f192bff0698,0,0,#character_outfit,#legendary,false,?0
+19419857,#hash_1a6d1c81883b4456,0,1,#character_outfit,#rare,false,?0
+28109213,#hash_a2730370c546a09,0,0,#character_outfit,#rare,false,?0
+25113120,#hash_5d94b293335e0111,0,0,#character_outfit,#rare,false,?0
+29985441,#hash_50503ede666ede57,0,5,#character_outfit,#rare,false,?0
+22488048,#hash_1238c4f41dd9e580,0,0,#character_outfit,#legendary,false,?0
+32514034,#hash_23707b25f492eef7,0,6,#character_outfit,#rare,false,?0
+27834480,#hash_2f497c2b68003f06,0,0,#character_outfit,#epic,false,?0
+31435630,#hash_2bc1e7d9ca23d4ee,0,0,#character_outfit,#ultra,false,?0
+21024570,#hash_19d0c525519bf6b8,0,0,#character_outfit,#epic,false,?0
+27307294,#hash_65f7f4f7250fd2bf,0,0,#character_outfit,#legendary,false,?0
+25155228,#hash_425f7077499b8a56,0,5,#character_outfit,#legendary,false,?0
+32799206,#hash_3792a7a2fb8eddeb,0,0,#character_outfit,#legendary,false,?0
+31867937,#hash_7b0c1960e4e5e0da,0,0,#character_outfit,#legendary,false,?0
+26496538,#hash_1aefc82240338283,0,5,#character_outfit,#ultra,false,?0
+31449283,#hash_70c9846096090aec,0,2,#character_outfit,#legendary,false,?0
+23723157,#hash_e3971f84617582d,0,0,#character_outfit,#legendary,false,?0
+26530344,#hash_3443ddb871a0a40e,0,0,#character_outfit,#legendary,false,?0
+21831360,#hash_12afcca523560766,0,0,#character_outfit,#legendary,false,?0
+21705090,#hash_457422e5977abfb7,0,0,#character_outfit,#legendary,false,?0
+29904131,#hash_553f5c9db3a0814a,0,0,#character_outfit,#ultra,false,?0
+26900691,#hash_49191e505c188b6c,0,0,#character_outfit,#legendary,false,?0
+17814841,#hash_4aa9186eafb7e2a9,0,0,#character_outfit,#legendary,false,?0
+33096928,#hash_6f1b7f99e3fc91cd,0,0,#character_outfit,#legendary,false,?0
+25341936,#hash_5f6f10798e1964c6,0,2,#character_outfit,#legendary,false,?0
+30096735,#hash_17b66ef714ea7c99,0,0,#character_outfit,#legendary,false,?0
+19795491,#hash_a50448989ff665a,0,0,#character_outfit,#legendary,false,?0
+20878639,#hash_4bc2e91c2e540657,0,0,#character_outfit,#legendary,false,?0
+21603236,#hash_25cc651cf266b419,0,0,#character_outfit,#legendary,false,?0
+20146288,#hash_45583c8db8e05552,0,0,#character_outfit,#legendary,false,?0
+20599399,#hash_6bc5e743d2f3bd2a,0,0,#character_outfit,#legendary,false,?0
+20795403,#hash_881cbc854a69573,0,0,#character_outfit,#legendary,false,?0
+22892354,#hash_14da0f58e0ae461f,0,0,#character_outfit,#ultra,false,?0
+28625041,#hash_69c364b877889c06,0,0,#character_outfit,#epic,false,?0
+21769203,#hash_6fa2d3f940b733f3,0,1,#character_outfit,#rare,false,?0
+30679020,#hash_355fee436b5f228e,0,0,#character_outfit,#rare,false,?0
+27408553,#hash_6d8517fe412017bd,0,0,#character_outfit,#rare,false,?0
+33121233,#hash_6794796571751be4,0,0,#character_outfit,#legendary,false,?0
+22232855,#hash_2fd57c9f38d34b15,0,0,#character_outfit,#legendary,false,?0
+33143179,#hash_2cba135d11978d5,0,0,#character_outfit,#epic,false,?0
+25973956,#hash_2cbc5bfc2f511912,0,0,#character_outfit,#legendary,false,?0
+26734961,#hash_6a5c65cdaab4597f,0,6,#character_outfit,#rare,false,?0
+20250658,#hash_5d4f4be43fc796e5,0,0,#character_outfit,#legendary,false,?0
+29216458,#hash_2dd87e72b17a376b,0,0,#character_outfit,#legendary,false,?0
+20495289,#hash_2d7c8e72b12bf3ee,0,0,#character_outfit,#legendary,false,?0
+28509432,#hash_2d727472b123733b,0,0,#character_outfit,#legendary,false,?0
+17938787,#hash_578c0e93b1df2b0e,0,0,#character_outfit,#epic,false,?0
+31726688,#hash_6ca4f7c193032ec6,0,0,#character_outfit,#epic,false,?0
+25628711,#hash_3d69c655d8e805ae,0,0,#character_outfit,#epic,false,?0
+26534648,#hash_74be9e1ec06fb40f,0,4,#character_outfit,#epic,false,?0
+30115991,#hash_6296130cf7e801db,0,0,#character_outfit,#epic,false,?0
+18969976,#hash_2a2b6c4cfd911103,0,0,#character_outfit,#epic,false,?0
+20663875,#hash_47e64adcbd64f658,0,0,#character_outfit,#epic,false,?0
+30474531,#hash_7c4be1ecf0da6dcd,0,0,#character_outfit,#epic,false,?0
+31968345,#hash_39ec69d4f40a1117,0,2,#character_outfit,#rare,false,?0
+25155161,#hash_948dc69119c08b1,0,0,#character_outfit,#rare,false,?0
+25939387,#hash_62bdb7700d7a2ac6,0,0,#character_outfit,#rare,false,?0
+30421368,#hash_65b1d3bd56dda709,0,0,#character_outfit,#legendary,false,?0
+19715451,#hash_7580fa5d0ec5bb03,0,0,#character_outfit,#epic,false,?0
+29179808,#hash_eb6cb3186a90797,0,6,#character_outfit,#epic,false,?0
+19929240,#hash_f4bc08774e64396,0,0,#character_outfit,#legendary,false,?0
+28838550,#hash_7a05a56589a2cf80,0,0,#character_outfit,#legendary,false,?0
+28921153,#hash_1c24c2bccfc91ec5,0,0,#character_outfit,#legendary,false,?0
+25960839,#hash_790f9d237509ecab,0,0,#character_outfit,#legendary,false,?0
+29774561,#hash_11d1a36105fc322,0,1,#character_outfit,#legendary,false,?0
+31393418,#hash_a057468d0d2509,0,0,#character_outfit,#legendary,false,?0
+28755999,#hash_5c5879e059c35097,0,0,#character_outfit,#legendary,false,?0
+29296928,#hash_654eb9e77846da4e,0,0,#character_outfit,#ultra,false,?0
+19887107,#hash_81496331ee02879,0,0,#character_outfit,#legendary,false,?0
+31699051,#hash_6aa9ed09476682b7,0,1,#character_outfit,#legendary,false,?0
+18705144,#hash_4a1f03494bc49330,0,0,#character_outfit,#legendary,false,?0
+24062836,#hash_43a6bc07392d4fb6,0,0,#character_outfit,#legendary,false,?0
+30804479,#hash_4a613f83c9716d0d,0,0,#character_outfit,#legendary,false,?0
+31025101,#hash_206a3d7664152f0a,0,0,#character_outfit,#legendary,false,?0
+23364238,#hash_3c1cf55818d763da,0,0,#character_outfit,#legendary,false,?0
+20376042,#hash_67c8a2ac53ab0c4d,0,0,#character_outfit,#legendary,false,?0
+28707434,#hash_3fcf22c8c739f535,0,4,#character_outfit,#legendary,false,?0
+27809991,#hash_38082ae168f06ce8,0,0,#character_outfit,#legendary,false,?0
+29731613,#hash_382d42e1690fb1ed,0,0,#character_outfit,#legendary,false,?0
+30034697,#hash_383728e16917da44,0,0,#character_outfit,#legendary,false,?0
+21586149,#hash_4c80f1d011b91ee5,0,0,#character_outfit,#legendary,false,?0
+18600358,#hash_3e460935e99c55b7,0,0,#character_outfit,#legendary,false,?0
+24126913,#hash_7a6f67f063152090,0,0,#character_outfit,#legendary,false,?0
+32963610,#hash_2f29327b100e7fae,0,4,#character_outfit,#ultra,false,?0
+19201487,#hash_14c9779d3fd85f96,0,0,#character_outfit,#ultra,false,?0
+24655459,#hash_102293e4b706e7c2,0,0,#character_outfit,#ultra,false,?0
+30970345,#hash_5cd09d88bf75e3ea,0,0,#character_outfit,#legendary,false,?0
+18406709,#hash_402755ad7cfdbef5,0,0,#character_outfit,#legendary,false,?0
+22394513,#hash_28c745b078b9733,0,1,#character_outfit,#rare,false,?0
+29530880,#hash_17b700f40f28e0a6,0,0,#character_outfit,#rare,false,?0
+23606913,#hash_2d12529b832a0139,0,0,#character_outfit,#rare,false,?0
+32275365,#hash_3cb1e0be51380861,0,6,#character_outfit,#rare,false,?0
+28843475,#hash_3c3ef1acdb49a598,0,0,#character_outfit,#epic,false,?0
+24557050,#hash_4c0c61e50e09d84d,0,3,#character_outfit,#rare,false,?0
+20003941,#hash_1429531ca7f662c,0,0,#character_outfit,#rare,false,?0
+19142015,#hash_1429831ca7f6b45,0,0,#character_outfit,#rare,false,?0
+25518353,#hash_1429731ca7f6992,0,0,#character_outfit,#rare,false,?0
+26412693,#hash_1429231ca7f6113,0,0,#character_outfit,#rare,false,?0
+31595229,#hash_175443011e1bfa0,0,0,#character_outfit,#legendary,false,?0
+20959643,#hash_129cc8ea57567948,0,0,#character_outfit,#epic,false,?0
+19596443,#hash_4b69368a6f1baf7,0,0,#character_outfit,#legendary,false,?0
+27353288,#hash_46c672b6de6bf7fd,0,4,#character_outfit,#rare,false,?0
+18053363,#hash_7de204517c61387,0,0,#character_outfit,#epic,false,?0
+19362347,#hash_6063d7c1c4ecd01b,0,0,#character_outfit,#epic,false,?0
+26606029,#hash_2764b57c0376b78f,0,0,#character_outfit,#epic,false,?0
+17980583,#hash_b1fb631ecdd875b,0,0,#character_outfit,#epic,false,?0
+32566525,#hash_1c2ef2c5987e40c8,0,0,#character_outfit,#ultra,false,?0
+18709108,#hash_59bf2c68167ef5ab,0,0,#character_outfit,#epic,false,?0
+22944586,#hash_1c80b5d30e6b09cb,0,0,#character_outfit,#epic,false,?0
+28059667,#hash_48f00d23405f01e2,0,0,#character_outfit,#epic,false,?0
+24937395,#hash_6579a6b6a6bd3c63,0,0,#character_outfit,#epic,false,?0
+18223423,#hash_78e0461edc351bf1,0,0,#character_outfit,#epic,false,?0
+19269528,#hash_245dcd86576d6937,0,0,#character_outfit,#legendary,false,?0
+31610035,#hash_581cb28f2db7b688,0,2,#character_outfit,#rare,false,?0
+22460706,#hash_7a33aed0c8db6ac3,0,0,#character_outfit,#rare,false,?0
+32966214,#hash_27e456fc9a2484fd,0,0,#character_outfit,#rare,false,?0
+26583245,#hash_6580c39c48020670,0,0,#character_outfit,#legendary,false,?0
+19865801,#hash_51ffd4cfad13e9ba,0,0,#character_outfit,#legendary,false,?0
+26345358,#hash_3ddf57aa0792a0b6,0,0,#character_outfit,#epic,false,?0
+28595391,#hash_6591994b3d41b89c,0,0,#character_outfit,#legendary,false,?0
+22994080,#hash_616f0b45809d4531,0,0,#character_outfit,#legendary,false,?0
+21947677,#hash_27b63206d4010406,0,0,#character_outfit,#ultra,false,?0
+26897538,#hash_1238a78295bf2755,0,0,#character_outfit,#legendary,false,?0
+29578215,#hash_4cb3484116a68dd9,0,1,#character_outfit,#epic,false,?0
+26450863,#hash_23019435f66b6f1b,0,0,#character_outfit,#epic,false,?0
+22724365,#hash_448bd84b9339eda2,0,0,#character_outfit,#epic,false,?0
+29896880,#hash_789ff8806a76b39e,0,0,#character_outfit,#legendary,false,?0
+23301724,#hash_2f6c1064aadc32d8,0,6,#character_outfit,#epic,false,?0
+20038613,#hash_541751a401358036,0,0,#character_outfit,#epic,false,?0
+24010313,#hash_635e692fee743956,0,0,#character_outfit,#legendary,false,?0
+21526649,#hash_613dd5102c630414,0,0,#character_outfit,#epic,false,?0
+31399943,#hash_1a00b8b25b2e5733,0,0,#character_outfit,#legendary,false,?0
+27610116,#hash_12a044c1df977d00,0,0,#character_outfit,#legendary,false,?0
+31677568,#hash_10116ca3ffa27de8,0,0,#character_outfit,#ultra,false,?0
+30481260,#hash_2a8b192d479429df,0,0,#character_outfit,#epic,false,?0
+30006167,#hash_1960a5b25d5eadba,0,0,#character_outfit,#epic,false,?0
+32239989,#hash_41387a358948799e,0,0,#character_outfit,#epic,false,?0
+21190231,#hash_6efe8230de49b0c8,0,2,#character_outfit,#rare,false,?0
+29458113,#hash_7dd22af8fec91004,0,0,#character_outfit,#rare,false,?0
+23714965,#hash_e317e73256ea92e,0,0,#character_outfit,#rare,false,?0
+26770221,#hash_48d764b4a2098677,0,0,#character_outfit,#rare,false,?0
+33344246,#hash_51a39d83ebdce7ec,0,0,#character_outfit,#rare,false,?0
+22267369,#hash_4dea81880a762469,0,0,#character_outfit,#epic,false,?0
+28713239,#hash_2ab22d2db270cc78,0,1,#character_outfit,#rare,false,?0
+18405976,#hash_65e35c3777d3abc2,0,0,#character_outfit,#rare,false,?0
+22948397,#hash_400806c10ab9598d,0,0,#character_outfit,#rare,false,?0
+20146489,#hash_17070e39b5076442,0,0,#character_outfit,#epic,false,?0
+18657626,#hash_a7a20d97037cff9,0,4,#character_outfit,#rare,false,?0
+29906613,#hash_48fbf3cda08c6e5a,0,0,#character_outfit,#legendary,false,?0
+24536224,#hash_3c518a76db426dc3,0,0,#character_outfit,#legendary,false,?0
+28356845,#hash_66ebe5a3fe936743,0,0,#character_outfit,#legendary,false,?0
+20447006,#hash_2b85778a9e8a6fa9,0,0,#character_outfit,#legendary,false,?0
+23741895,#hash_69af1dd86d92ab4d,0,0,#character_outfit,#legendary,false,?0
+23000652,#hash_393a7b9edf3acee8,0,0,#character_outfit,#legendary,false,?0
+25952996,#hash_58c5531eb08d25c0,0,0,#character_outfit,#legendary,false,?0
+26638417,#hash_108554e5529a21fa,0,3,#character_outfit,#rare,false,?0
+24627381,#hash_1238d8f96c723a3,0,0,#character_outfit,#rare,false,?0
+26310583,#hash_1238e8f96c72556,0,0,#character_outfit,#rare,false,?0
+19435418,#hash_73541d5e1d1183db,0,0,#character_outfit,#epic,false,?0
+21806826,#hash_73ae516679533c07,0,0,#character_outfit,#legendary,false,?0
+21088240,#hash_39d08d6ec0e6108f,0,0,#character_outfit,#epic,false,?0
+33276521,#hash_58bdd911cfb7855e,0,6,#character_outfit,#rare,false,?0
+31743198,#hash_796622ca09614610,0,0,#character_outfit,#epic,false,?0
+23553622,#hash_2638098b844a5a9b,0,0,#character_outfit,#legendary,false,?0
+23472594,#hash_7ec5b8e0129ab396,0,0,#character_outfit,#epic,false,?0
+24395642,#hash_16a1e75231f6f806,0,1,#character_outfit,#rare,false,?0
+29547521,#hash_4ccc31a6f008aeb8,0,0,#character_outfit,#rare,false,?0
+32985891,#hash_5447e63d8027bbfc,0,0,#character_outfit,#rare,false,?0
+26986870,#hash_5140b3341887eda8,0,0,#character_outfit,#legendary,false,?0
+25449595,#hash_23b1b35c148112f2,0,0,#character_outfit,#epic,false,?0
+23024855,#hash_2c45fc2259683245,0,0,#character_outfit,#epic,false,?0
+27434437,#hash_1cb8537b98c49aa8,0,0,#character_outfit,#epic,false,?0
+24156496,#hash_5edd510d4e360365,0,0,#character_outfit,#epic,false,?0
+30291587,#hash_1a74c8b8707039bd,0,0,#character_outfit,#epic,false,?0
+24666607,#hash_1600048e6ed96454,0,0,#character_outfit,#epic,false,?0
+31517036,#hash_46c0f4fbe151f287,0,0,#character_outfit,#legendary,false,?0
+32034964,#hash_5dc1fedea39ef9c4,0,0,#character_outfit,#legendary,false,?0
+18584448,#hash_2ac496dfd1826cdd,0,0,#character_outfit,#legendary,false,?0
+29055714,#hash_2a9f7edfd16327d8,0,0,#character_outfit,#legendary,false,?0
+29845100,#hash_2aa290dfd1657c45,0,0,#character_outfit,#legendary,false,?0
+30182138,#hash_45ed60d23cee7ad,0,0,#character_outfit,#legendary,false,?0
+18287991,#hash_5067091299cb6263,0,0,#character_outfit,#legendary,false,?0
+29816798,#hash_323a744bdc4fc7e,0,5,#character_outfit,#epic,false,?0
+32593419,#hash_1a8c5a0ce7b8ed24,0,0,#character_outfit,#legendary,false,?0
+24329805,#hash_482ce408639753a1,0,2,#character_outfit,#rare,false,?0
+25475951,#hash_b544a5345e92268,0,0,#character_outfit,#legendary,false,?0
+26372379,#hash_7384af45d59ea735,0,0,#character_outfit,#legendary,false,?0
+23898513,#hash_2c8cfab4b2c6400a,0,0,#character_outfit,#legendary,false,?0
+28135175,#hash_2c96fab4b2ce948f,0,0,#character_outfit,#legendary,false,?0
+31023840,#hash_2c93ecb4b2cc46ee,0,0,#character_outfit,#legendary,false,?0
+19531639,#hash_36bc019f6bf73c7,0,0,#character_outfit,#legendary,false,?0
+25029533,#hash_32057107e70e1a58,0,6,#character_outfit,#legendary,false,?0
+21448806,#hash_7e8f20868bb9ff35,0,6,#character_outfit,#ultra,false,?0
+32845096,#hash_2bd368b584692f72,0,4,#character_outfit,#rare,false,?0
+22586319,#hash_6dc1cab68481cb68,0,0,#character_outfit,#epic,false,?0
+21847186,#hash_36e286e69072cb2e,0,0,#character_outfit,#epic,false,?0
+30334466,#hash_33625099b08767c5,0,0,#character_outfit,#legendary,false,?0
+18629679,#hash_6e6939931123d698,0,0,#character_outfit,#legendary,false,?0
+28722646,#hash_7ed306d33f868c8e,0,5,#character_outfit,#rare,false,?0
+25542315,#hash_74443c6a5e7bc947,0,0,#character_outfit,#rare,false,?0
+21462475,#hash_74443d6a5e7bcafa,0,0,#character_outfit,#rare,false,?0
+30235509,#hash_7c1c58806a1103e0,0,2,#character_outfit,#epic,false,?0
+24941230,#hash_3e67538046d039b4,0,0,#character_outfit,#epic,false,?0
+24234909,#hash_572f0d8eb6998744,0,0,#character_outfit,#epic,false,?0
+33348132,#hash_527f027814a0cda0,0,6,#character_outfit,#rare,false,?0
+20072796,#hash_3eb04fa41e04635a,0,0,#character_outfit,#epic,false,?0
+18827634,#hash_42647e465c31ab3a,0,0,#character_outfit,#legendary,false,?0
+26283150,#hash_455a10f81a343dbb,0,0,#character_outfit,#legendary,false,?0
+26204175,#hash_4babd2586e5d677a,0,0,#character_outfit,#epic,false,?0
+22381341,#hash_6d4fd9d32b24d24b,0,0,#character_outfit,#epic,false,?0
+30089796,#hash_19bb88879fc80150,0,1,#character_outfit,#rare,false,?0
+31665805,#hash_45473b0ea9ff3e7f,0,0,#character_outfit,#rare,false,?0
+17960904,#hash_471d26b79a18aa52,0,0,#character_outfit,#rare,false,?0
+27563843,#hash_2e91425dad90453b,0,0,#character_outfit,#epic,false,?0
+29630318,#hash_66a3146f367f54af,0,0,#character_outfit,#rare,false,?0
+26471961,#hash_443ef56c0be1e157,0,0,#character_outfit,#legendary,false,?0
+29888707,#hash_61d9cd5ca2083c45,0,0,#character_outfit,#legendary,false,?0
+27892107,#hash_77a426dd79572656,0,0,#character_outfit,#epic,false,?0
+27888844,#hash_675d4bfb8883ab9c,0,0,#character_outfit,#epic,false,?0
+25523984,#hash_2909f3ab0284720d,0,0,#character_outfit,#legendary,false,?0
+25753834,#hash_6aa557a093117b28,0,0,#character_outfit,#legendary,false,?0
+27262157,#hash_458e71e77cf4c9f,0,0,#character_outfit,#legendary,false,?0
+32964128,#hash_112d2b738ad6822b,0,0,#character_outfit,#ultra,false,?0
+23256413,#hash_cf703069bdf65,0,0,#character_outfit,#ultra,false,?0
+30420022,#hash_37066b82f0784443,0,0,#character_outfit,#ultra,false,?0
+27648851,#hash_7c1c7903ee2d85b6,0,0,#character_outfit,#epic,false,?0
+27980564,#hash_387ccc0785e464a2,0,0,#character_outfit,#legendary,false,?0
+24410143,#hash_2f84b08498f6c369,0,0,#character_outfit,#legendary,false,?0
+20299041,#hash_23048b4f66bde013,0,0,#character_outfit,#legendary,false,?0
+32356724,#hash_202323e97676922c,0,1,#character_outfit,#rare,false,?0
+30630931,#hash_3fec3a5f2f7f74a6,0,0,#character_outfit,#rare,false,?0
+21952373,#hash_4d0eb85d9408696a,0,0,#character_outfit,#rare,false,?0
+24980795,#hash_5a8659d1eddffccc,0,0,#character_outfit,#epic,false,?0
+25463644,#hash_2b11b1309eb42465,0,6,#character_outfit,#rare,false,?0
+32967059,#hash_11fe1009d3ec9713,0,0,#character_outfit,#epic,false,?0
+23758974,#hash_10f2d70e741df86e,0,5,#character_outfit,#rare,false,?0
+21751566,#hash_7433ad2052310d65,0,0,#character_outfit,#legendary,false,?0
+20647178,#hash_73a181ade590d74c,0,0,#character_outfit,#legendary,false,?0
+29785556,#hash_2518fd4d57978a56,0,0,#character_outfit,#epic,false,?0
+24750945,#hash_481808093ee4ab67,0,0,#character_outfit,#epic,false,?0
+18812956,#hash_7210236bed9575b7,0,0,#character_outfit,#epic,false,?0
+32434283,#hash_20f858726e842619,0,3,#character_outfit,#rare,false,?0
+33253802,#hash_2f33595f42e4ae16,0,0,#character_outfit,#rare,false,?0
+24622118,#hash_218397e5d2008106,0,0,#character_outfit,#rare,false,?0
+27813100,#hash_5d086ed306503bfb,0,0,#character_outfit,#legendary,false,?0

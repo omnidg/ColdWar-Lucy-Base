@@ -1,21 +1,24 @@
 GiveClientWeapon(WeaponName, player)//needs work, as some things don't work well
 {
     Weapon = getweapon(ishash(WeaponName) ? WeaponName : hash(WeaponName));
-    if (isdefined(Weapon)){
-        player zm_weapons::weapon_give(
-        Weapon,      // Weapon object
-        0,           // No sound override
-        1,           // Auto Switch to Weapon
-        0, 0,       // Internal flags
-        #"orange",   // Rarity
-        [],          // No attachments
-        1            // Build kit flag = 1
+    if(!isDefined(Weapon)) return;
+    if(zm_loadout::is_melee_weapon(Weapon)) slotIndex = 2;
+    else slotIndex = 0;
+    player zm_weapons::weapon_give(
+    Weapon,      // Weapon object
+    0,           // No sound override
+    1,           // Auto Switch to Weapon
+    slotIndex,          //slot index? 
+    1,       // give as build kit weapon
+    #"orange",   // Rarity level
+    [],          // manual attachments
+    1            // Build kit flag = 1
     );
 
     player switchtoweapon(Weapon); // Optional: equip immediately
     player giveMaxAmmo(Weapon);
     player switchToWeapon(Weapon);
-    }
+    
 }
 
 UpgradeWeapon()

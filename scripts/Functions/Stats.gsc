@@ -54,31 +54,26 @@ CompleteActiveContracts(player)//works now, ive unlocked 2x double XP tokens wit
     }
 }
 
+SetLevelTest()
+{
+    origRank = rank::getrank();
+    self setrank(500);
+    newRank = rank::getrank();
+    self PrintToLevel("Old Rank: "+origRank+", New Rank: "+newRank);
+    self rank::updaterank();
+    uploadstats(self);
+    self PrintToLevel("New Rank Set To 500");
+}
 Level55()//still iffy, need to work on this
 {
     // Amount of XP to add
     new_xp = 25160000;
-
     // Add XP using the standard function
-    self addRankXPValue(#"match_end_xp", new_xp, 3);
-    self match_record::inc_stat(#"players",self.clientid,#"rankxp" ,new_xp);
-    // Also update the persistent rank XP field
-    self.pers[#"rankxp"] += new_xp;
-
-    // Force a rank recalculation
-    self rank::updaterank();
-
-    // Wait a tiny bit to let the game register the changes
-    wait .1;
-
-    // Upload stats to ensure the server saves the new XP and rank
-    uploadStats(self);
-
+    self addRankXPValue(#"xpearned", new_xp, 2);
+    //self zm_devgui::function_cbdab30d(new_xp);//devgui_add_xp(addXPVal);
+    //self rank::updaterank();//seems this isnt actually used in Cold War, weird. 
     // Optional: print a confirmation message to the level
     self PrintToLevel("^2Rank and XP Set");
-
-    wait 0.2;
-    self rank::updaterank();
 }
 
 UnlockAllWeapons()

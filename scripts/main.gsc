@@ -4,6 +4,8 @@ init()
     level.player_out_of_playable_area_monitor = undefined;
     if(isDefined(level.player_too_many_weapons_monitor))
             level.player_too_many_weapons_monitor = undefined;
+    if(isDefined(level.rankcap))
+        level.rankcap = undefined;
 }
 
 onPlayerSpawned()

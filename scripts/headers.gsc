@@ -42,6 +42,7 @@
 #include scripts\zm_common\zm_loadout.gsc;
 #include scripts\core_common\match_record.gsc;
 #include scripts\zm_common\zm_laststand.gsc;
+#include scripts\zm_common\zm_devgui.gsc;
 #include scripts\core_common\laststand_shared.gsc;
 #include scripts\zm_common\zm_bgb.gsc;
 #include scripts\zm_common\zm_zonemgr.gsc;
