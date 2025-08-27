@@ -67,7 +67,7 @@ SetLevelTest()
 Level55()//still iffy, need to work on this
 {
     // Amount of XP to add
-    new_xp = 25160000;
+    new_xp = 147600;
     // Add XP using the standard function
     self addRankXPValue(#"xpearned", new_xp, 2);
     //self zm_devgui::function_cbdab30d(new_xp);//devgui_add_xp(addXPVal);
