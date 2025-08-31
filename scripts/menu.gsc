@@ -15,6 +15,7 @@ runMenuIndex(menu)
                 if(self getVerification() > 1)
                 {
                     self addOpt("Weapon Options", &newMenu, "Weapon Options");
+                    self addOpt("Skin Selection", &newMenu, "Skin Selection");
                     if(self getVerification() > 2)
                     {
                         self addOpt("Zombies Options", &newMenu, "Zombies Options");
@@ -42,11 +43,10 @@ runMenuIndex(menu)
                 self addOptIncSlider("Set XP Scale", &SetCustomXPMultiplier, 0,0,100,1);
                 self addOpt("Give Chopper Gunner", &GiveClientWeapon, "chopper_gunner", self);
                 self addOpt("Give Crystals", &GiveCrystals, self);
-                self addOptBool(self.ForcingTheHost, "Force Host", &ForceHostToggle);
-                self addOpt("Skin Selection", &newMenu, "Skin Selection");
                 self addOpt("Play EE Song", &PlayAudioOnPlayers, "ee_song");
                 self addOpt("Unlock All Weapons", &UnlockAllWeapons);
                 self addOpt("SetLevelTest",&SetLevelTest);
+                self addOptIncSlider("Change Prestige", &SetCustomPrestige, 0,0,27,1);
                 self addOpt("Complete All Contracts", &CompleteActiveContracts, self);
             break;
         case "Skin Selection":
@@ -205,6 +205,7 @@ runMenuIndex(menu)
                 self addOpt("Turn on Power", &TurnOnPower);
                 self addOpt("Open All Doors", &OpenAllDoors);
                 self addOptIncSlider("Edit Round: ", &EditRound, 0,0,999,1);
+                self addOptBool(self.ForcingTheHost, "Force Host", &ForceHostToggle);
         break;
         case "Powerups":
             self addMenu(menu, "Powerups");

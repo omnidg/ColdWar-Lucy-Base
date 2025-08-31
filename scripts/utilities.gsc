@@ -113,6 +113,11 @@ PlayerExitLevel()
     ExitLevel(false);
 }
 
+FastRestart()
+{
+    map_restart(false);//dont save dvars on reboot
+}
+
 PrintToLevel(message, allplayers = false)//works fine
 {
     if(allplayers) { foreach (player in level.players) player iPrintLn(message);}

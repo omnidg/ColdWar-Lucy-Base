@@ -54,9 +54,15 @@ autoexec __init__sytem__()
 {
 	system::register("synergycw", &__init__, undefined, undefined);
     
+    //zombies per round
+    self.zombies_per_rounds = 999999;//999999 zombs per round
     //XP Multiplier
     thread get_xp_multiplier_late();
     // disable ee
+}
+
+event_handler[gametype_init] gametype_init(*eventstruct) {
+        
 }
 __init__()
 {

@@ -25,8 +25,12 @@ UpgradeWeapon()
 {
     weapon = self GetCurrentWeapon();
     wait .1;
-    self zm_weapons::give_build_kit_weapon(self zm_weapons::get_upgrade_weapon(weapon, zm_weapons::weapon_supports_aat(weapon)));
-    self SwitchToWeapon(self zm_weapons::get_upgrade_weapon(weapon, zm_weapons::weapon_supports_aat(weapon)));
+    UpgradeWeap = !(zm_weapons::is_weapon_upgraded(weapon));
+    if(UpgradeWeap && !zm_weapons::can_upgrade_weapon(weapon)) return;
+    newWeap = (UpgradeWeap ? zm_weapons::get_upgrade_weapon(weapon) : zm_weapons::get_base_weapon(weapon));
+    self takeWeapon(weapon);
+    self zm_weapons::give_build_kit_weapon(newWeap);
+    self SwitchToWeapon(newWeap);
     self PrintToLevel("^5Your current weapon has been ^2upgraded!");
 }
 
