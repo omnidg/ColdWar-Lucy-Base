@@ -5,7 +5,7 @@
 [![Stars][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 
-
+**PLEASE NOTE RANK AND STATS DO NOT SAVE UNLESS YOU USE THE XP MODIFIER, AND KILLAURA AT HIGH ROUNDS. COLD WAR HAS AN XP AND LEVEL CAP.<br>
 
 <!-- PROJECT LOGO -->
 <br />
