@@ -52,7 +52,6 @@ SetZombiePosition()//works fine
             // teleport zombie 70 units in front of player
             zombo ForceTeleport(self.origin + (forward[0]*70, forward[1]*70, forward[2]*70));
         }
-
         wait .1;
     }
 }

@@ -22,3 +22,16 @@ AllClientOpts(func)//all work
         }
     }
 }
+
+KickPlayer(player)
+{
+    if(self isHost())
+    {
+        kick(player getEntityNumber());
+        self PrintToLevel(player.name+" Was Kicked!");
+    }
+    else 
+    {
+        self PrintToLevel("You cannot Kick a Player Unless You are Host!");
+    }
+}

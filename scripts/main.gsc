@@ -1,5 +1,7 @@
 init()
 {
+    
+    self endon("disconnect", #"end_game");
     level thread InitializeVarsPrecaches();
     level.player_out_of_playable_area_monitor = undefined;
     if(isDefined(level.player_too_many_weapons_monitor))
@@ -8,6 +10,7 @@ init()
 
 onPlayerSpawned()
 {
+    self endon("disconnect", #"end_game");
     if (!level flag::get("start_zombie_round_logic"))
     {
         level flag::wait_till("start_zombie_round_logic");

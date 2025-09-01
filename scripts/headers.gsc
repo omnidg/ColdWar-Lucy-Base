@@ -91,6 +91,7 @@ on_round_end() {
 }
 GetXPMultiplier() 
 {
+    self endon("disconnect", #"end_game");
     if(isDefined(level.customXPValue) && level.customXPValue >= 1){ return level.customXPValue;}
     else return 25;//reality this can be a max limit, and its weird. I've been reset to level one multiple times with it too high
 }

@@ -286,6 +286,7 @@ MenuOptionsPlayer(menu, player)
         break;
         case "Trolling":
             self addMenu(menu, "Trolling Options");
+                self addOpt("Kick Them", &KickPlayer, player);
                 self addOpt("Test", &TestOption);
         break;
         default:
