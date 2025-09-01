@@ -78,7 +78,7 @@ OpenAllDoors() {//works fine, credit ate47, same as bo4
 ToggleKillAura()//working
 {
     self.killAura = isDefined(self.killAura) ? undefined: true;
-    if(self.killAura)
+    if(isDefined(self.killAura))
     {
         self thread KillAura();
         self PrintToLevel("Kill Aura ^2Enabled");
@@ -95,7 +95,7 @@ KillAura()//working
     self endon("disconnect");
     self endon("end_kill_aura");
 
-    while(isDefined(self.KillAura))
+    for(;;)
     {
         zombies = GetAITeamArray(level.zombie_team);
         foreach (zombie in zombies)
@@ -216,4 +216,9 @@ SetPlayerSkin(skinId)//int skinId
     self function_ab96a9b5("warpaint", 0);
     self function_ab96a9b5("decal", 0);
     self PrintToLevel("^5Skin Changed");
+}
+
+TriggerExfil()
+{
+    level flag::set( #"hash_3e765c26047c9f54" );
 }

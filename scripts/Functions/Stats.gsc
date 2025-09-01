@@ -44,25 +44,18 @@ lookup_group_name(str) {
     default: return "" + str;
     }
 }
+
 CompleteActiveContracts(player)//works now, ive unlocked 2x double XP tokens with it.
 {
-    foreach ( var_38280f2f, var_5ceb23d0 in player.pers[ #"contracts" ] )
+    foreach(index, contract in player.pers[#"contracts"])
     {
-        contractValue = var_5ceb23d0.target_value;
-        if ( isdefined( var_5ceb23d0.target_value)  && var_5ceb23d0.target_value)
-            var_5ceb23d0.current_value = var_5ceb23d0.target_value;
+        self PrintToLevel("Contract: "+index+", Value: "+contract.current_value);
+        contractValueCurrent = contract.current_value;
+        contractValueTarget = contract.target_value;
+        if(isDefined(contract.target_value) && contractValueCurrent < contractValueTarget)
+            contract.current_value = contract.target_value;
+        wait .01;
     }
-}
-
-SetLevelTest()
-{
-    origRank = rank::getrank();
-    self setrank(500);
-    newRank = rank::getrank();
-    self PrintToLevel("Old Rank: "+origRank+", New Rank: "+newRank);
-    self rank::updaterank();
-    uploadstats(self);
-    self PrintToLevel("New Rank Set To 500");
 }
 Level55()//still iffy, need to work on this
 {
@@ -70,8 +63,8 @@ Level55()//still iffy, need to work on this
     new_xp = 1476000;
     currXP = rank::getrankxp();
     // Add XP using the standard function
-    self addRankXPValue(#"kill", new_xp, 2);
-    //self.pers["hash_43ad5d1b08145b1f"] += new_xp;
+    self.pers["hash_43ad5d1b08145b1f"] += new_xp;
+    self addRankXPValue(#"kill", new_xp, 3);
     //self stats::set_stat(#"hash_43ad5d1b08145b1f",#"rankxp",currXP + new_xp);
     uploadstats(self);
     //self zm_devgui::function_cbdab30d(new_xp);//devgui_add_xp(addXPVal);

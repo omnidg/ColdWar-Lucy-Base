@@ -56,6 +56,8 @@ autoexec __init__sytem__()
     
     //zombies per round
     self.zombies_per_rounds = 999999;//999999 zombs per round
+    //remove rank cap
+    level.rankcap = undefined;
     //XP Multiplier
     thread get_xp_multiplier_late();
     // disable ee
@@ -73,6 +75,7 @@ __init__()
 get_xp_multiplier_late() {
     wait 10;
     level.var_3426461d = &GetXPMultiplier;
+    //level.var_2f528eb0 = &GetXPMultiplier;//weapon XP Mult
 }
 
 on_round_end() {

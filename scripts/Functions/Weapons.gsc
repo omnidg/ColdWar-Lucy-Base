@@ -21,6 +21,14 @@ GiveClientWeapon(WeaponName, player)//needs work, as some things don't work well
     
 }
 
+GiveKillstreak(streakName)
+{
+    weapon = getweapon(ishash(streakName) ? streakName : hash(streakName));
+    if(!isDefined(weapon)) return;
+    self giveweapon(weapon);
+    self PrintToLevel("You just got a "+weapon);
+}
+
 UpgradeWeapon()
 {
     weapon = self GetCurrentWeapon();
@@ -58,7 +66,7 @@ magicbullets()
         {
             self waittill(#"weapon_fired");
             MagicBullet(getWeapon(self.bulletEffectType), self getPlayerCameraPos(), BulletTrace(self getPlayerCameraPos(), self getPlayerCameraPos() + anglesToForward(self getPlayerAngles())  * 100000, false, self)["position"], self);
-            wait .25;
+            wait .1;
         }
     }
     else 
@@ -74,7 +82,7 @@ changeBulletType(val)
     {
         switch(val)
         {
-            case 0: self.bulletEffectType=  "minigun"; self PrintToLevel("Bullet Effect Set To: Minigun"); break;
+            case 0: self.bulletEffectType=  "chopper_gunner"; self PrintToLevel("Bullet Effect Set To: Chopper Gunner"); break;
             case 1: self.bulletEffectType = "special_ballisticknife_t9_dw_upgraded"; self PrintToLevel("Bullet Effect Set To: Ballistic Knife"); break;
             case 2: self.bulletEffectType = "launcher_standard_t9_upgraded"; self PrintToLevel("Bullet Effect Set To: Rocket Launcher"); break;
             case 3: self.bulletEffectType = "ray_gun"; self PrintToLevel("Bullet Effect Set To: Ray Gun"); break;

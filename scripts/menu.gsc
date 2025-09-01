@@ -40,12 +40,12 @@ runMenuIndex(menu)
         case "Host Menu":
             self addMenu(menu, "Host Menu");
                 self addOpt("Test Add XP", &Level55);
+                self addOpt("Fast Restart", &FastRestart);
                 self addOptIncSlider("Set XP Scale", &SetCustomXPMultiplier, 0,0,100,1);
-                self addOpt("Give Chopper Gunner", &GiveClientWeapon, "chopper_gunner", self);
+                self addOpt("Give Chopper Gunner", &GiveKillstreak, "chopper_gunner");
                 self addOpt("Give Crystals", &GiveCrystals, self);
                 self addOpt("Play EE Song", &PlayAudioOnPlayers, "ee_song");
                 self addOpt("Unlock All Weapons", &UnlockAllWeapons);
-                self addOpt("SetLevelTest",&SetLevelTest);
                 self addOptIncSlider("Change Prestige", &SetCustomPrestige, 0,0,27,1);
                 self addOpt("Complete All Contracts", &CompleteActiveContracts, self);
             break;
@@ -206,6 +206,7 @@ runMenuIndex(menu)
                 self addOpt("Open All Doors", &OpenAllDoors);
                 self addOptIncSlider("Edit Round: ", &EditRound, 0,0,999,1);
                 self addOptBool(self.ForcingTheHost, "Force Host", &ForceHostToggle);
+                self addOpt("Trigger Exfil", &TriggerExfil);
         break;
         case "Powerups":
             self addMenu(menu, "Powerups");
