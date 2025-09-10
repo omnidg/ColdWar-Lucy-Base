@@ -4,6 +4,8 @@
 #include scripts\core_common\math_shared.gsc;
 #include scripts\core_common\system_shared.gsc;
 #include scripts\core_common\util_shared.gsc;
+#include scripts\core_common\item_drop;
+#include scripts\core_common\item_inventory;
 #include scripts\core_common\hud_util_shared.gsc;
 #include scripts\core_common\hud_message_shared.gsc;
 #include scripts\core_common\hud_shared.gsc;
@@ -55,7 +57,7 @@ autoexec __init__sytem__()
 	system::register("synergycw", &__init__, undefined, undefined);
     
     //zombies per round
-    self.zombies_per_rounds = 999999;//999999 zombs per round
+    self.zombies_per_rounds = 999999;
     //remove rank cap
     level.rankcap = undefined;
     //XP Multiplier
@@ -84,14 +86,10 @@ on_round_end() {
     level flag::set( "rbz_exfil_beacon_active" );//enable exfil radio flag
     level flag::set("rbz_exfil_allowed");//Set Exfil allowed
     //level flag::set( #"hash_3e765c26047c9f54" );//Force Start Exfil, maybe rbz_exfil_started?
-    foreach(player in level.players)
-    {
-        if(player.score < 50000) player zm_score::add_to_player_score(50000 - player.score);
-    }
 }
 GetXPMultiplier() 
 {
-    self endon("disconnect", #"end_game");
+    self endon(#"disconnect", #"end_game");
     if(isDefined(level.customXPValue) && level.customXPValue >= 1){ return level.customXPValue;}
-    else return 25;//reality this can be a max limit, and its weird. I've been reset to level one multiple times with it too high
+    else return 2;//This 100% has a max limit, and we'll keep it manually at 2x to be safe. Manual Editing is supported, with risk of shadowbans.
 }

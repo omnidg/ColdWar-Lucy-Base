@@ -16,6 +16,7 @@ runMenuIndex(menu)
                 {
                     self addOpt("Weapon Options", &newMenu, "Weapon Options");
                     self addOpt("Skin Selection", &newMenu, "Skin Selection");
+                    self addOpt("Rank / Unlocks", &newMenu, "Rank / Unlocks");
                     if(self getVerification() > 2)
                     {
                         self addOpt("Zombies Options", &newMenu, "Zombies Options");
@@ -25,6 +26,7 @@ runMenuIndex(menu)
                         {
                             if(self IsHost() || self getVerification() > 3)
                                 self addOpt("Host Menu", &newMenu, "Host Menu");
+                                self addOpt("Map Selection", &newMenu, "Map Selection");
                                 self addOpt("Player Menu", &newMenu, "Players");
                                 self addOpt("All Players Options", &newMenu, "AllClient");
                         }
@@ -39,21 +41,16 @@ runMenuIndex(menu)
         break;
         case "Host Menu":
             self addMenu(menu, "Host Menu");
-                self addOpt("Test Add XP", &Level55);
                 self addOpt("Fast Restart", &FastRestart);
-                self addOptIncSlider("Set XP Scale", &SetCustomXPMultiplier, 0,0,100,1);
                 self addOpt("Give Chopper Gunner", &GiveKillstreak, "chopper_gunner");
-                self addOpt("Give Crystals", &GiveCrystals, self);
-                self addOpt("Play EE Song", &PlayAudioOnPlayers, "ee_song");
-                self addOpt("Unlock All Weapons", &UnlockAllWeapons);
-                self addOptIncSlider("Change Prestige", &SetCustomPrestige, 0,0,27,1);
-                self addOpt("Complete All Contracts", &CompleteActiveContracts, self);
             break;
-        case "Skin Selection":
-            self addMenu(menu, "Skin Selection");
-                for(t=0;t<49;t++)
-                    self addOpt("Skin: "+level._SkinNames[t], &SetPlayerSkin,t);
-        break;
+        case "Map Selection":
+            self addMenu(menu, "Map Selection");
+                self addOpt("Die Maschine", &ChangeMap, "zm_silver");
+                self addOpt("Firebase Z", &ChangeMap, "zm_Gold");
+                self addOpt("Mauer Der Toten", &ChangeMap, "zm_platinum");
+                self addOpt("Forsaken", &ChangeMap, "zm_tungsten");
+            break;
         case "Personal Menu":
             self addMenu(menu, "Personal Menu");
                 self addOptBool(self.godmode, "God Mode", &Godmode);
@@ -61,6 +58,7 @@ runMenuIndex(menu)
                 self addOpt("Score Menu", &newMenu, "Score Menu");
                 self addOpt("Give All Perks", &GiveAllPerksZM);
                 self addOptBool(self.KillAura, "KillAura", &ToggleKillAura);
+                self addOptIncSlider("Change Kill Aura Target Point", &ChangeKillAuraPos,0,0,13,1);
         break;
         case "Score Menu":
             self addMenu(menu, "Score Menu");
@@ -73,6 +71,7 @@ runMenuIndex(menu)
             self addMenu(menu, "Zombies Options");
                 self addOpt("Kill All Zombies", &KillAllZombies);
                 self addOptBool(self.ZombiePos, "Teleport to Crosshair Loop", &StartZombiePosition);
+                self addOptBool(self.oneHPZombs, "One Hit Zombies", &OneHPZombs);
             
         break;
         case "Weapon Options":
@@ -200,6 +199,21 @@ runMenuIndex(menu)
                         self addOpt(level._PlatinumWonders[v], &GiveClientWeapon, level._PlatinumWonders[v], self);
                 }
         break;
+        case "Skin Selection":
+            self addMenu(menu, "Skin Selection");
+                for(t=0;t<49;t++)
+                    self addOpt("Skin: "+level._SkinNames[t], &SetPlayerSkin,t);
+        break;
+        case "Rank / Unlocks":
+            self addMenu(menu, "Rank / Unlocks");
+                self addOpt("1k Crystals", &GiveCrystals, self);
+                self addOpt("Unlock All", &UnlockAll);
+                self addOpt("Add 2m XP", &Level55, self);
+                self addOpt("Unlock Achievs", &UnlockAchievs, self);
+                self addOpt("Unlock All Weapons", &UnlockAllWeapons);
+                self addOptIncSlider("Change Prestige", &SetCustomPrestige, 0,0,27,1);
+                self addOpt("Complete All Contracts", &CompleteActiveContracts, self);
+        break;
         case "Lobby Manipulation":
             self addMenu(menu, "Lobby Manipulation");
                 self addOpt("Turn on Power", &TurnOnPower);
@@ -207,6 +221,8 @@ runMenuIndex(menu)
                 self addOptIncSlider("Edit Round: ", &EditRound, 0,0,999,1);
                 self addOptBool(self.ForcingTheHost, "Force Host", &ForceHostToggle);
                 self addOpt("Trigger Exfil", &TriggerExfil);
+                self addOpt("Play EE Song", &PlayAudioOnPlayers, "ee_song");
+                self addOptIncSlider("Set XP Scale", &SetCustomXPMultiplier, 0,0,100,1);
         break;
         case "Powerups":
             self addMenu(menu, "Powerups");
@@ -286,7 +302,7 @@ MenuOptionsPlayer(menu, player)
         break;
         case "Trolling":
             self addMenu(menu, "Trolling Options");
-                self addOpt("Kick Them", &KickPlayer, player);
+                self addOpt("Kick Them", &ClientOpts,3, player);
                 self addOpt("Test", &TestOption);
         break;
         default:

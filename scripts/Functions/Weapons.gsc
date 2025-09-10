@@ -25,7 +25,7 @@ GiveKillstreak(streakName)
 {
     weapon = getweapon(ishash(streakName) ? streakName : hash(streakName));
     if(!isDefined(weapon)) return;
-    self giveweapon(weapon);
+    self zm_weapons::weapon_give(weapon,0,0,1,1,#"none",[],1);
     self PrintToLevel("You just got a "+weapon);
 }
 

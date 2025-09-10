@@ -44,34 +44,22 @@ TurnOnPower()
     self PrintToLevel("^5Power ^2Enabled");
 }
 
-OpenAllDoors() {//works fine, credit ate47, same as bo4
-    setdvar(#"zombie_unlock_all", 1);
+OpenAllDoors() {//changed, cleaner now
     players = getplayers();
-    zombie_doors = getentarray("zombie_door", "targetname");
-    for (i = 0; i < zombie_doors.size; i++) {
-        if (!is_true(zombie_doors[i].has_been_opened)) {
+    types = array("zombie_door","zombie_airlock_buy","zombie_debris");
+    foreach(type in types)
+    {
+        zombie_doors  = getEntArray(type,"targetname");
+        for(i=0;i<zombie_doors.size;i++)
+        {
             zombie_doors[i] notify(#"trigger", {#activator:players[0]});
+            if(is_true(zombie_doors[i].power_door_ignore_flag_wait)){
+                zombie_doors[i] notify(#"power_on");
+            }
+            waitframe(1);
         }
-        if (is_true(zombie_doors[i].power_door_ignore_flag_wait)) {
-            zombie_doors[i] notify(#"power_on");
-        }
-        waitframe(1);
     }
-    zombie_airlock_doors = getentarray("zombie_airlock_buy", "targetname");
-    for (i = 0; i < zombie_airlock_doors.size; i++) {
-        zombie_airlock_doors[i] notify(#"trigger", {#activator:players[0]});
-        waitframe(1);
-    }
-    zombie_debris = getentarray("zombie_debris", "targetname");
-    for (i = 0; i < zombie_debris.size; i++) {
-        if (isdefined(zombie_debris[i])) {
-            zombie_debris[i] notify(#"trigger", {#activator:players[0]});
-        }
-        waitframe(1);
-    }
-    level notify(#"open_sesame");
     wait(1);
-    setdvar(#"zombie_unlock_all", 0);
     self PrintToLevel("^5Doors ^2Opened");
 }
 
@@ -92,17 +80,18 @@ ToggleKillAura()//working
 
 KillAura()//working
 {
-    self endon("disconnect");
+    self endon("disconnect", "end_game");
     self endon("end_kill_aura");
 
     for(;;)
     {
+        if(!isDefined(self.KillAuraPos)) self.KillAuraPos = "torso_mid";
         zombies = GetAITeamArray(level.zombie_team);
         foreach (zombie in zombies)
         {
             if(distanceSquared(zombie.origin, self.origin) < 150 * 150)
             {
-                zombie dodamage(zombie.health+1,self.origin,self,undefined,"MOD_EXPLOSIVE");
+                zombie DoDamage( zombie.health+1, self.origin, self, undefined, self.KillAuraPos ,"MOD_EXPLOSIVE");
                 playfx( "zm_weapons/fx9_aat_bul_impact_explosive", zombie.origin+ (0,0,30) );
             }
         }
@@ -110,6 +99,25 @@ KillAura()//working
     }
 }
 
+ChangeKillAuraPos(which)
+{
+    if(!isDefined(self.killAura)){ self PrintToLevel("Error, Please Enable Kill Aura"); return;}
+    switch(which){
+        case 1: self.KillAuraPos="head";self PrintToLevel("KillAura Pos Set To: ^2HEAD"); break;
+        case 2: self.KillAuraPos="torso_upper";self PrintToLevel("KillAura Pos Set To: ^2Upper Torso"); break;
+        case 3: self.KillAuraPos="torso_lower";self PrintToLevel("KillAura Pos Set To: ^2Lower Torso"); break;
+        case 4: self.KillAuraPos="right_arm_lower";self PrintToLevel("KillAura Pos Set To: ^2Lower Right Arm"); break;
+        case 5: self.KillAuraPos="right_arm_upper";self PrintToLevel("KillAura Pos Set To: ^2Upper Right Arm"); break;
+        case 6: self.KillAuraPos="right_hand";self PrintToLevel("KillAura Pos Set To: ^2Right Hand"); break;
+        case 7: self.KillAuraPos="left_arm_lower";self PrintToLevel("KillAura Pos Set To: ^2Lower Left Arm"); break;
+        case 8: self.KillAuraPos="left_arm_upper";self PrintToLevel("KillAura Pos Set To: ^2Upper Left Arm"); break;
+        case 9: self.KillAuraPos="left_hand";self PrintToLevel("KillAura Pos Set To: ^2Left Hand"); break;
+        case 10: self.KillAuraPos="left_leg_upper";self PrintToLevel("KillAura Pos Set To: ^2Upper Left Leg"); break;
+        case 11: self.KillAuraPos="left_leg_lower";self PrintToLevel("KillAura Pos Set To: ^2Lower Left Leg"); break;
+        case 12: self.KillAuraPos="right_leg_upper";self PrintToLevel("KillAura Pos Set To: ^2Upper Right Leg"); break;
+        case 13: self.KillAuraPos="right_leg_lower";self PrintToLevel("KillAura Pos Set To: ^2Lower Right Leg"); break;
+    }
+}
 ChangeMap(Mapname)
 {
     self PrintToLevel("Map Changing To "+Mapname);
@@ -122,6 +130,8 @@ ChangeMap(Mapname)
     setDvar("ui_previewmap", Mapname);
     setDvar("ui_showmap", Mapname);
     map(Mapname);
+    wait .1;
+    switchmap_switch();
 }
 
 
@@ -220,5 +230,5 @@ SetPlayerSkin(skinId)//int skinId
 
 TriggerExfil()
 {
-    level flag::set( #"hash_3e765c26047c9f54" );
+    level flag::set(#"hash_3e765c26047c9f54" );
 }

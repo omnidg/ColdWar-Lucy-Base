@@ -55,3 +55,23 @@ SetZombiePosition()//works fine
         wait .1;
     }
 }
+
+OneHPZombs()
+{
+    self.oneHPZombs = isDefined(self.oneHPZombs) ? undefined : true;
+    if(isDefined(Self.oneHPZombs)){
+        self PrintToLevel("^5One HP Zombies ^2Enabled");
+    }
+    else { 
+        self PrintToLevel("^5One HP Zombies ^2Disabled");
+    }
+    while(isDefined(self.oneHPZombs))
+    {
+        foreach (zombo in GetAiTeamArray(level.zombie_team))
+        {
+            if(isDefined(zombo)) zombo.health = 1;
+            wait .1;
+        }
+        wait .1;
+    }
+}
