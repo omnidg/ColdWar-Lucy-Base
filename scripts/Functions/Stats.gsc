@@ -235,7 +235,7 @@ GiveCrystals(player)
 
             wait 1;
         }
-
+        uploadstats(player);
         wait 2;
     }
     self iPrintLn("^2Crystals unlocked for ^5" + player.name);
@@ -261,16 +261,6 @@ Level55(player)//still iffy, need to work on this
     //self zm_devgui::function_cbdab30d(new_xp);//devgui_add_xp(addXPVal);
     // Optional: print a confirmation message to the level
     player PrintToLevel("^2Rank and XP Set");
-}
-
-//stats::function_e24eec31(getweapon(weapon),stat.name,stat.value);
-
-grab_stats_from_table(player)
-{
-    player endon("disconnect");
-    player.isUnlockingAll = true;
-    player PrintToLevel("^5Unlock All ^2Started");
-
 }
 
 get_weapon_max_xp(weapon) {
@@ -327,6 +317,7 @@ UnlockDarkAether(player) {
         #"ar_slowfire_t9",
         #"ar_slowhandling_t9",
         #"ar_standard_t9",
+        #"ar_soviet_t9",
         #"knife_loadout",
         #"launcher_freefire_t9",
         #"launcher_standard_t9",
@@ -342,6 +333,7 @@ UnlockDarkAether(player) {
         #"melee_mace_t9",
         #"melee_machete_t9",
         #"melee_sai_t9_dw",
+        #"melee_scythe_t9",
         #"melee_sledgehammer_t9",
         #"melee_wakizashi_t9",
         #"pistol_burst_t9",
@@ -355,6 +347,8 @@ UnlockDarkAether(player) {
         #"shotgun_semiauto_t9",
         #"smg_accurate_t9",
         #"smg_burst_t9",
+        #"smg_cqb_t9",
+        #"smg_flechette_t9",
         #"smg_capacity_t9",
         #"smg_fastfire_t9",
         #"smg_handling_t9",
