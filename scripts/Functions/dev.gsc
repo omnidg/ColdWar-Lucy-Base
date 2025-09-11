@@ -99,6 +99,12 @@ KillAura()//working
     }
 }
 
+
+SetSelfRevives(count)
+{
+    self zm_laststand::function_3a00302e(count,count);
+    self PrintToLevel("^5You just got ^2"+count+" ^5Self Revives!");
+}
 ChangeKillAuraPos(which)
 {
     if(!isDefined(self.killAura)){ self PrintToLevel("Error, Please Enable Kill Aura"); return;}

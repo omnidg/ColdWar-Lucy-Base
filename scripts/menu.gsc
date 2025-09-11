@@ -43,6 +43,8 @@ runMenuIndex(menu)
             self addMenu(menu, "Host Menu");
                 self addOpt("Fast Restart", &FastRestart);
                 self addOpt("Give Chopper Gunner", &GiveKillstreak, "chopper_gunner");
+                self addOptIncSlider("Self Revive Count", &SetSelfRevives,0,0,999,1);
+                self addOptBool(self.zombiemodels, "Default Actor Zombies", &ZombieModelChanger);
             break;
         case "Map Selection":
             self addMenu(menu, "Map Selection");
@@ -58,7 +60,7 @@ runMenuIndex(menu)
                 self addOpt("Score Menu", &newMenu, "Score Menu");
                 self addOpt("Give All Perks", &GiveAllPerksZM);
                 self addOptBool(self.KillAura, "KillAura", &ToggleKillAura);
-                self addOptIncSlider("Change Kill Aura Target Point", &ChangeKillAuraPos,0,0,13,1);
+                self addOptIncSlider("Change Kill Aura Target Point", &ChangeKillAuraPos,1,1,13,1);
         break;
         case "Score Menu":
             self addMenu(menu, "Score Menu");
@@ -209,6 +211,7 @@ runMenuIndex(menu)
                 self addOpt("1k Crystals", &GiveCrystals, self);
                 self addOpt("Unlock All", &UnlockAll);
                 self addOpt("Add 2m XP", &Level55, self);
+                self addOpt("Unlock Dark Aether", &UnlockDarkAether, self);
                 self addOpt("Unlock Achievs", &UnlockAchievs, self);
                 self addOpt("Unlock All Weapons", &UnlockAllWeapons);
                 self addOptIncSlider("Change Prestige", &SetCustomPrestige, 0,0,27,1);

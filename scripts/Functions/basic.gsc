@@ -29,14 +29,14 @@ EditPlayerScore(val, player, which)//works fine
 {
     switch (which)
     {
-        case 1: self zm_score::add_to_player_score(400000000);self.var_595a11bc = 9999; self.var_72d64cfd = 9999;self clientfield::set_player_uimodel("hudItems.scrap", self.var_595a11bc);self clientfield::set_player_uimodel("hudItems.rareScrap", self.var_72d64cfd); self PrintToLevel("Score Maxed Out");break;
+        case 1: self zm_score::add_to_player_score(400000000);self.var_595a11bc = 9999; self.var_72d64cfd = 9999;self clientfield::set_player_uimodel("hudItems.scrap", self.var_595a11bc);self clientfield::set_player_uimodel("hudItems.rareScrap", self.var_72d64cfd); self PrintToLevel("^5Score Maxed Out");break;
         case 2: self zm_score::minus_to_player_score(self.score); oldcommon = self.var_595a11bc; oldrare = self.var_72d64cfd; self.var_595a11bc = 0; self.var_72d64cfd = 0;self clientfield::set_player_uimodel("hudItems.scrap", self.var_595a11bc); self clientfield::set_player_uimodel("hudItems.rareScrap", self.var_72d64cfd); self PrintToLevel("Score Set To ^10"); break;
-        case 3: self zm_score::add_to_player_score(val); self.var_595a11bc += val; self.var_72d64cfd += val; self PrintToLevel("Score Set To: ^2"+val); break;
-        case 4: self zm_score::minus_to_player_score(val); if(self.var_595a11bc >= val) self.var_595a11bc -= val; if(self.var_72d64cfd >= val)self.var_72d64cfd -= val; self PrintToLevel("Score Set To: ^2"+val); break;
+        case 3: self zm_score::add_to_player_score(val); self.var_595a11bc += val; self.var_72d64cfd += val; self PrintToLevel("^5Added ^2"+val+" ^5To Score"); break;
+        case 4: self zm_score::minus_to_player_score(val); if(self.var_595a11bc >= val) self.var_595a11bc -= val; if(self.var_72d64cfd >= val)self.var_72d64cfd -= val; self PrintToLevel("^5Taken ^2"+val+" ^5from Score"); break;
     }
 }
 
-UnlimitedAmmo()//works, need to look at gadgets
+UnlimitedAmmo()
 {
     self.UnlimitedAmmo = isDefined(self.UnlimitedAmmo) ? undefined : true;
     if(isDefined(self.UnlimitedAmmo))
@@ -46,18 +46,20 @@ UnlimitedAmmo()//works, need to look at gadgets
 
         while(isDefined(self.UnlimitedAmmo))
         {
-            weapon  = self GetCurrentWeapon();
-            offhand = self GetCurrentOffhand();
-            if(!(!isdefined(weapon) || weapon === level.weaponNone || !isdefined(weapon.clipSize) || weapon.clipSize < 1))
+            weapons = self getweaponslist();
+            foreach(weapon in weapons)
             {
-                self SetWeaponAmmoClip(weapon, 1337);
-                self givemaxammo(weapon);
-                self givemaxammo(offhand);
-                self gadgetpowerset(2, 100);
-                self gadgetpowerset(1, 100);
-                self gadgetpowerset(0, 100);
+                if(weapon.isgadget){
+                    slot = self gadgetgetslot(weapon);
+                    if(self gadgetpowerget(slot) < 100 && !self getcurrentweapon().isgadget || self gadgetpowerget(slot) < 10){
+                        self gadgetpowerset(slot,100);
+                    }
+                }
+                else{
+                    self givemaxammo(weapon);
+                    self setweaponammoclip(weapon,weapon.clipsize);
+                }
             }
-            if(isdefined(offhand) && offhand !== level.weaponNone) self givemaxammo(offhand);
             wait .05;
         }
     }

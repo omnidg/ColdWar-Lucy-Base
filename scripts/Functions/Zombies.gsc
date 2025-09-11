@@ -75,3 +75,19 @@ OneHPZombs()
         wait .1;
     }
 }
+
+ZombieModelChanger()
+{
+    self.zombiemodels = isDefined(self.zombiemodels) ? undefined : true;
+    self endon("end_zombie_model","end_game","game_ended");
+    while(isDefined(self.zombiemodels))
+    {
+        foreach (zombie in getaiteamarray(level.zombie_team))
+        {
+            if(!isDefined(zombie)) return;
+            zombie setModel("defaultactor");
+            wait .1;
+        }
+        wait .1;
+    }
+}
