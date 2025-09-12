@@ -52,7 +52,7 @@ InitializeVarsPrecaches()
     level._MeleeNames = StrTok("Knife,Loadout Knife,Sledgehammer,Wakizashi,Shovel,Machete,Baseball Bat,Sai DW,Hammer and Sickle,Battleaxe,Cane,Mace,Scythe", ",");
     level._pistolweaps = StrTok("pistol_semiauto_t9,pistol_burst_t9,pistol_revolver_t9,pistol_fullauto_t9,pistol_shotgun_t9,pistol_semiauto_t9_dw,pistol_revolver_t9_dw,pistol_burst_t9_dw,pistol_fullauto_t9_dw,pistol_shotgun_t9_dw", ",");
     level._PistolNames = StrTok("1911,Diamatti,Magnum,AMP63,Marshal,1911 DW,Magnum DW,Diamatti DW,AMP DW,Marshal DW", ",");
-    level._AllWonders = StrTok("claymore,cymbal_monkey,ray_gun_mk2,zombiemelee,hash_2eaef6ae3b6fee65,ray_gun",",");
+    level._AllWonders = StrTok("special_nailgun_t9,special_grenadelauncher_t9,special_crossbow_t9,special_ballisticknife_t9_dw,claymore,cymbal_monkey,ray_gun_mk2,zombiemelee,hash_2eaef6ae3b6fee65,ray_gun",",");
     level._SilverWonders = StrTok("ww_ieu_acid_t9,ww_ieu_gas_t9,ww_ieu_plasma_t9,ww_ieu_electric_t9,ww_ieu_shockwave_t9",",");
     level._PlatinumWonders = StrTok("hash_2e725023a28bcc4e,ww_mega_barrel_fullauto_blazer_beam_t9",",");
     level._SkinNames = StrTok("Invisible,Adler,Portnova,Garcia,Baker,Sims,Hunter,Vargas,Stone,Song,Powers,Baker (2),Zeyna,Wolf,Beck,Knight,Antonov,Park,Stitch,Bulldozer,CDL,CDL (2),Woods,Rivas,Naga,Maxis,John Doe (BO4),Jane Doe (BO4),Nude (M),Nude (F),Wraith,Baker (3),Park (2),Price,John McClane,Rambo,Weaver,Jackal,Salah,Kitsune,Stryker,Arthur Kingsley,Hudson,Mason,Scream,Fuze,Zombies (F),Zombies (M),Lazar",",");
