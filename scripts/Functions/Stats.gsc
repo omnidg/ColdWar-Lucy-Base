@@ -245,19 +245,7 @@ Level55(player)//still iffy, need to work on this
 {
     currXP = rank::getrankxp();
     // Amount of XP to add
-    new_xp = 2000000;
-    increment = 10000;
-    newValue = currXP;
-    newValue+=new_xp;
-    while(currXP < newValue)
-    {
-        currXP += increment;
-        player addrankxpvalue(#"kill",increment,3);
-        player stats::inc_stat(#"playerstatslist",#"rankxp",increment);
-        player rank::updaterank();
-        wait .1;
-    }
-    uploadstats(player);
+    player.var_8d41c907+=2000000;
     //self zm_devgui::function_cbdab30d(new_xp);//devgui_add_xp(addXPVal);
     // Optional: print a confirmation message to the level
     player PrintToLevel("^2Rank and XP Set");
@@ -305,79 +293,36 @@ UnlockAchievs(player)
     player PrintToLevel("^5All Achievements ^2Unlocked");
 }
 
+MaxWeaponLevels(player)
+{
+    idx=0;
+    foreach(gun in level.zombie_weapons)
+    {
+        idx++;
+        self PrintToLevel("Weapon: "+gun.weapon.name+", ("+idx+"/"+level.zombie_weapons.size+")");
+        player stats::set_stat(#"hash_60e21f66eb3a1f18", gun.weapon.name, #"xp", 665535);
+        player stats::set_stat(#"hash_60e21f66eb3a1f18", gun.weapon.name, #"plevel", 2);
+        
+        wait 0.01;
+    }    
+    Attachments = Array(#"reflex", #"elo", #"acog", #"dualoptic", #"mms", #"holo");
+    foreach(attachment in Attachments)
+    {
+        player stats::set_stat(#"hash_2ea32bf38705dfdc", attachment, #"kills", #"StatValue", 5000);
+        player stats::set_stat(#"hash_2ea32bf38705dfdc", attachment, #"kills", #"ChallengeValue", 5000);
+        wait 0.01;
+    }
+    wait 0.1;
+    UploadStats(player);
+    player PrinttoLevel("^5Weapon Levels ^2Maxed");
+}
 UnlockDarkAether(player) {
-    weapons = array(
-        #"ar_accurate_t9",
-        #"ar_british_t9",
-        #"ar_damage_t9",
-        #"ar_fastfire_t9",
-        #"ar_fasthandling_t9",
-        #"ar_mobility_t9",
-        #"ar_season6_t9",
-        #"ar_slowfire_t9",
-        #"ar_slowhandling_t9",
-        #"ar_standard_t9",
-        #"ar_soviet_t9",
-        #"knife_loadout",
-        #"launcher_freefire_t9",
-        #"launcher_standard_t9",
-        #"lmg_accurate_t9",
-        #"lmg_fastfire_t9",
-        #"lmg_light_t9",
-        #"lmg_slowfire_t9",
-        #"melee_baseballbat_t9",
-        #"melee_battleaxe_t9",
-        #"melee_cane_t9",
-        #"melee_coldwar_t9_dw",
-        #"melee_etool_t9",
-        #"melee_mace_t9",
-        #"melee_machete_t9",
-        #"melee_sai_t9_dw",
-        #"melee_scythe_t9",
-        #"melee_sledgehammer_t9",
-        #"melee_wakizashi_t9",
-        #"pistol_burst_t9",
-        #"pistol_fullauto_t9",
-        #"pistol_revolver_t9",
-        #"pistol_semiauto_t9",
-        #"pistol_shotgun_t9",
-        #"shotgun_fullauto_t9",
-        #"shotgun_leveraction_t9",
-        #"shotgun_pump_t9",
-        #"shotgun_semiauto_t9",
-        #"smg_accurate_t9",
-        #"smg_burst_t9",
-        #"smg_cqb_t9",
-        #"smg_flechette_t9",
-        #"smg_capacity_t9",
-        #"smg_fastfire_t9",
-        #"smg_handling_t9",
-        #"smg_heavy_t9",
-        #"smg_season6_t9",
-        #"smg_semiauto_t9",
-        #"smg_spray_t9",
-        #"smg_standard_t9",
-        #"sniper_accurate_t9",
-        #"sniper_cannon_t9",
-        #"sniper_powersemi_t9",
-        #"sniper_quickscope_t9",
-        #"sniper_standard_t9",
-        #"special_ballisticknife_t9_dw",
-        #"special_crossbow_t9",
-        #"special_grenadelauncher_t9",
-        #"special_nailgun_t9",
-        #"tr_damagesemi_t9",
-        #"tr_fastburst_t9",
-        #"tr_longburst_t9",
-        #"tr_powerburst_t9",
-        #"tr_precisionsemi_t9"
-    );
 
     idx = 0;
-    foreach (w in weapons) {
-        curr = self getcurrentweapon();
+    foreach (w in level._menuweapons) {
+        curr = player getcurrentweapon();
         if (isdefined(curr)) {
-            self takeweapon(curr);
+            player takeweapon(curr);
         }
 
         weapon = getweapon(w);
@@ -386,43 +331,30 @@ UnlockDarkAether(player) {
         if (!isdefined(weapon)) {
             continue;
         }
-        self PrintToLevel("weapon " + w + " (" + idx + "/" + weapons.size + ")");
-        self giveweapon(weapon);
-        self switchtoweapon(weapon);
+        player PrintToLevel("weapon " + w + " (" + idx + "/" + level._menuweapons.size + ")");
+        player giveweapon(weapon);
+        player switchtoweapon(weapon);
         wait 1;
-    
-        wait 0.2;
 
-        self addweaponstat(weapon, #"kills", 2500);
-        self addweaponstat(weapon, #"hash_46422decc5803401", 2500);
-        self addweaponstat(weapon, #"packedkills", 2500);
-        self addweaponstat(weapon, #"hash_9c59d60380f570a", 15);
-        self addweaponstat(weapon, #"multikill", 10);
-        self addweaponstat(weapon, #"hash_5870df5ed04a8f11", 25);
-        self addweaponstat(weapon, #"hash_1f3b0d3bd9acb4a5", 10);
+        player addweaponstat(weapon, #"kills", 2500);
+        player addweaponstat(weapon, #"hash_46422decc5803401", 2500);
+        player addweaponstat(weapon, #"packedkills", 2500);
+        player addweaponstat(weapon, #"hash_9c59d60380f570a", 15);
+        player addweaponstat(weapon, #"multikill", 10);
+        player addweaponstat(weapon, #"hash_5870df5ed04a8f11", 25);
+        player addweaponstat(weapon, #"hash_1f3b0d3bd9acb4a5", 10);
         
-        self addweaponstat(weapon, #"rapidkills", 50);
-        self addweaponstat(weapon, #"hash_72467b6043fb9ef7", 50);
-        self addweaponstat(weapon, #"hash_1f451bc4d664e2ad", 50);
-        self addweaponstat(weapon, #"hash_16ef903a11cc4173", 15);
-        self addweaponstat(weapon, #"ekia", 5000);
-        self addweaponstat(weapon, #"hash_14b7133a39a0456e", 5000);
-        self addweaponstat(weapon, #"hash_49b586d05aaa0209", 2500);
-        stats::set_stat(#"item_stats", weapon.name, #"challenges", #"challengevalue", 35);
-        
-        //self addweaponstat(weapon, #"challenges", 35);
-        //self addweaponstat(weapon, #"hash_7fce4a14fec05da1", 1);
-        //self addweaponstat(weapon, #"hash_404a29a3ead5edb3", 1);
-        //self addweaponstat(weapon, #"hash_141b0e8dbfaf9468", 1);
-        //self addweaponstat(weapon, #"hash_7f0ce2a2e0a76e67", 2);
-        //self addweaponstat(weapon, #"hash_5a2ba340560103b3", 1);
-        //self addweaponstat(weapon, #"hash_4711f96a09147c", 9);
-        //self addweaponstat(weapon, #"hash_4714f96a091995", 7);
-        //self addweaponstat(weapon, #"hash_4713f96a0917e2", 5);
-        //self addweaponstat(weapon, #"hash_440a913b1fa5afba", 3);
+        player addweaponstat(weapon, #"rapidkills", 50);
+        player addweaponstat(weapon, #"hash_72467b6043fb9ef7", 50);
+        player addweaponstat(weapon, #"hash_1f451bc4d664e2ad", 50);
+        player addweaponstat(weapon, #"hash_16ef903a11cc4173", 15);
+        player addweaponstat(weapon, #"ekia", 5000);
+        player addweaponstat(weapon, #"hash_14b7133a39a0456e", 5000);
+        player addweaponstat(weapon, #"hash_49b586d05aaa0209", 2500);
+        player stats::set_stat(#"item_stats", weapon.name, #"challenges", #"challengevalue", 35);
         wait 0.01;
     }
 
-    stats::set_stat(#"globalchallenges", #"weapons_mastery", #"challengetier", 9);
-    self PrintToLevel("^5Unlocked ^2Dark Aether");
+    player stats::set_stat(#"globalchallenges", #"weapons_mastery", #"challengetier", 9);
+    player PrintToLevel("^5Unlocked ^2Dark Aether");
 }

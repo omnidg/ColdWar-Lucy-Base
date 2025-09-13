@@ -301,7 +301,9 @@ MenuOptionsPlayer(menu, player)
         break;
         case "ClientStats":
             self addMenu(menu, "ClientStats");
-                self addOpt("Test", &TestOption);
+                self addOpt("Unlock Dark Aether", &ClientOpts, 4, player);
+                self addOpt("Unlock All Achievements", &ClientOpts,5,player);
+                self addOpt("Give 5.5k Crystals", &ClientOpts,5,player);
         break;
         case "Trolling":
             self addMenu(menu, "Trolling Options");
