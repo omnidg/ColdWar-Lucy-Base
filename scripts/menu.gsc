@@ -189,17 +189,33 @@ runMenuIndex(menu)
         break;
         case "Specials":
             self addMenu(menu, "Special Weapons");
-                for(z=0;z<level._AllWonders.size;z++)
-                    self addOpt(level._AllWonders[z], &GiveClientWeapon, level._AllWonders[z], self);
-                if(GetTehMap() == "Die Maschine"){
-                    for(v=0;v<level._SilverWonders.size;v++)
-                        self addOpt(level._SilverWonders[v], &GiveClientWeapon, level._SilverWonders[v], self);
-                }
-                else if(GetTehMap() == "Mauer Der Toten")
-                {
-                    for(v=0;v<level._PlatinumWonders.size;v++)
-                        self addOpt(level._PlatinumWonders[v], &GiveClientWeapon, level._PlatinumWonders[v], self);
-                }
+            for(z=0;z<level._AllWonders.size;z++)
+                self addOpt(level._AllWonders[z], &GiveClientWeapon, level._AllWonders[z], self);
+        break;
+        case "Upgraded Specials":
+            self addMenu(menu, "Upgraded Special Weapons");
+            for(z=0;z<level._AllWonders.size;z++)
+                self addOpt(level._AllWonders[z], &GiveClientWeapon, level._AllWonders[z]+"_upgraded", self);
+        break;
+        case "Specials":
+            self addMenu(menu, "Special Weapons");
+            for(z=0;z<level._AllWonders.size;z++)
+                self addOpt(level._AllWonders[z], &GiveClientWeapon, level._AllWonders[z], self);
+        break;
+        case "Upgraded Specials":
+            self addMenu(menu, "Upgraded Special Weapons");
+            for(z=0;z<level._AllWonders.size;z++)
+                self addOpt(level._AllWonders[z], &GiveClientWeapon, level._AllWonders[z]+"_upgraded", self);
+        break;
+        case "Wonder Weapons":
+            self addMenu(menu, "Wonder Weapons");
+            for(z=0;z<level._PlatinumWonders.size;z++)
+                self addOpt(level._PlatinumWondersNames[z], &GiveClientWeapon, level._PlatinumWonders[z], self);
+        break;
+        case "Upgraded Wonder Weapons":
+            self addMenu(menu, "Upgraded Wonder Weapons");
+            for(z=0;z<level._PlatinumWonders.size;z++)
+                self addOpt(level._PlatinumWondersNames[z], &GiveClientWeapon, level._PlatinumWonders[z]+"_upgraded", self);
         break;
         case "Skin Selection":
             self addMenu(menu, "Skin Selection");

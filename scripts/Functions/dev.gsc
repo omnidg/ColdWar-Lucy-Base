@@ -85,7 +85,7 @@ KillAura()//working
 
     for(;;)
     {
-        if(!isDefined(self.KillAuraPos)) self.KillAuraPos = "torso_mid";
+        if(!isDefined(self.KillAuraPos)) self.KillAuraPos = "head";
         zombies = GetAITeamArray(level.zombie_team);
         foreach (zombie in zombies)
         {
