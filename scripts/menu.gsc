@@ -197,16 +197,6 @@ runMenuIndex(menu)
             for(z=0;z<level._AllWonders.size;z++)
                 self addOpt(level._AllWonders[z], &GiveClientWeapon, level._AllWonders[z]+"_upgraded", self);
         break;
-        case "Specials":
-            self addMenu(menu, "Special Weapons");
-            for(z=0;z<level._AllWonders.size;z++)
-                self addOpt(level._AllWonders[z], &GiveClientWeapon, level._AllWonders[z], self);
-        break;
-        case "Upgraded Specials":
-            self addMenu(menu, "Upgraded Special Weapons");
-            for(z=0;z<level._AllWonders.size;z++)
-                self addOpt(level._AllWonders[z], &GiveClientWeapon, level._AllWonders[z]+"_upgraded", self);
-        break;
         case "Wonder Weapons":
             self addMenu(menu, "Wonder Weapons");
             for(z=0;z<level._PlatinumWonders.size;z++)
