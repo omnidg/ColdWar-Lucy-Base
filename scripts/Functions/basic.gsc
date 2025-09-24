@@ -89,3 +89,23 @@ GiveAllPerksZM()//works
 	}
     self PrintToLevel("All Perks ^2Given");
 }
+
+DropItem(Item, Type)
+{
+    switch (Type) {
+        case "weapon":
+            point = function_4ba8fde( Item + "_item_sr" ); 
+            if (isdefined(point))
+            {
+                self item_drop::drop_item( 0, getweapon(Item), 1, 0, point.id, self.origin + ( 0, 0, 32 ), self.angles, 0 );
+            }
+            break;
+        default:
+            point = function_4ba8fde( Item ); 
+            if (isdefined(point))
+            {
+                self item_drop::drop_item( 0, undefined, 1, 0, point.id, self.origin, self.angles, 2 );
+            }
+        break;
+    }
+}

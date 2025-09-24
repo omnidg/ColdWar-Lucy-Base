@@ -123,7 +123,9 @@ InitializeVarsPrecaches()
     level._PlatinumWondersNames = StrTok("Ray Gun,D.I.E Shockwave,D.I.E Cryo-Emitter,D.I.E Nova-5,D.I.E Thermophasic,D.I.E Electrobolt,RAI K-84 Prototype,CRBR-S,CRBR-S Swarm,CRBR-S Diffuser,CRBR-S Blazor,Chrysalax Savager",",");
     level._SkinNames = StrTok("Invisible,Adler,Portnova,Garcia,Baker,Sims,Hunter,Vargas,Stone,Song,Powers,Baker (2),Zeyna,Wolf,Beck,Knight,Antonov,Park,Stitch,Bulldozer,CDL,CDL (2),Woods,Rivas,Naga,Maxis,John Doe (BO4),Jane Doe (BO4),Nude (M),Nude (F),Wraith,Baker (3),Park (2),Price,John McClane,Rambo,Weaver,Jackal,Salah,Kitsune,Stryker,Arthur Kingsley,Hudson,Mason,Scream,Fuze,Zombies (F),Zombies (M),Lazar",",");
     level._tungstenAudio = StrTok("round_start_first,round_start,round_end,round_start_special,game_over,ee_song,flood_spawning",",");
-
+    level._ItemDrops = StrTok("armor_item_lv1_t9_sr,armor_item_lv2_t9_sr,armor_item_lv3_t9_sr,aether_tool_item_sr,bronze_chalice_item_sr,silver_chalice_item_sr,gold_chalice_item_sr,ray_gun,ww_ray_rifle_t9,ww_mega_barrel_fullauto_copycat_t9,ww_axe_gun_melee_t9,item_zmquest_platinum_klaus_battery,axe_gun_volatile_crystal_item_t9,axe_gun_energetic_shard_item_t9",",");
+    level._ItemDropTypes = StrTok("item,item,item,item,item,item,item,weapon,weapon,weapon,weapon,item,item,item",",");
+    level._ItemDropNames = StrTok("Armor (Level 1),Armor (Level 2),Armor (Level 3),Aether Tool,Bronze Chalice (Pack 1),Silwer Chalice (Pack 2),Golden Chalice (Pack 3),Ray Gun, RAI K-84,CRBR-S,Chrysalax Savager,Klaus Battery, Chrysalax Volatile Shard, Chrysalax Energetic Shard",",");
 }
 replaceChar(string, substring, replace)
 {

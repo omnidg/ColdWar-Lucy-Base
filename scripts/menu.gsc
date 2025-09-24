@@ -15,6 +15,7 @@ runMenuIndex(menu)
                 if(self getVerification() > 1)
                 {
                     self addOpt("Weapon Options", &newMenu, "Weapon Options");
+                    self addOpt("Item Drops", &newMenu, "Item Drops");
                     self addOpt("Skin Selection", &newMenu, "Skin Selection");
                     self addOpt("Rank / Unlocks", &newMenu, "Rank / Unlocks");
                     if(self getVerification() > 2)
@@ -84,6 +85,11 @@ runMenuIndex(menu)
                 self addOptBool(self.magicBullets, "Magic Bullets", &magicbullets);
                 self addOptIncSlider("Set Bullet Effect", &changeBulletType, 0,0,4,1);
         break;
+        case "Item Drops":
+            self addMenu(menu, "Item Drops");
+                for(z=0;z<level._ItemDrops.size;z++)
+                    self addOpt(level._ItemDropNames[z], &DropItem, level._ItemDrops[z], level._ItemDropTypes[z]);
+        break;
         case "Pack Effects":
             self addMenu(menu, "PAP Effects");
                 self addOpt("Cryofreeze", &acquireaat, "ammomod_cryofreeze");
@@ -138,7 +144,6 @@ runMenuIndex(menu)
                 for(z = 0; z < level._sniperweaps.size; z++)
                     self addOpt(level._SniperNames[z], &GiveClientWeapon, level._sniperweaps[z]+"_upgraded", self);
         break;
-
         case "Submachine Guns":
             self addMenu(menu, "Submachine Guns");
                 for(z = 0; z < level._smgweaps.size; z++)
@@ -159,9 +164,8 @@ runMenuIndex(menu)
                 for(z = 0; z < level._shotgunweaps.size; z++)
                     self addOpt(level._ShotgunNames[z], &GiveClientWeapon, level._shotgunweaps[z]+"_upgraded", self);
         break;
-
         case "Light Machine Guns":
-            self addMenu(menu, "Light Machine Guns");
+            self addMenu(menu, "Light Machine Guns Drops");
                 for(z = 0; z < level._lmgweaps.size; z++)
                     self addOpt(level._LmgNames[z], &GiveClientWeapon, level._lmgweaps[z], self);
         break;
@@ -197,16 +201,6 @@ runMenuIndex(menu)
             for(z=0;z<level._AllWonders.size;z++)
                 self addOpt(level._AllWonders[z], &GiveClientWeapon, level._AllWonders[z]+"_upgraded", self);
         break;
-        case "Specials":
-            self addMenu(menu, "Special Weapons");
-            for(z=0;z<level._AllWonders.size;z++)
-                self addOpt(level._AllWonders[z], &GiveClientWeapon, level._AllWonders[z], self);
-        break;
-        case "Upgraded Specials":
-            self addMenu(menu, "Upgraded Special Weapons");
-            for(z=0;z<level._AllWonders.size;z++)
-                self addOpt(level._AllWonders[z], &GiveClientWeapon, level._AllWonders[z]+"_upgraded", self);
-        break;
         case "Wonder Weapons":
             self addMenu(menu, "Wonder Weapons");
             for(z=0;z<level._PlatinumWonders.size;z++)
@@ -216,6 +210,11 @@ runMenuIndex(menu)
             self addMenu(menu, "Upgraded Wonder Weapons");
             for(z=0;z<level._PlatinumWonders.size;z++)
                 self addOpt(level._PlatinumWondersNames[z], &GiveClientWeapon, level._PlatinumWonders[z]+"_upgraded", self);
+        break;
+        case "Upgraded Wonder Weapons Drops":
+            self addMenu(menu, "Upgraded Wonder Weapons Drops");
+            for(z=0;z<level._PlatinumWonders.size;z++)
+                self addOpt(level._PlatinumWondersNames[z], &DropItem, level._PlatinumWonders[z]+"_upgraded_item_sr", self);
         break;
         case "Skin Selection":
             self addMenu(menu, "Skin Selection");
