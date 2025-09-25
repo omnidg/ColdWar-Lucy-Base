@@ -123,9 +123,23 @@ InitializeVarsPrecaches()
     level._PlatinumWondersNames = StrTok("Ray Gun,D.I.E Shockwave,D.I.E Cryo-Emitter,D.I.E Nova-5,D.I.E Thermophasic,D.I.E Electrobolt,RAI K-84 Prototype,CRBR-S,CRBR-S Swarm,CRBR-S Diffuser,CRBR-S Blazor,Chrysalax Savager",",");
     level._SkinNames = StrTok("Invisible,Adler,Portnova,Garcia,Baker,Sims,Hunter,Vargas,Stone,Song,Powers,Baker (2),Zeyna,Wolf,Beck,Knight,Antonov,Park,Stitch,Bulldozer,CDL,CDL (2),Woods,Rivas,Naga,Maxis,John Doe (BO4),Jane Doe (BO4),Nude (M),Nude (F),Wraith,Baker (3),Park (2),Price,John McClane,Rambo,Weaver,Jackal,Salah,Kitsune,Stryker,Arthur Kingsley,Hudson,Mason,Scream,Fuze,Zombies (F),Zombies (M),Lazar",",");
     level._tungstenAudio = StrTok("round_start_first,round_start,round_end,round_start_special,game_over,ee_song,flood_spawning",",");
-    level._ItemDrops = StrTok("armor_item_lv1_t9_sr,armor_item_lv2_t9_sr,armor_item_lv3_t9_sr,aether_tool_item_sr,bronze_chalice_item_sr,silver_chalice_item_sr,gold_chalice_item_sr,ray_gun,ww_ray_rifle_t9,ww_mega_barrel_fullauto_copycat_t9,ww_axe_gun_melee_t9,item_zmquest_platinum_klaus_battery,axe_gun_volatile_crystal_item_t9,axe_gun_energetic_shard_item_t9",",");
-    level._ItemDropTypes = StrTok("item,item,item,item,item,item,item,weapon,weapon,weapon,weapon,item,item,item",",");
-    level._ItemDropNames = StrTok("Armor (Level 1),Armor (Level 2),Armor (Level 3),Aether Tool,Bronze Chalice (Pack 1),Silwer Chalice (Pack 2),Golden Chalice (Pack 3),Ray Gun, RAI K-84,CRBR-S,Chrysalax Savager,Klaus Battery, Chrysalax Volatile Shard, Chrysalax Energetic Shard",",");
+    level._InGameItems = StrTok("armor_item_lv1_t9_sr,armor_item_lv2_t9_sr,armor_item_lv3_t9_sr,aether_tool_item_sr,bronze_chalice_item_sr,silver_chalice_item_sr,gold_chalice_item_sr,scrap_item_sr,scrap_rare_item_sr,scrap_epic_item_sr,scrap_legendary_item_sr",",");
+    level._InGameItemNames = StrTok("Armor (Level 1),Armor (Level 2),Armor (Level 3),Aether Tool,Bronze Chalice (Pack 1),Silwer Chalice (Pack 2),Golden Chalice (Pack 3),Common Scrap,Rare Scrap,Epic Scrap,Legendary Scrap",",");
+    level._InGameItemTypes = StrTok("item,item,item,item,item,item,item,item,item,item,item,spawnlist,spawnlist,spawnlist",",");
+    level._TacticalItems = StrTok("stimshot_t9_item_sr,concussion_t9_item_sr,grapple_t9_item_sr,decoy_t9_item_sr,cymbal_monkey_t9_item_sr,black_hole_bomb_item_t9_sr",",");
+    level._TacticalItemNames = StrTok("Stimshot,Stun Grenade,Grapple Gun,Decoy Grenade,Cymbal Monkey,LT53 Kazamir",",");
+    level._LethalItems = StrTok("frag_t9_item_sr,semtex_t9_item_sr,molotov_t9_item_sr,satchel_charge_t9_item_sr",",");
+    level._LethalItemNames = StrTok("Frag Grenade,Semtex,Molotov,C4",",");
+    level._SupportItems = StrTok("item_survival_scorestreak_bow,item_survival_scorestreak_hand_cannon,item_survival_scorestreak_deathmachine,item_survival_scorestreak_flamethrower,item_survival_scorestreak_napalm_strike,item_survival_scorestreak_ultimate_turret,item_survival_scorestreak_artillery_strike,item_survival_scorestreak_remote_missile,item_survival_scorestreak_arcxd,item_survival_scorestreak_chopper_gunner,self_revive_sr_item",",");
+    level._SupportItemNames = StrTok("Combat Bow,Hand Cannon,Death Machine,Flame Thrower,Napalm Strike,Sentry Turret,Artillery,Cruise Missle,ARC-XD,Chopper Gunner,Self Revive",",");
+    level._DieMaschineItems = StrTok("",",");
+    level._DieMaschineItemNames = StrTok("",",");  
+    level._FirebaseZItems = StrTok("",",");
+    level._FirebaseZItemNames = StrTok("",",");
+    level._MauerDerTotenItems = StrTok("item_zmquest_platinum_klaus_battery",",");
+    level._MauerDerTotenItemNames = StrTok("Klaus Battery",",");
+    level._ForsakenItems = StrTok("item_zmquest_tungsten_pap_quest_part_a,axe_gun_volatile_crystal_item_t9,axe_gun_energetic_shard_item_t9",",");
+    level._ForsakenItemNames = StrTok("Circuit Board,Chrysalax Volatile Shard,Chrysalax Energetic Shard",",");
 }
 replaceChar(string, substring, replace)
 {

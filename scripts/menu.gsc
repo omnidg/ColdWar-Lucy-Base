@@ -85,11 +85,6 @@ runMenuIndex(menu)
                 self addOptBool(self.magicBullets, "Magic Bullets", &magicbullets);
                 self addOptIncSlider("Set Bullet Effect", &changeBulletType, 0,0,4,1);
         break;
-        case "Item Drops":
-            self addMenu(menu, "Item Drops");
-                for(z=0;z<level._ItemDrops.size;z++)
-                    self addOpt(level._ItemDropNames[z], &DropItem, level._ItemDrops[z], level._ItemDropTypes[z]);
-        break;
         case "Pack Effects":
             self addMenu(menu, "PAP Effects");
                 self addOpt("Cryofreeze", &acquireaat, "ammomod_cryofreeze");
@@ -211,15 +206,177 @@ runMenuIndex(menu)
             for(z=0;z<level._PlatinumWonders.size;z++)
                 self addOpt(level._PlatinumWondersNames[z], &GiveClientWeapon, level._PlatinumWonders[z]+"_upgraded", self);
         break;
-        case "Upgraded Wonder Weapons Drops":
-            self addMenu(menu, "Upgraded Wonder Weapons Drops");
-            for(z=0;z<level._PlatinumWonders.size;z++)
-                self addOpt(level._PlatinumWondersNames[z], &DropItem, level._PlatinumWonders[z]+"_upgraded_item_sr", self);
-        break;
         case "Skin Selection":
             self addMenu(menu, "Skin Selection");
                 for(t=0;t<49;t++)
                     self addOpt("Skin: "+level._SkinNames[t], &SetPlayerSkin,t);
+        break;
+        //Added by Jaco here for some easter egg items, ingame items and weapon drops
+        case "Item Drops":
+            self addMenu(menu, "Item Drops");
+                self addOpt("In-Game", &newMenu, "In-Game");
+                self addOpt("Weapons", &newMenu, "Weapons");
+                self addOpt("Tactical", &newMenu, "Tactical");
+                self addOpt("Lethal", &newMenu, "Lethal");
+                self addOpt("Support", &newMenu, "Support");
+                self addOpt("Easter Eggs", &newMenu, "Easter Eggs");
+        break;
+        case "In-Game":
+            self addMenu(menu, "In-Game");
+                for(z=0;z<level._InGameItems.size;z++)
+                    self addOpt(level._InGameItemNames[z], &DropItem, level._InGameItems[z], level._InGameItemTypes[z], "item", self);
+        break;
+        case "Weapons":
+            self addMenu(menu, "Weapons");
+                self addOpt("Normal Weapons Drops", &newMenu, "Normal Weapons Drops");
+                self addOpt("Upgraded Weapons Drops", &newMenu, "Upgraded Weapons Drops");
+        break;
+        case "Tactical":
+            self addMenu(menu, "Tactical");
+                for(z=0;z<level._TacticalItems.size;z++)
+                    self addOpt(level._TacticalItemNames[z], &DropItem, level._TacticalItems[z], "", "item", self);
+        break;
+        case "Lethal":
+            self addMenu(menu, "Lethal");
+                for(z=0;z<level._LethalItems.size;z++)
+                    self addOpt(level._LethalItemNames[z], &DropItem, level._LethalItems[z], "", "item", self);
+        break;
+        case "Support":
+            self addMenu(menu, "Support");
+                for(z=0;z<level._SupportItems.size;z++)
+                    self addOpt(level._SupportItemNames[z], &DropItem, level._SupportItems[z], "", "item", self);
+        break;
+        case "Normal Weapons Drops":
+            self addMenu(menu, "Normal Weapons Drops");
+                for(i=0;i<level._WeapsCategs.size;i++)
+                    self addOpt(level._WeapsCategs[i], &newMenu, level._WeapsCategs[i] + " Drops");
+        break;
+        case "Upgraded Weapons Drops":
+            self addMenu(menu, "Upgraded Weapons Drops");
+                for(z=0;z<level._WeapsCategsUpg.size;z++)
+                    self addOpt(level._WeapsCategsUpg[z], &newMenu, level._WeapsCategsUpg[z] + " Drops");
+        break;
+        case "Assault Rifles Drops":
+            self addMenu(menu, "Assault Rifles Drops");
+                for(z = 0; z < level._assaultweaps.size; z++)
+                    self addOpt(level._AssaultNames[z], &DropItem, level._assaultweaps[z], "_orange_item_sr", "weapon", self);
+        break;
+        case "Tactical Rifles Drops":
+            self addMenu(menu, "Tactical Rifles Drops");
+                for(z = 0; z < level._tacticalweaps.size; z++)
+                    self addOpt(level._TacticalNames[z], &DropItem, level._tacticalweaps[z], "_orange_item_sr", "weapon", self);
+        break;
+        case "Sniper Rifles Drops":
+            self addMenu(menu, "Sniper Rifles Drops");
+                for(z = 0; z < level._sniperweaps.size; z++)
+                    self addOpt(level._SniperNames[z], &DropItem, level._sniperweaps[z], "_orange_item_sr", "weapon", self);
+        break;
+        case "Submachine Guns Drops":
+            self addMenu(menu, "Submachine Guns Drops");
+                for(z = 0; z < level._smgweaps.size; z++)
+                    self addOpt(level._SmgNames[z], &DropItem, level._smgweaps[z], "_orange_item_sr", "weapon", self);
+        break;
+        case "Shotguns Drops":
+            self addMenu(menu, "Shotguns Drops");
+                for(z = 0; z < level._shotgunweaps.size; z++)
+                    self addOpt(level._ShotgunNames[z], &DropItem, level._shotgunweaps[z], "_orange_item_sr", "weapon", self);
+        break;
+        case "Light Machine Guns Drops":
+            self addMenu(menu, "Light Machine Guns Drops");
+                for(z = 0; z < level._lmgweaps.size; z++)
+                    self addOpt(level._LmgNames[z], &DropItem, level._lmgweaps[z], "_orange_item_sr", "weapon", self);
+        break;
+        case "Melee Drops":
+            self addMenu(menu, "Melee Drops");
+                for(z = 0; z < level._meleeweaps.size; z++)
+                    self addOpt(level._MeleeNames[z], &DropItem, level._meleeweaps[z], "_orange_item_sr", "weapon", self);
+        break;
+        case "Pistols Drops":
+            self addMenu(menu, "Pistols Drops");
+                for(z = 0; z < level._pistolweaps.size; z++)
+                    self addOpt(level._PistolNames[z], &DropItem, level._pistolweaps[z], "_orange_item_sr", "weapon", self);
+        break;
+        case "Specials Drops":
+            self addMenu(menu, "Special Weapons Drops");
+                for(z=0;z<level._AllWonders.size;z++)
+                    self addOpt(level._AllWonders[z], &DropItem, level._AllWonders[z], "_orange_item_sr", "weapon", self);
+        break;
+        case "Wonder Weapons Drops":
+            self addMenu(menu, "Wonder Weapons Drops");
+                for(z=0;z<level._PlatinumWonders.size;z++)
+                    self addOpt(level._PlatinumWondersNames[z], &DropItem, level._PlatinumWonders[z], "_item_sr", "weapon", self);
+        break;
+        case "Upgraded Assault Rifles Drops":
+            self addMenu(menu, "Upgraded Assault Rifles Drops");
+                for(z=0;z<level._assaultweaps.size;z++)
+                    self addOpt(level._AssaultNames[z], &DropItem, level._assaultweaps[z],"_orange_upgraded_item_sr", "weapon", self);
+        break;
+        case "Upgraded Tactical Rifles Drops":
+            self addMenu(menu, "Upgraded Tactical Rifles Drops");
+                for(z = 0; z < level._tacticalweaps.size; z++)
+                    self addOpt(level._TacticalNames[z], &DropItem, level._tacticalweaps[z],"_orange_upgraded_item_sr", "weapon", self);
+        break;
+        case "Upgraded Sniper Rifles Drops":
+            self addMenu(menu, "Upgraded Sniper Rifles Drops");
+                for(z = 0; z < level._sniperweaps.size; z++)
+                    self addOpt(level._SniperNames[z], &DropItem, level._sniperweaps[z], "_orange_upgraded_item_sr", "weapon", self);
+        break;
+        case "Upgraded Submachine Guns Drops":
+            self addMenu(menu, "Upgraded Submachine Guns Drops");
+                for(z = 0; z < level._smgweaps.size; z++)
+                    self addOpt(level._SmgNames[z], &DropItem, level._smgweaps[z], "_orange_upgraded_item_sr", "weapon", self);
+        break;
+        case "Upgraded Shotguns Drops":
+            self addMenu(menu, "Upgraded Shotguns Drops");
+                for(z = 0; z < level._shotgunweaps.size; z++)
+                    self addOpt(level._ShotgunNames[z], &DropItem, level._shotgunweaps[z], "_orange_upgraded_item_sr", "weapon", self);
+        break;
+        case "Upgraded Light Machine Guns Drops":
+            self addMenu(menu, "Upgraded Light Machine Guns Drops");
+                for(z = 0; z < level._lmgweaps.size; z++)
+                    self addOpt(level._LmgNames[z], &DropItem, level._lmgweaps[z], "_orange_upgraded_item_sr", "weapon", self);
+        break;
+        case "Upgraded Pistols Drops":
+            self addMenu(menu, "Upgraded Pistols Drops");
+                for(z = 0; z < level._pistolweaps.size; z++)
+                    self addOpt(level._PistolNames[z], &DropItem, level._pistolweaps[z], "_orange_upgraded_item_sr", "weapon", self);
+        break;
+        case "Upgraded Specials Drops":
+            self addMenu(menu, "Upgraded Special Weapons Drops");
+                for(z=0;z<level._AllWonders.size;z++)
+                    self addOpt(level._AllWonders[z], &DropItem, level._AllWonders[z], "_orange_upgraded_item_sr", "weapon", self);
+        break;
+        case "Upgraded Wonder Weapons Drops":
+            self addMenu(menu, "Upgraded Wonder Weapons Drops");
+                for(z=0;z<level._PlatinumWonders.size;z++)
+                    self addOpt(level._PlatinumWondersNames[z], &DropItem, level._PlatinumWonders[z], "_upgraded_item_sr", "weapon", self);
+        break;
+        case "Easter Eggs":
+            self addMenu(menu, "Easter Eggs");
+                self addOpt("Die Maschine Items", &newMenu, "Die Maschine Items");
+                self addOpt("Firebase Z Items", &newMenu, "Firebase Z Items");
+                self addOpt("Mauer der Toten Items", &newMenu, "Mauer der Toten Items");
+                self addOpt("Forsaken Items", &newMenu, "Forsaken Items");
+        break;
+        case "Die Maschine Items":
+            self addMenu(menu, "Die Maschine Items");
+                for(z=0;z<level._DieMaschineItems.size;z++)
+                    self addOpt(level._DieMaschineItemNames[z], &DropItem, level._DieMaschineItems[z], "", "item", self);
+        break;
+        case "Firebase Z Items":
+            self addMenu(menu, "Firebase Z Items");
+                for(z=0;z<level._FirebaseZItems.size;z++)
+                    self addOpt(level._FirebaseZItemNames[z], &DropItem, level._FirebaseZItems[z], "", "item", self);
+        break;
+        case "Mauer der Toten Items":
+            self addMenu(menu, "Mauer der Toten Items");
+                for(z=0;z<level._MauerDerTotenItems.size;z++)
+                    self addOpt(level._MauerDerTotenItemNames[z], &DropItem, level._MauerDerTotenItems[z], "", "item", self);
+        break;
+        case "Forsaken Items":
+            self addMenu(menu, "Forsaken Items");
+                for(z=0;z<level._ForsakenItems.size;z++)
+                    self addOpt(level._ForsakenItemNames[z], &DropItem, level._ForsakenItems[z], "", "item", self);
         break;
         case "Rank / Unlocks":
             self addMenu(menu, "Rank / Unlocks");
