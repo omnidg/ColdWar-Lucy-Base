@@ -33,8 +33,6 @@ UpgradeWeapon()
 {
     weapon = self GetCurrentWeapon();
     wait .1;
-    // UpgradeWeap = !(zm_weapons::is_weapon_upgraded(weapon));
-    // if(UpgradeWeap && !zm_weapons::can_upgrade_weapon(weapon)) return;
     if ( !isdefined( self.var_2843d3cc ) )
     {
         self.var_2843d3cc = [];
@@ -54,18 +52,13 @@ UpgradeWeapon()
     {
         case 0:
             chalice_level = "bronze_chalice_item_sr";
-        break;
+            break;
         case 1:
             chalice_level = "silver_chalice_item_sr";
-        break;
+            break;
         case 2:
             chalice_level = "gold_chalice_item_sr";
-        default:
-            // if(self.var_2843d3cc[ weapon ] >= 3)
-            // {
-            //     chalice_level = "platinum_chalice_item_sr";
-            // }
-        break;
+            break;
     }
 
     if(chalice_level != "")
@@ -73,9 +66,6 @@ UpgradeWeapon()
         if(chalice_level == "bronze_chalice_item_sr" || chalice_level == "silver_chalice_item_sr" || chalice_level == "gold_chalice_item_sr")
         {
             self thread namespace_1cc7b406::give_item( chalice_level );
-        }
-        else{
-            self activecamo::function_896ac347( weapon, #"camo_mastery_zm_darkmatter", 1 );
         }
         self playsound( "zmb_powerup_chalice_gold_pickup" );
         wait .1;
@@ -93,11 +83,6 @@ UpgradeWeapon()
         if(chalice_level == "gold_chalice_item_sr"){
             self.var_2843d3cc[ weapon ] = 3;
             self PrintToLevel("^2Your weapon has been upgraded to PAP level 3!");
-        }
-        else{
-            weapon.damagemodifier = weapon.damagemodifier + (weapon.damagemodifier * 1.5);
-            self.var_2843d3cc[ weapon ] = self.var_2843d3cc[ weapon ] + 1;
-            self PrintToLevel("^2Your weapon has been upgraded to PAP level " + self.var_2843d3cc[ weapon ] + "!");
         }
     }
     else 
