@@ -1,3 +1,4 @@
+#include script_4ccfb58a9443a60b.gsc;
 #include scripts\core_common\struct.gsc;
 #include scripts\core_common\callbacks_shared.gsc;
 #include scripts\core_common\clientfield_shared.gsc;
@@ -22,8 +23,8 @@
 #include scripts\zm_common\zm_powerups.gsc;
 #include scripts\zm_common\zm_stats.gsc;
 #include scripts\zm_common\zm_power.gsc;
-#include scripts\zm_common\zm_pack_a_punch_util.gsc;
 #include scripts\zm_common\zm_pack_a_punch.gsc;
+#include scripts\zm_common\zm_pack_a_punch_util.gsc;
 #include scripts\zm_common\zm_weapons.gsc;
 #include scripts\core_common\aat_shared.gsc;
 #include scripts\core_common\ai\zombie_utility.gsc;
@@ -49,6 +50,8 @@
 #include scripts\zm_common\zm_bgb.gsc;
 #include scripts\zm_common\zm_zonemgr.gsc;
 #include scripts\zm_common\zm_sq.gsc;
+#include scripts\core_common\activecamo_shared;
+#include scripts\core_common\activecamo_shared_util;
 
 #namespace synergycw;
 

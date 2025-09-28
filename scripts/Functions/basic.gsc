@@ -90,29 +90,109 @@ GiveAllPerksZM()//works
     self PrintToLevel("All Perks ^2Given");
 }
 
-DropItem(Item, AddedAbbrv, Type)
+DropItem(Item, Type)
 {
+    angle = anglestoforward(self getplayerangles()) + ( randomintrangeinclusive( 0, 360 ), randomintrangeinclusive( 0, 360 ), randomintrangeinclusive( 0, 360 ) );
+    origin = self getplayercamerapos();
     switch (Type) {
-        case "weapon":
-            point = function_4ba8fde( Item + AddedAbbrv); 
-            if (isdefined(point)) self item_drop::drop_item( 0, getweapon(Item), 1, 0, point.id, self.origin, self.angles, 3 );
-            break;
         case "spawnlist":
             itemspawnlist = getscriptbundle( Item );
-            foreach ( item in itemspawnlist.itemlist )
+            if(isdefined(itemspawnlist))
             {
-                point = getscriptbundle( item.itementry );
-                if ( isdefined( point.weapon ) )
+                foreach ( item in itemspawnlist.itemlist )
                 {
-                    DropItem(item.itementry, "_orange_item_sr", "weapon");
-                }
-                else{
-                    DropItem(item.itementry, "", "item");
+                    if (IsSubStr(item.itementry, "item_sr")) {
+                        point = getscriptbundle( item.itementry );
+                        DropItem(item.itementry, isdefined(point.weapon) ? "weapon" :"item"); 
+                    }
+
+                    if (IsSubStr(item.itementry, "_list")) {
+                        childspawnlist = getscriptbundle( item.itementry );
+                        foreach ( itemchild in childspawnlist.itemlist )
+                        {
+                            if (IsSubStr(itemchild.itementry, "item_sr")) {
+                                point = getscriptbundle( itemchild.itementry );
+                                DropItem(itemchild.itementry, isdefined(point.weapon) ? "weapon" :"item");   
+                            }
+
+                            if (IsSubStr(itemchild.itementry, "_list")) {
+                                childtwospanlist = getscriptbundle( itemchild.itementry );
+                                foreach ( itemchildtwo in childtwospanlist.itemlist )
+                                {
+                                    if (IsSubStr(itemchildtwo.itementry, "item_sr")) {
+                                        point = getscriptbundle( itemchildtwo.itementry );
+                                        DropItem(itemchildtwo.itementry, isdefined(point.weapon) ? "weapon" :"item");  
+                                    }
+
+                                    if (IsSubStr(itemchildtwo.itementry, "_list")) {
+                                        childthreespawnlist = getscriptbundle( itemchildtwo.itementry );
+                                        foreach ( itemchildthree in childthreespawnlist.itemlist )
+                                        {
+                                            if (IsSubStr(itemchildthree.itementry, "item_sr")) {
+                                                point = getscriptbundle( itemchildthree.itementry );
+                                                DropItem(itemchildthree.itementry, isdefined(point.weapon) ? "weapon" :"item");  
+                                            }
+
+                                            if (IsSubStr(itemchildthree.itementry, "_list"))
+                                            {
+                                                childfourspawnlist = getscriptbundle( itemchildthree.itementry );
+                                                foreach ( itemchildfour in childfourspawnlist.itemlist )
+                                                {
+                                                    if (IsSubStr(itemchildfour.itementry, "item_sr")) {
+                                                        point = getscriptbundle( itemchildfour.itementry );
+                                                        DropItem(itemchildfour.itementry, isdefined(point.weapon) ? "weapon" :"item");  
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
             }
-        default:
-            point = function_4ba8fde( Item ); 
-            if (isdefined(point)) self item_drop::drop_item( 0, undefined, 1, 0, point.id, self.origin, self.angles, 3 );
+        default:        
+            point = function_4ba8fde( Item );
+            if (isdefined(point))
+            {
+                Item = StrReplace(Item, "_item_sr", "");
+                Item = StrReplace(Item, "_orange", "");
+                Item = StrReplace(Item, "_purple", "");
+                Item = StrReplace(Item, "_blue", "");
+                Item = StrReplace(Item, "_white", "");
+                self item_drop::drop_item( 0, (Type == "weapon" ? getweapon(Item) : undefined), 1, 0, point.id, origin, angle, 3 );
+                self PrintToLevel("Item Dropped: ^2"+ Item);
+            }
+            else self PrintToLevel("Item Not Found: ^1"+ Item);
         break;
     }
+}
+
+SuperDrop()
+{
+    //Drop all wonder weapons
+    for(z=0;z<level._PlatinumWonders.size;z++)
+    {
+        DropItem("gold_chalice_item_sr", "item");
+        DropItem(level._PlatinumWonders[z] + "_item_sr", "weapon");
+    }
+
+    //Drop some Items
+    DropItem("aether_tool_item_sr", "item");
+    DropItem("aether_tool_item_sr", "item");
+    DropItem("aether_tool_item_sr", "item");
+    DropItem("armor_item_lv3_t9_sr", "item");
+    DropItem("armor_item_lv3_t9_sr", "item");
+    DropItem("armor_item_lv3_t9_sr", "item");
+
+    //Drop some Scrap
+    for(z=0;z<31;z++)
+    {
+        DropItem("scrap_legendary_item_sr", "item");
+        DropItem("scrap_epic_item_sr", "item");
+        DropItem("scrap_rare_legendary_item_sr", "item");
+        DropItem("scrap_item_sr", "item");
+    }
+
 }
