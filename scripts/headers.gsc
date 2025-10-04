@@ -1,3 +1,6 @@
+#include script_4ccfb58a9443a60b;
+#include scripts\core_common\activecamo_shared;
+#include scripts\core_common\activecamo_shared_util;
 #include scripts\core_common\struct.gsc;
 #include scripts\core_common\callbacks_shared.gsc;
 #include scripts\core_common\clientfield_shared.gsc;
@@ -5,6 +8,7 @@
 #include scripts\core_common\system_shared.gsc;
 #include scripts\core_common\util_shared.gsc;
 #include scripts\core_common\item_drop;
+#include scripts\core_common\item_world;
 #include scripts\core_common\item_inventory;
 #include scripts\core_common\hud_util_shared.gsc;
 #include scripts\core_common\hud_message_shared.gsc;
@@ -72,12 +76,12 @@ __init__()
 {
     callback::on_start_gametype(&init);
     callback::on_spawned(&onPlayerSpawned);
-    callback::add_callback(#"on_round_end", &on_round_end, undefined);//on_round_end gets undefined for some weird reason, lets define as something else.
+    callback::add_callback(#"on_round_end", &on_round_end, undefined);
 }
 get_xp_multiplier_late() {
     wait 10;
     level.var_3426461d = &GetXPMultiplier;
-    //level.var_2f528eb0 = &GetXPMultiplier;//weapon XP Mult
+    level.var_2f528eb0 = &GetXPMultiplier;//weapon XP Mult
 }
 
 on_round_end() {
@@ -85,7 +89,6 @@ on_round_end() {
     wait 10;
     level flag::set( "rbz_exfil_beacon_active" );//enable exfil radio flag
     level flag::set("rbz_exfil_allowed");//Set Exfil allowed
-    //level flag::set( #"hash_3e765c26047c9f54" );//Force Start Exfil, maybe rbz_exfil_started?
 }
 GetXPMultiplier() 
 {

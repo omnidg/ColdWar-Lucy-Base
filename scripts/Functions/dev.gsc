@@ -44,22 +44,34 @@ TurnOnPower()
     self PrintToLevel("^5Power ^2Enabled");
 }
 
-OpenAllDoors() {//changed, cleaner now
+OpenAllDoors() {//works fine, credit ate47, same as bo4
+    setdvar(#"zombie_unlock_all", 1);
     players = getplayers();
-    types = array("zombie_door","zombie_airlock_buy","zombie_debris");
-    foreach(type in types)
-    {
-        zombie_doors  = getEntArray(type,"targetname");
-        for(i=0;i<zombie_doors.size;i++)
-        {
+    zombie_doors = getentarray("zombie_door", "targetname");
+    for (i = 0; i < zombie_doors.size; i++) {
+        if (!is_true(zombie_doors[i].has_been_opened)) {
             zombie_doors[i] notify(#"trigger", {#activator:players[0]});
-            if(is_true(zombie_doors[i].power_door_ignore_flag_wait)){
-                zombie_doors[i] notify(#"power_on");
-            }
-            waitframe(1);
         }
+        if (is_true(zombie_doors[i].power_door_ignore_flag_wait)) {
+            zombie_doors[i] notify(#"power_on");
+        }
+        waitframe(1);
     }
+    zombie_airlock_doors = getentarray("zombie_airlock_buy", "targetname");
+    for (i = 0; i < zombie_airlock_doors.size; i++) {
+        zombie_airlock_doors[i] notify(#"trigger", {#activator:players[0]});
+        waitframe(1);
+    }
+    zombie_debris = getentarray("zombie_debris", "targetname");
+    for (i = 0; i < zombie_debris.size; i++) {
+        if (isdefined(zombie_debris[i])) {
+            zombie_debris[i] notify(#"trigger", {#activator:players[0]});
+        }
+        waitframe(1);
+    }
+    level notify(#"open_sesame");
     wait(1);
+    setdvar(#"zombie_unlock_all", 0);
     self PrintToLevel("^5Doors ^2Opened");
 }
 

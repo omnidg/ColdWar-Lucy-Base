@@ -1,25 +1,42 @@
-LookupWeaponLevels()//credit ate47 / the atian menu
+LookupWeaponLevels()
 {
     levels = [];
-    tablename = #"gamedata/weapons/zm/zm_gunlevels.csv";
+
+    if (sessionmodeiszombiesgame()) {
+        prefix = "zm";
+    } else if (sessionmodeismultiplayergame()) {
+        prefix = "mp";
+    } else {
+        return levels;
+    }
+
+    tablename = #"gamedata/weapons/" + prefix + "/" + prefix + "_gunlevels.csv";
+
     rows = tablelookuprowcount(tablename);
     columns = tablelookupcolumncount(tablename);
-    if(!isDefined(rows) || !isDefined(columns) || rows * columns == 0) return levels;
 
-    for(row=0;row<rows;row++)
-    {
-        xp = tablelookupcolumnforrow(tablename, row, 1);
-        name = tablelookupcolumnforrow(tablename,row,2);
-
-        weap = getweapon(name);
-
-        if(!isDefined(weap)) continue;
-
-        class = util::getweaponclass(weap);
-        if(!isDefined(levels[class])) levels[class] = [];
-
-        levels[class][weap] = xp;
+    if (!isdefined(rows) || !isdefined(columns) || rows * columns == 0) {
+        return levels; // empty
     }
+
+    for (row = 0; row < rows; row++) {
+        xp = tablelookupcolumnforrow(tablename, row, 1);
+        name = tablelookupcolumnforrow(tablename, row, 2);
+
+        wp = getweapon(name);
+
+        if (!isdefined(wp)) {
+            continue;
+        }
+
+        cls = util::getweaponclass(wp);
+
+        if (!isdefined(levels[cls])) {
+            levels[cls] = [];
+        }
+        levels[cls][wp] = xp;
+    }
+
     return levels;
 }
 
@@ -105,7 +122,7 @@ UnlockAllWeapons()
                 waitframe(1);
             }
 
-            //now we have the xp neeed, we can set stats
+            //now we have the xp needed, we can set stats
             for(tableid=2;tableid<3;tableid++)
             {
                 tablename = #"gamedata/stats/zm/statmilestones"+tableid+".csv";//haha dummy, this shouldnt have a slash at the end
@@ -233,10 +250,10 @@ GiveCrystals(player)
 
             player iPrintLn("^5Crystals (" + rarityText + "^5): ^2" + currentValue + " / " + maxValue);
 
-            wait 1;
+            wait .1;
         }
         uploadstats(player);
-        wait 2;
+        wait .5;
     }
     self iPrintLn("^2Crystals unlocked for ^5" + player.name);
 }
@@ -246,7 +263,6 @@ Level55(player)//still iffy, need to work on this
     currXP = rank::getrankxp();
     // Amount of XP to add
     player.var_8d41c907+=2000000;
-    //self zm_devgui::function_cbdab30d(new_xp);//devgui_add_xp(addXPVal);
     // Optional: print a confirmation message to the level
     player PrintToLevel("^2Rank and XP Set");
 }
@@ -293,29 +309,6 @@ UnlockAchievs(player)
     player PrintToLevel("^5All Achievements ^2Unlocked");
 }
 
-MaxWeaponLevels(player)
-{
-    idx=0;
-    foreach(gun in level.zombie_weapons)
-    {
-        idx++;
-        self PrintToLevel("Weapon: "+gun.weapon.name+", ("+idx+"/"+level.zombie_weapons.size+")");
-        player stats::set_stat(#"hash_60e21f66eb3a1f18", gun.weapon.name, #"xp", 665535);
-        player stats::set_stat(#"hash_60e21f66eb3a1f18", gun.weapon.name, #"plevel", 2);
-        
-        wait 0.01;
-    }    
-    Attachments = Array(#"reflex", #"elo", #"acog", #"dualoptic", #"mms", #"holo");
-    foreach(attachment in Attachments)
-    {
-        player stats::set_stat(#"hash_2ea32bf38705dfdc", attachment, #"kills", #"StatValue", 5000);
-        player stats::set_stat(#"hash_2ea32bf38705dfdc", attachment, #"kills", #"ChallengeValue", 5000);
-        wait 0.01;
-    }
-    wait 0.1;
-    UploadStats(player);
-    player PrinttoLevel("^5Weapon Levels ^2Maxed");
-}
 UnlockDarkAether(player) {
 
     idx = 0;
@@ -334,7 +327,7 @@ UnlockDarkAether(player) {
         player PrintToLevel("weapon " + w + " (" + idx + "/" + level._menuweapons.size + ")");
         player giveweapon(weapon);
         player switchtoweapon(weapon);
-        wait 1;
+        wait .1;
 
         player addweaponstat(weapon, #"kills", 2500);
         player addweaponstat(weapon, #"hash_46422decc5803401", 2500);
@@ -352,7 +345,7 @@ UnlockDarkAether(player) {
         player addweaponstat(weapon, #"hash_14b7133a39a0456e", 5000);
         player addweaponstat(weapon, #"hash_49b586d05aaa0209", 2500);
         player stats::set_stat(#"item_stats", weapon.name, #"challenges", #"challengevalue", 35);
-        wait 0.01;
+        wait .1;
     }
 
     player stats::set_stat(#"globalchallenges", #"weapons_mastery", #"challengetier", 9);
