@@ -65,7 +65,7 @@ InitWeapArrays()
     level._SpecialNames = StrTok("Nailgun,War Machine,Crossbow,Ballistic Knife,Claymores,Monkey Bombs",",");
     level._InGameItems = StrTok("armor_item_lv1_t9_sr,armor_item_lv2_t9_sr,armor_item_lv3_t9_sr,aether_tool_item_sr,bronze_chalice_item_sr,silver_chalice_item_sr,gold_chalice_item_sr,scrap_item_sr,scrap_rare_item_sr,scrap_epic_item_sr,scrap_legendary_item_sr,black_chest_level_6",",");
     level._InGameItemNames = StrTok("Armor (Level 1),Armor (Level 2),Armor (Level 3),Aether Tool,Bronze Chalice (Pack 1),Silwer Chalice (Pack 2),Golden Chalice (Pack 3),Common Scrap,Rare Scrap,Epic Scrap,Legendary Scrap,Black Chest Level 6",",");
-    level._InGameItemTypes = StrTok("item,item,item,item,item,item,item,item,item,item,item,spawnlist,spawnlist,spawnlist",",");
+    level._InGameItemTypes = StrTok("item,item,item,item,item,item,item,item,item,item,item,spawnlist",",");
     level._SupportItems = StrTok("item_survival_scorestreak_bow,item_survival_scorestreak_hand_cannon,item_survival_scorestreak_deathmachine,item_survival_scorestreak_flamethrower,item_survival_scorestreak_napalm_strike,item_survival_scorestreak_ultimate_turret,item_survival_scorestreak_artillery_strike,item_survival_scorestreak_remote_missile,item_survival_scorestreak_arcxd,item_survival_scorestreak_chopper_gunner,self_revive_sr_item",",");
     level._SupportItemNames = StrTok("Combat Bow,Hand Cannon,Death Machine,Flame Thrower,Napalm Strike,Sentry Turret,Artillery,Cruise Missle,ARC-XD,Chopper Gunner,Self Revive",",");
     level._DieMaschineItems = StrTok("",",");
