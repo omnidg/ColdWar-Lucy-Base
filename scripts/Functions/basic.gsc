@@ -68,7 +68,7 @@ UnlimitedAmmo()
 
 GivePowerup(Powerup)//works
 {
-    self zm_powerups::specific_powerup_drop(Powerup, self.origin, undefined, undefined, undefined, 1);
+    self zm_powerups::specific_powerup_drop(Powerup, get_lookat_origin(self), undefined, undefined, undefined, 1);
     self PrintToLevel("^5Spawned Powerup: "+powerup);
 }
 
@@ -92,8 +92,10 @@ GiveAllPerksZM()//works
 
 DropItem(Item, Type)
 {
-    angle = anglestoforward(self getplayerangles()) + ( randomintrangeinclusive( 0, 360 ), randomintrangeinclusive( 0, 360 ), randomintrangeinclusive( 0, 360 ) );
-    origin = self getplayercamerapos();
+    angle = self getweaponforwarddir();
+    origin = get_lookat_origin(self);
+    if(isdefined( self.markerobj )) origin = self.markerobj.origin;
+    
     switch (Type) {
         case "spawnlist":
             itemspawnlist = getscriptbundle( Item );

@@ -63,7 +63,7 @@ UpgradeWeapon()
 
     if(chalice_level != "")
     {
-        if(chalice_level == "bronze_chalice_item_sr" || chalice_level == "silver_chalice_item_sr" || chalice_level == "gold_chalice_item_sr")
+        if(chalice_level != "platinum_chalice_item_sr")
         {
             self thread namespace_1cc7b406::give_item( chalice_level );
         }
