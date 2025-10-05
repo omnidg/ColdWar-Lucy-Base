@@ -32,6 +32,18 @@ GiveKillstreak(streakName)
 UpgradeWeapon()
 {
     weapon = self GetCurrentWeapon();
+    weapon_item = item_inventory::function_230ceec4( weapon );
+    if ( weapon_item.itementry.rarity !== #"legendary" || weapon_item.itementry.rarity !== #"ultra" )
+    {
+        self thread namespace_1cc7b406::give_item("aether_tool_item_sr");
+        self playsound( "zmb_powerup_aethertool_pickup" );
+        self PrintToLevel("^1Weapon Upgraded!");
+    }
+}
+
+PAPWeapon()
+{
+    weapon = self GetCurrentWeapon();
     wait .1;
     if ( !isdefined( self.var_2843d3cc ) )
     {
@@ -91,6 +103,7 @@ UpgradeWeapon()
         else self PrintToLevel("^1Unable to PAP weapon!");
     }
 }
+
 
 acquireaat(id) {// works fine
     weapon = self getCurrentWeapon();
