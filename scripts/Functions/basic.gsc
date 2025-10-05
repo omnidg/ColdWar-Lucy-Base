@@ -90,71 +90,34 @@ GiveAllPerksZM()//works
     self PrintToLevel("All Perks ^2Given");
 }
 
-DropItem(Item, Type)
+DropItem(Item, Type, Total)
 {
-    angle = self getweaponforwarddir();
-    origin = get_lookat_origin(self);
-    if(isdefined( self.markerobj )) origin = self.markerobj.origin;
     
     switch (Type) {
         case "spawnlist":
-            itemspawnlist = getscriptbundle( Item );
-            if(isdefined(itemspawnlist))
+            arrSpawnItems = get_spawn_list_items(Item);
+            self PrintToLevel("Spawn List Size: ^2" + arrSpawnItems.size);
+            if(arrSpawnItems.size > 0) 
             {
-                foreach ( item in itemspawnlist.itemlist )
-                {
-                    if (IsSubStr(item.itementry, "item_sr")) {
-                        point = getscriptbundle( item.itementry );
-                        DropItem(item.itementry, isdefined(point.weapon) ? "weapon" :"item"); 
-                    }
-
-                    if (IsSubStr(item.itementry, "_list")) {
-                        childspawnlist = getscriptbundle( item.itementry );
-                        foreach ( itemchild in childspawnlist.itemlist )
-                        {
-                            if (IsSubStr(itemchild.itementry, "item_sr")) {
-                                point = getscriptbundle( itemchild.itementry );
-                                DropItem(itemchild.itementry, isdefined(point.weapon) ? "weapon" :"item");   
-                            }
-
-                            if (IsSubStr(itemchild.itementry, "_list")) {
-                                childtwospanlist = getscriptbundle( itemchild.itementry );
-                                foreach ( itemchildtwo in childtwospanlist.itemlist )
-                                {
-                                    if (IsSubStr(itemchildtwo.itementry, "item_sr")) {
-                                        point = getscriptbundle( itemchildtwo.itementry );
-                                        DropItem(itemchildtwo.itementry, isdefined(point.weapon) ? "weapon" :"item");  
-                                    }
-
-                                    if (IsSubStr(itemchildtwo.itementry, "_list")) {
-                                        childthreespawnlist = getscriptbundle( itemchildtwo.itementry );
-                                        foreach ( itemchildthree in childthreespawnlist.itemlist )
-                                        {
-                                            if (IsSubStr(itemchildthree.itementry, "item_sr")) {
-                                                point = getscriptbundle( itemchildthree.itementry );
-                                                DropItem(itemchildthree.itementry, isdefined(point.weapon) ? "weapon" :"item");  
-                                            }
-
-                                            if (IsSubStr(itemchildthree.itementry, "_list"))
-                                            {
-                                                childfourspawnlist = getscriptbundle( itemchildthree.itementry );
-                                                foreach ( itemchildfour in childfourspawnlist.itemlist )
-                                                {
-                                                    if (IsSubStr(itemchildfour.itementry, "item_sr")) {
-                                                        point = getscriptbundle( itemchildfour.itementry );
-                                                        DropItem(itemchildfour.itementry, isdefined(point.weapon) ? "weapon" :"item");  
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
+                spawnItemsFinal = [];
+                if (arrSpawnItems.size > 20) 
+                { 
+                    for(e=0;e<10;e++) 
+                    {
+                        spawnItemsFinal[e] = arrSpawnItems[randomint(arrSpawnItems.size-1)];
                     }
                 }
+                else{
+                    spawnItemsFinal = arrSpawnItems;
+                }
+                foreach(spawnItem in spawnItemsFinal)
+                {
+                    point = getscriptbundle( spawnItem.itementry );
+                    if(isdefined(point)) DropItem(spawnItem.itementry, isdefined(point.weapon) ? "weapon" :"item", IsSubStr(point.itementry, "scrap") ? randomint(5) : 1);
+                }
             }
-        default:        
+            break;
+        default:  
             point = function_4ba8fde( Item );
             if (isdefined(point))
             {
@@ -163,38 +126,17 @@ DropItem(Item, Type)
                 Item = StrReplace(Item, "_purple", "");
                 Item = StrReplace(Item, "_blue", "");
                 Item = StrReplace(Item, "_white", "");
-                self item_drop::drop_item( 0, (Type == "weapon" ? getweapon(Item) : undefined), 1, 0, point.id, origin, angle, 3 );
-                self PrintToLevel("Item Dropped: ^2"+ Item);
+                for(i=0;i<Total;i++)
+                {
+                    angle = self getangles();
+                    origin = get_lookat_origin(self);
+                    self item_drop::drop_item( 0, (Type == "weapon" ? getweapon(Item) : undefined), 1, 0, point.id, origin, angle, 3 );
+                    playsoundatposition( "zmb_powerup_eqp_spawn",  origin );
+                    self PrintToLevel("Item Dropped: ^2"+ Item);
+                    wait .1;
+                }
             }
             else self PrintToLevel("Item Not Found: ^1"+ Item);
         break;
     }
-}
-
-SuperDrop()
-{
-    //Drop all wonder weapons
-    for(z=0;z<level._PlatinumWonders.size;z++)
-    {
-        DropItem("gold_chalice_item_sr", "item");
-        DropItem(level._PlatinumWonders[z] + "_item_sr", "weapon");
-    }
-
-    //Drop some Items
-    DropItem("aether_tool_item_sr", "item");
-    DropItem("aether_tool_item_sr", "item");
-    DropItem("aether_tool_item_sr", "item");
-    DropItem("armor_item_lv3_t9_sr", "item");
-    DropItem("armor_item_lv3_t9_sr", "item");
-    DropItem("armor_item_lv3_t9_sr", "item");
-
-    //Drop some Scrap
-    for(z=0;z<31;z++)
-    {
-        DropItem("scrap_legendary_item_sr", "item");
-        DropItem("scrap_epic_item_sr", "item");
-        DropItem("scrap_rare_legendary_item_sr", "item");
-        DropItem("scrap_item_sr", "item");
-    }
-
 }
