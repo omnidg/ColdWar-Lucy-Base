@@ -189,33 +189,23 @@ runMenuIndex(menu)
         break;
         case "Specials":
             self addMenu(menu, "Special Weapons");
-            for(z=0;z<level._AllWonders.size;z++)
-                self addOpt(level._AllWonders[z], &GiveClientWeapon, level._AllWonders[z], self);
+            for(z=0;z<level._AllSpecials.size;z++)
+                self addOpt(level._SpecialNames[z], &GiveClientWeapon, level._AllSpecials[z], self);
         break;
         case "Upgraded Specials":
             self addMenu(menu, "Upgraded Special Weapons");
-            for(z=0;z<level._AllWonders.size;z++)
-                self addOpt(level._AllWonders[z], &GiveClientWeapon, level._AllWonders[z]+"_upgraded", self);
-        break;
-        case "Specials":
-            self addMenu(menu, "Special Weapons");
-            for(z=0;z<level._AllWonders.size;z++)
-                self addOpt(level._AllWonders[z], &GiveClientWeapon, level._AllWonders[z], self);
-        break;
-        case "Upgraded Specials":
-            self addMenu(menu, "Upgraded Special Weapons");
-            for(z=0;z<level._AllWonders.size;z++)
-                self addOpt(level._AllWonders[z], &GiveClientWeapon, level._AllWonders[z]+"_upgraded", self);
+            for(z=0;z<level._AllSpecials.size - 2;z++)//-2 since Claymores and Monkeys can't be upgraded normally
+                self addOpt(level._SpecialNames[z], &GiveClientWeapon, level._AllSpecials[z]+"_upgraded", self);
         break;
         case "Wonder Weapons":
             self addMenu(menu, "Wonder Weapons");
-            for(z=0;z<level._PlatinumWonders.size;z++)
-                self addOpt(level._PlatinumWondersNames[z], &GiveClientWeapon, level._PlatinumWonders[z], self);
+            for(z=0;z<level._AllWonders.size;z++)
+                self addOpt(level._AllWondersNames[z], &GiveClientWeapon, level._AllWonders[z], self);
         break;
         case "Upgraded Wonder Weapons":
             self addMenu(menu, "Upgraded Wonder Weapons");
-            for(z=0;z<level._PlatinumWonders.size;z++)
-                self addOpt(level._PlatinumWondersNames[z], &GiveClientWeapon, level._PlatinumWonders[z]+"_upgraded", self);
+            for(z=0;z<level._AllWonders.size;z++)
+                self addOpt(level._AllWondersNames[z], &GiveClientWeapon, level._AllWonders[z]+"_upgraded", self);
         break;
         case "Skin Selection":
             self addMenu(menu, "Skin Selection");
@@ -447,8 +437,103 @@ ExecuteFunction(function, i1, i2, i3, i4, i5, i6)
     
     return self thread [[ function ]]();
 }
-
 drawText()
+{
+    self endon("menuClosed");
+    self endon("disconnect");
+    
+    if(!isDefined(self.menu["curs"][self getCurrent()]))
+        self.menu["curs"][self getCurrent()] = 0;
+        
+    menu = self getCurrent();
+    items = self.menu["items"][menu].name;
+    curs = self getCursor();
+    start = 0;
+    
+    if (curs > 3 && curs < (items.size - 4) && items.size > 8)
+        start = curs - 3;
+    
+    if (curs > (items.size - 5) && items.size > 8)
+        start = items.size - 8;
+    
+    if(items.size > 0)
+    {
+        self.lastRefresh = getTime();
+        numOpts = items.size;
+        if(numOpts >= 8)
+            numOpts = 8;
+        
+        line = "";
+        for(a = 0; a < numOpts; a++)
+        {
+            str = items[a + start];
+            
+            if(isDefined(self.menu["items"][menu].bool[a + start]))
+                str += (isDefined(self.menu_B[menu][a + start]) && self.menu_B[menu][a + start]) ? " ^2[ON]" : " ^1[OFF]";
+            else if(isDefined(self.menu["items"][menu].incslider[a + start]))
+                str += "^1 < " + self.menu_SS[menu][a + start] + " >";
+            else if(isDefined(self.menu["items"][menu].slider[a + start]))
+                str += " < " + self.menu_S[menu][a + start][self.menu_SS[menu][a + start]] + " >";
+            
+            if(curs == (a + start))
+                str = "^2-> " + str + " ^2<-";
+            else
+                str = "^7" + str;
+            
+            line += str + " | ";
+        }
+        
+        self setHintString(line);
+    }
+}
+
+RefreshMenu()
+{
+    if(self hasMenu() && self isInMenu())
+    {
+        self runMenuIndex(self getCurrent());
+        self drawText();
+    }
+}
+
+openMenu1(menu)
+{
+    if(!isDefined(menu))
+        menu = "Main";
+    if(!isDefined(self.menu["curs"][menu]))
+        self.menu["curs"][menu] = 0;
+    
+    self.menu["currentMenu"] = menu;
+    self runMenuIndex(menu);
+    self.playerSetting["isInMenu"] = true;
+    self thread MonitorMenuRefresh();
+}
+
+MonitorMenuRefresh()
+{
+    self endon("disconnect");
+    self endon("menuClosed");
+
+    if(self isInMenu())
+    {
+        self drawText();
+        
+    }
+}
+
+closeMenu1()
+{
+    self notify("menuClosed");
+    self DestroyOpts();
+    self.playerSetting["isInMenu"] = undefined;
+}
+
+DestroyOpts()
+{
+    self setHintString("");
+}
+
+/*drawText()
 {
     self endon("menuClosed");
     self endon("disconnect");
@@ -500,56 +585,4 @@ drawText()
                 self iPrintlnBold(".");
         }
     }
-}
-
-RefreshMenu()
-{
-    if(self hasMenu() && self isInMenu())
-    {
-        self runMenuIndex(self getCurrent());
-        self drawText();
-    }
-}
-
-openMenu1(menu)
-{
-    if(!isDefined(menu))
-        menu = "Main";
-    if(!isDefined(self.menu["curs"][menu]))
-        self.menu["curs"][menu] = 0;
-    
-    self.menu["currentMenu"] = menu;
-    self runMenuIndex(menu);
-    self.playerSetting["isInMenu"] = true;
-    self thread MonitorMenuRefresh();
-}
-
-MonitorMenuRefresh()
-{
-    self endon("disconnect");
-    self endon("menuClosed");
-
-    if(self isInMenu())
-    {
-        self drawText();
-        while(self isInMenu())
-        {
-            if(self.lastRefresh < GetTime() - 4000)
-                self drawText();
-            wait 1;
-        }
-    }
-}
-
-closeMenu1()
-{
-    self DestroyOpts();
-    self notify("menuClosed");
-    self.playerSetting["isInMenu"] = undefined;
-}
-
-DestroyOpts()
-{
-    for(a=0;a<9;a++)
-        self iPrintlnBold(".");
-}
+}*/

@@ -5,14 +5,14 @@ GiveClientWeapon(WeaponName, player)//needs work, as some things don't work well
     if(zm_loadout::is_melee_weapon(Weapon)) slotIndex = 2;
     else slotIndex = 0;
     player zm_weapons::weapon_give(
-    Weapon,      // Weapon object
-    0,           // No sound override
-    1,           // Auto Switch to Weapon
-    slotIndex,          //slot index? 
-    1,       // give as build kit weapon
-    #"orange",   // Rarity level
-    [],          // manual attachments
-    1            // Build kit flag = 1
+    Weapon,      
+    0,           
+    1,           
+    slotIndex,           
+    1,       
+    #"orange",   
+    [],          
+    1            
     );
 
     player switchtoweapon(Weapon); // Optional: equip immediately
@@ -25,7 +25,7 @@ GiveKillstreak(streakName)
 {
     weapon = getweapon(ishash(streakName) ? streakName : hash(streakName));
     if(!isDefined(weapon)) return;
-    self zm_weapons::weapon_give(weapon,0,0,1,1,#"none",[],1);
+    self giveweapon(weapon);
     self PrintToLevel("You just got a "+weapon);
 }
 
@@ -33,13 +33,55 @@ UpgradeWeapon()
 {
     weapon = self GetCurrentWeapon();
     wait .1;
-    UpgradeWeap = !(zm_weapons::is_weapon_upgraded(weapon));
-    if(UpgradeWeap && !zm_weapons::can_upgrade_weapon(weapon)) return;
-    newWeap = (UpgradeWeap ? zm_weapons::get_upgrade_weapon(weapon) : zm_weapons::get_base_weapon(weapon));
-    self takeWeapon(weapon);
-    self zm_weapons::give_build_kit_weapon(newWeap);
-    self SwitchToWeapon(newWeap);
-    self PrintToLevel("^5Your current weapon has been ^2upgraded!");
+    if ( !isdefined( self.var_2843d3cc ) )
+    {
+        self.var_2843d3cc = [];
+    }
+    else if ( !isarray( self.var_2843d3cc ) )
+    {
+        self.var_2843d3cc = array( self.var_2843d3cc );
+    }
+    
+    if ( !isdefined( self.var_2843d3cc[ weapon ] ) )
+    {
+        self.var_2843d3cc[ weapon ] = 0;
+    }
+
+    chalice_level = "";
+    switch (self.var_2843d3cc[ weapon ])
+    {
+        case 0:
+            chalice_level = "bronze_chalice_item_sr";
+            break;
+        case 1:
+            chalice_level = "silver_chalice_item_sr";
+            break;
+        case 2:
+            chalice_level = "gold_chalice_item_sr";
+            break;
+    }
+
+    if(chalice_level != "")
+    {
+        if(chalice_level == "bronze_chalice_item_sr" || chalice_level == "silver_chalice_item_sr" || chalice_level == "gold_chalice_item_sr")
+        {
+            self thread namespace_1cc7b406::give_item( chalice_level );
+        }
+        self playsound( "zmb_powerup_chalice_gold_pickup" );
+        wait .1;
+        weapon = self GetCurrentWeapon();
+        switch(chalice_level)
+        {
+            case "bronze_chalice_item_sr": self.var_2843d3cc[ weapon ] = 1; self PrintToLevel("^2Your weapon has been upgraded to PAP level 1!"); break;
+            case "silver_chalice_item_sr": self.var_2843d3cc[ weapon ] = 2; self PrintToLevel("^2Your weapon has been upgraded to PAP level 2!"); break;
+            case "gold_chalice_item_sr": self.var_2843d3cc[ weapon ] = 3; self PrintToLevel("^2Your weapon has been upgraded to PAP level 3!"); break;
+        }
+    }
+    else 
+    {
+        if(self.var_2843d3cc[ weapon ] >= 3) self PrintToLevel("^1Your weapon is already at max PAP level!");
+        else self PrintToLevel("^1Unable to PAP weapon!");
+    }
 }
 
 acquireaat(id) {// works fine
