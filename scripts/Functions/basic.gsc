@@ -117,8 +117,10 @@ DropItem(Item, Type, Total)
                 }
             }
             break;
-        default:  
+        default:
+            scpBundle = getscriptbundle( Item );
             point = function_4ba8fde( Item );
+            weap = isdefined( scpBundle.weapon ) ? getweapon(Item) : undefined;
             if (isdefined(point))
             {
                 Item = StrReplace(Item, "_item_sr", "");
@@ -130,7 +132,7 @@ DropItem(Item, Type, Total)
                 {
                     angle = self getangles();
                     origin = get_lookat_origin(self);
-                    self item_drop::drop_item( 0, (Type == "weapon" ? getweapon(Item) : undefined), 1, 0, point.id, origin, angle, 3 );
+                    self item_drop::drop_item( 0, (isdefined( scpBundle.weapon ) ? weap : undefined), 1, (isdefined( scpBundle.weapon ) ? weap.maxammo : 0), point.id, origin, angle, 3 );
                     playsoundatposition( "zmb_powerup_eqp_spawn",  origin );
                     self PrintToLevel("Item Dropped: ^2"+ Item);
                     wait .1;
