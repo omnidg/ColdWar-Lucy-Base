@@ -67,3 +67,11 @@ function get_spawn_list_items( MainItem )
     }
     return arrItems;
 }
+
+function get_pap_level( weapon )
+{
+    lvl = self item_inventory::function_230ceec4( weapon );
+    
+    if ( isdefined( lvl.paplv ) ) return lvl.paplv;
+    else return 0;
+}
