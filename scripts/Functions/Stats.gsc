@@ -81,81 +81,141 @@ SetCustomPrestige(newPrestige)
     uploadstats(self);
     self PrintToLevel("Your Prestige has been set to: "+newPrestige);
 }
+compute_weapon_xp() {
+    levels = [];
 
+    if (sessionmodeiszombiesgame()) {
+        prefix = "zm";
+    } else if (sessionmodeismultiplayergame()) {
+        prefix = "mp";
+    } else {
+        return levels;
+    }
+
+    tablename = #"gamedata/weapons/" + prefix + "/" + prefix + "_gunlevels.csv";
+
+    rows = tablelookuprowcount(tablename);
+    columns = tablelookupcolumncount(tablename);
+
+    if (!isdefined(rows) || !isdefined(columns) || rows * columns == 0) {
+        return levels; // empty
+    }
+
+    for (row = 0; row < rows; row++) {
+        xp = tablelookupcolumnforrow(tablename, row, 1);
+        name = tablelookupcolumnforrow(tablename, row, 2);
+
+        wp = getweapon(name);
+
+        if (!isdefined(wp)) {
+            continue;
+        }
+
+        cls = util::getweaponclass(wp);
+
+        if (!isdefined(levels[cls])) {
+            levels[cls] = [];
+        }
+        levels[cls][wp] = xp;
+    }
+
+    return levels;
+}
 UnlockAllWeapons()
 {
-    levels = self LookupWeaponLevels();
-    self PrintToLevel("Weapon Groups: "+levels.size);
-    foreach(groupname,wps in levels){
-        self PrintToLevel("GroupName: "+groupname+", Weapon Size: "+wps.size);
-        foreach(w, lvl in wps){
+    if (sessionmodeiszombiesgame()) {
+        prefix = "zm";
+    } else {
+        self PrintToLevel("^1Can't find mode");
+        return;
+    }
+    levels = self compute_weapon_xp();
+     self PrintToLevel("groups: " + levels.size);
+
+    foreach (grpname, wps in levels) {
+         self PrintToLevel("grpname: " + grpname + ", wps: " + wps.size);
+        foreach (w, xplvl in wps) {
             if (!isdefined(w.name)) {
                 continue;
             }
             weapon = w.name;
-            self PrintToLevel("Weapon: "+weapon);
-            if(!isDefined(w))
-            {
-                 break;
+             self PrintToLevel("work: " + weapon);
+
+            if (!isdefined(w)) {
+                break;
             }
 
-            curr = self getCurrentWeapon();
-            if(isDefined(curr) && self hasWeapon(curr)){
-                self takeWeapon(curr);
+            curr = self getcurrentweapon();
+            if (isdefined(curr) && self hasweapon(curr)) {
+                self takeweapon(curr);
             }
-
-            self giveWeapon(w);
-            self switchToWeapon(w);
-
-            killsneeded = 15;
-            while(killsneeded){
-                foreach(zombie in getaiteamarray(level.zombie_team)){
-                    if(isDefined(zombie)){
-                        zombie doDamage(zombie.maxHealth+999,zombie.origin,self,"none","MOD_HEADSHOT",0,w);
-                        killsneeded--;
+            self giveweapon(w);
+            self switchtoweapon(w);
+        
+            tokill = 15;
+            while (tokill) {
+                foreach(zombie in getaiteamarray(level.zombie_team)) {
+                    if (isdefined(zombie)) {
+                        zombie dodamage(zombie.maxhealth + 666, zombie.origin, self, "none", "MOD_HEAD_SHOT", 0, w);
+                        tokill--;
                     }
-                    if(!killsneeded)
-                    {
+                    if (!tokill) {
                         break;
                     }
                 }
                 waitframe(1);
             }
-
-            //now we have the xp needed, we can set stats
-            for(tableid=2;tableid<3;tableid++)
-            {
-                tablename = #"gamedata/stats/zm/statmilestones"+tableid+".csv";//haha dummy, this shouldnt have a slash at the end
+            
+            // we have the xp, now we add the stats
+            for (tableid = 2; tableid <= 3; tableid++) {
+                tablename = #"gamedata/stats/" + prefix + "/statsmilestones" + tableid + ".csv";
                 rows = tablelookuprowcount(tablename);
                 columns = tablelookupcolumncount(tablename);
 
-                if(!isDefined(rows) || !isDefined(columns) || rows * columns == 0) continue;//empty table
+                if (!isdefined(rows) || !isdefined(columns) || rows * columns == 0) {
+                    continue; // empty
+                }
 
                 for (row = 0; row < rows; row++) {
                     value = tablelookupcolumnforrow(tablename, row, 2);
                     group = tablelookupcolumnforrow(tablename, row, 3);
                     name = tablelookupcolumnforrow(tablename, row, 4);
-                    if(group == #"group"){
-                        self stats::function_e24eec31(weapon,name,value);
-                        wait .01;
+                    if (group == #"group") {
+                        self stats::function_e24eec31(weapon, name, value);
+                        wait 0.01;
                     }
                 }
             }
             break;
         }
         wait 1;
-    }
+    } 
+    self PrintToLevel("All Weapons ^2Unlocked");
 }
 
 UnlockAll()
 {
     self PrintToLevel("^5Unlock All ^2Starting");
+        if (sessionmodeiszombiesgame()) {
+        prefix = "zm";
+        files = 6;
+    } else if (sessionmodeismultiplayergame()) {
+        prefix = "mp";
+        files = 6;
+    } else if (sessionmodeiswarzonegame()) {
+        prefix = "wz";
+        files = 0;
+    } else if (sessionmodeiscampaigngame()) {
+        prefix = "cp";
+        files = 1;
+    } else {
+        self PrintToLevel("^1Can't find mode");
+        return;
+    }
     levels = self LookupWeaponLevels();
     weapon_groups = array(#"weapon_assault", #"weapon_smg", #"weapon_tactical", #"weapon_lmg", #"weapon_sniper", #"weapon_pistol", #"weapon_launcher", #"weapon_cqb", #"weapon_knife", #"weapon_special");
-    files = 6;
-    for(tableid=1;tableid<files;tableid++)
-    {
-        tablename = #"gamedata/stats/zm/statmilestones"+tableid+".csv";
+    for (tableid = 1; tableid <= files; tableid++) {
+	    tablename = #"gamedata/stats/" + prefix + "/statsmilestones" + tableid + ".csv";
         rows = tablelookuprowcount(tablename);
         columns = tablelookupcolumncount(tablename);
 
@@ -163,52 +223,104 @@ UnlockAll()
             continue; // empty
         }
 
+
         for (row = 0; row < rows; row++) {
             lvl = tablelookupcolumnforrow(tablename, row, 1);
             value = tablelookupcolumnforrow(tablename, row, 2);
             group = tablelookupcolumnforrow(tablename, row, 3);
             name = tablelookupcolumnforrow(tablename, row, 4);
 
-            self PrintToLevel(lookup_group_name(group)+"/"+name+"("+(row+1)+"/"+rows+")");
+            self PrintToLevel(lookup_group_name(group) + "/" + name + " (" + (row + 1) + "/" + rows + ")");
+        
+            switch (group) {
+            case #"global":
+                self stats::function_dad108fa(name, value);
+                break;
+            case #"common":
+                self stats::function_42277145(name, value);
+                break;
+            case #"group":
+                foreach (grpname, wps in levels) {
+                    foreach (weapon, xplvl in wps) {
+                        self stats::function_e24eec31(weapon, name, value);
+                        break;
+                    }
+                    wait 0.01;
+                }
+                break;
+            default:
+                if (isdefined(levels[group])) {
+                    foreach (weapon, xplvl in levels[group]) {
+                        self stats::set_stat(#"hash_60e21f66eb3a1f18", weapon.name, #"xp", xplvl);
+                        self stats::function_e24eec31(weapon, name, value);
+                        wait 0.01;
+                    }
+                }
+                break;
+            }
+            wait 0.1;
+            uploadstats(self);
+        }
+    }
+    self PrintToLevel("Unlock All ^2Completed");
+}
+    
+   /* for (tableid = 1; tableid <= files; tableid++) 
+    {
+	    tablename = #"gamedata/stats/zm/statsmilestones" + tableid + ".csv";
+        rows = tablelookuprowcount(tablename);
+        columns = tablelookupcolumncount(tablename);
 
-            switch(group)
+        if (!isdefined(rows) || !isdefined(columns) || rows * columns == 0) {
+            continue; // empty
+        }
+
+
+        for (row = 0; row < rows; row++) 
+        {
+            lvl = tablelookupcolumnforrow(tablename, row, 1);
+            value = tablelookupcolumnforrow(tablename, row, 2);
+            group = tablelookupcolumnforrow(tablename, row, 3);
+            name = tablelookupcolumnforrow(tablename, row, 4);
+
+            self PrintToLevel(lookup_group_name(group) + "/" + name + " (" + (row + 1) + "/" + rows + ")");
+        
+            switch (group) 
             {
                 case #"global":
                     self PrintToLevel(group+", Name: "+name+", Value: "+value);
-                    self stats::function_dad108fa(name,value);
-                    break;
+                    self stats::function_dad108fa(name, value);
+                break;
                 case #"common":
                     self PrintToLevel(group+", Name: "+name+", Value: "+value);
-                    self stats::function_42277145(name,value);
-                    break;
+                    self stats::function_42277145(name, value);
+                break;
                 case #"group":
                     foreach (grpname, wps in levels) {
                         foreach (weapon, xplvl in wps) {
                             self PrintToLevel("Weapon: "+weapon+", Name: "+name+", Value: "+value);
                             self stats::function_e24eec31(weapon, name, value);
-                            break;
-                        }
+                        break;
+                    }
+                    wait 0.01;
+                }
+                break;
+            default:
+                if (isdefined(levels[group])) {
+                    foreach (weapon, xplvl in levels[group]) {
+                        self stats::set_stat(#"hash_60e21f66eb3a1f18", weapon.name, #"xp", xplvl);
+                        self stats::function_e24eec31(weapon, name, value);
                         wait 0.01;
                     }
-                    break;
-                default:
-                    if (isdefined(levels[group])) 
-                    {
-                        foreach (weapon, xplvl in levels[group]) 
-                        {
-                            self stats::set_stat(#"hash_60e21f66eb3a1f18", weapon.name, #"xp", xplvl);
-                            self stats::function_e24eec31(weapon, name, value);
-                            wait 0.01;
-                        }
-                    }
-                    break;
+                }
+                break;
             }
             wait 0.1;
             uploadstats(self);
         }
     }
     self PrintToLevel("^5Unlock All ^2Completed");
-}
+}*/
 
 GiveCrystals(player)
 {
@@ -221,12 +333,12 @@ GiveCrystals(player)
     stepAmount = 100;
 
     statList = array(
-    array(#"hash_65febbdf3f1ab4d7", "Rare"),
-    array(#"hash_65febbdf3f1ab4d7", "Epic"),
-    array(#"hash_65febbdf3f1ab4d7", "Legendary"),
-    array(#"hash_51b649399e73640c", "Rare"),
-    array(#"hash_51b649399e73640c", "Epic"),
-    array(#"hash_51b649399e73640c", "Legendary")
+    array(#"hash_65febbdf3f1ab4d7", "rare"),
+    array(#"hash_65febbdf3f1ab4d7", "epic"),
+    array(#"hash_65febbdf3f1ab4d7", "legendary"),
+    array(#"hash_51b649399e73640c", "rare"),
+    array(#"hash_51b649399e73640c", "epic"),
+    array(#"hash_51b649399e73640c", "legendary")
     );
     
     foreach (statEntry in statList)
@@ -234,9 +346,9 @@ GiveCrystals(player)
         statName  = statEntry[0];
         rarityKey = statEntry[1]; 
 
-        if (rarityKey == #"Rare")            rarityText = "Rare";
-        else if (rarityKey == #"Epic")       rarityText = "Epic";
-        else if (rarityKey == #"Legendary")  rarityText = "Legendary";
+        if (rarityKey == #"rare")            rarityText = "Rare";
+        else if (rarityKey == #"epic")       rarityText = "Epic";
+        else if (rarityKey == #"legendary")  rarityText = "Legendary";
         else                                 rarityText = "Unknown";
 
         currentValue = 0;
@@ -248,7 +360,7 @@ GiveCrystals(player)
             
             player stats::inc_stat(statName, rarityKey, currentValue);
 
-            player iPrintLn("^5Crystals (" + rarityText + "^5): ^2" + currentValue + " / " + maxValue);
+            player PrintToLevel("^5Crystals (" + rarityText + "^5): ^2" + currentValue + " / " + maxValue);
 
             wait .1;
         }
@@ -262,7 +374,11 @@ Level55(player)//still iffy, need to work on this
 {
     currXP = rank::getrankxp();
     // Amount of XP to add
-    player.var_8d41c907+=2000000;
+    player addrankxpvalue(#"kill",2000000000,4);
+    wait .1;
+    player thread rank::updaterank();
+    wait .1;
+    uploadstats(player);
     // Optional: print a confirmation message to the level
     player PrintToLevel("^2Rank and XP Set");
 }

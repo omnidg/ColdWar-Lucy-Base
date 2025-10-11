@@ -29,9 +29,10 @@ InitializeVarsPrecaches()
     level.InitializeVarsPrecaches = true;
     level.menuName = "The Lucy Menu (CW)";
     level._SynWeapons = getArrayKeys(level.zombie_weapons);
+    level._PowerupDrops = getArrayKeys(level.zombie_powerups);
     level._SynKillstreaks = getArrayKeys(level.killstreaks);
     level.menuDeveloper = "TheUnknownCod3r";
-    level.menuVersion = "v0.4.0-Pub1";
+    level.menuVersion = "v0.5.0-Beta 1";
     level.AutoVerify = 0;
     InitWeapArrays();
 }
@@ -63,6 +64,7 @@ InitWeapArrays()
     level._SkinNames = StrTok("Invisible,Adler,Portnova,Garcia,Baker,Sims,Hunter,Vargas,Stone,Song,Powers,Baker (2),Zeyna,Wolf,Beck,Knight,Antonov,Park,Stitch,Bulldozer,CDL,CDL (2),Woods,Rivas,Naga,Maxis,John Doe (BO4),Jane Doe (BO4),Nude (M),Nude (F),Wraith,Baker (3),Park (2),Price,John McClane,Rambo,Weaver,Jackal,Salah,Kitsune,Stryker,Arthur Kingsley,Hudson,Mason,Scream,Fuze,Zombies (F),Zombies (M),Lazar",",");
     level._tungstenAudio = StrTok("round_start_first,round_start,round_end,round_start_special,game_over,ee_song,flood_spawning",",");
     level._SpecialNames = StrTok("Nailgun,War Machine,Crossbow,Ballistic Knife,Claymores,Monkey Bombs",",");
+    level._PowerupNames = StrTok("Ammo Drop,Insta Kill,Full Power,Max Ammo,Free Perk,Fire Sale,Double Points,Carpenter,Bonus Points (Team),Bonfire Sale,Nuke,Bonus Points (Player),Bonus Points (Team)",",");
 }
 replaceChar(string, substring, replace)
 {

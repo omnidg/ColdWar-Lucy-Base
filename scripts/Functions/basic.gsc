@@ -25,6 +25,46 @@ Godmode()//works fine
     }
 }
 
+ToggleNoClip(player)
+{
+    player.Noclip = isDefined(player.Noclip) ? undefined : true;
+    
+    if(isDefined(player.Noclip))
+    {
+        player endon("disconnect");
+        self iPrintLn("Noclip ^2Enabled");
+        if(player hasMenu() && player isInMenu())
+            player closeMenu1();
+        player DisableWeapons();
+        player DisableOffHandWeapons();
+        player.nocliplinker = spawnSM(player.origin, "tag_origin");
+        player PlayerLinkTo(player.nocliplinker, "tag_origin");
+        
+        while(isDefined(player.Noclip) && isAlive(player))
+        {
+            if(player AttackButtonPressed())
+                player.nocliplinker.origin = (player.nocliplinker.origin + (AnglesToForward(player GetPlayerAngles()) * 60));
+            else if(player AdsButtonPressed())
+                player.nocliplinker.origin = (player.nocliplinker.origin - (AnglesToForward(player GetPlayerAngles()) * 60));
+            if(player MeleeButtonPressed())
+                break;
+            
+            wait 0.01;
+        }
+
+        if(isDefined(player.Noclip))
+            player ToggleNoClip(player);
+    }
+    else
+    {
+        player Unlink();
+        player.nocliplinker delete();
+        player EnableWeapons();
+        player EnableOffHandWeapons();
+        self PrintToLevel("Noclip ^1Disabled");
+    }
+}
+
 EditPlayerScore(val, player, which)//works fine
 {
     switch (which)

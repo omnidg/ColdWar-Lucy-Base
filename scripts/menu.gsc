@@ -20,6 +20,7 @@ runMenuIndex(menu)
                     if(self getVerification() > 2)
                     {
                         self addOpt("Zombies Options", &newMenu, "Zombies Options");
+                        self addOpt("Fun Options", &newMenu, "Fun Options");
                         self addOpt("Powerups Menu", &newMenu, "Powerups");
                         self addOpt("Lobby Manipulation", &newMenu, "Lobby Manipulation");
                         if(self getVerification() > 3)
@@ -56,6 +57,7 @@ runMenuIndex(menu)
         case "Personal Menu":
             self addMenu(menu, "Personal Menu");
                 self addOptBool(self.godmode, "God Mode", &Godmode);
+                self addOptBool(self.Noclip, "No Clip", &ToggleNoClip,self);
                 self addOptBool(self.UnlimitedAmmo, "Unlimited Ammo", &UnlimitedAmmo);
                 self addOpt("Score Menu", &newMenu, "Score Menu");
                 self addOpt("Give All Perks", &GiveAllPerksZM);
@@ -68,13 +70,6 @@ runMenuIndex(menu)
                 self addOpt("Take All Score", &EditPlayerScore, 0, self, 2);
                 self addOptIncSlider("Add to Player Score", &EditPlayerScore, 0, self.score, 99999, 1000, self, 3);
                 self addOptIncSlider("Take from Player Score", &EditPlayerScore, 0, self.score, 99999, 1000, self, 4);
-        break;
-        case "Zombies Options":
-            self addMenu(menu, "Zombies Options");
-                self addOpt("Kill All Zombies", &KillAllZombies);
-                self addOptBool(self.ZombiePos, "Teleport to Crosshair Loop", &StartZombiePosition);
-                self addOptBool(self.oneHPZombs, "One Hit Zombies", &OneHPZombs);
-            
         break;
         case "Weapon Options":
             self addMenu(menu, "Weapon Options");
@@ -223,10 +218,25 @@ runMenuIndex(menu)
                 self addOptIncSlider("Change Prestige", &SetCustomPrestige, 0,0,27,1);
                 self addOpt("Complete All Contracts", &CompleteActiveContracts, self);
         break;
+        case "Zombies Options":
+            self addMenu(menu, "Zombies Options");
+                self addOpt("Kill All Zombies", &KillAllZombies);
+                self addOptBool(self.ZombiePos, "Teleport to Crosshair Loop", &StartZombiePosition);
+                self addOptBool(self.oneHPZombs, "One Hit Zombies", &OneHPZombs);
+        break;
+        case "Fun Options":
+            self addMenu(menu, "Fun Options");
+                self addOptBool(self.ForgeModeON, "Toggle Forge Mode", &ToggleForgeON);
+                self addOptBool(self.aimbot, "Toggle Zombies Aimbot", &CW_ToggleAimbot);
+                self addOptSlider("Set Box Price", &SetBoxPrice, "0;250;500;900;1500;2500;9999");
+                self addOpt("Freeze Box", &FreezeBox);
+        break;
         case "Lobby Manipulation":
             self addMenu(menu, "Lobby Manipulation");
                 self addOpt("Turn on Power", &TurnOnPower);
                 self addOpt("Open All Doors", &OpenAllDoors);
+                self addOptBool(level.SuperJump, "Toggle Super Jump", &SuperJump);
+                self addOptBool(level.newGrav, "Low Gravity", &LowGrav);
                 self addOptIncSlider("Edit Round: ", &EditRound, 0,0,999,1);
                 self addOptBool(self.ForcingTheHost, "Force Host", &ForceHostToggle);
                 self addOpt("Trigger Exfil", &TriggerExfil);
@@ -235,12 +245,10 @@ runMenuIndex(menu)
         break;
         case "Powerups":
             self addMenu(menu, "Powerups");
-                self addOpt("Spawn Nuke", &GivePowerup, "nuke");
-                self addOpt("Spawn Max Ammo", &GivePowerup, "full_ammo");
-                self addOpt("Spawn Free Perk", &GivePowerup, "free_perk");
-                self addOpt("Spawn Full Power", &GivePowerup, "hero_weapon_power");
-                self addOpt("Spawn Bonus Points", &GivePowerup, "bonus_points_player");
-                self addOpt("Spawn Insta Kill", &GivePowerup, "insta_kill");
+                for(i=0;i<level._PowerupDrops.size;i++)
+                {
+                    self addOpt("Give "+level._PowerupNames[i], &GivePowerup, level._PowerupDrops[i]);
+                }
         break;
         case "Players":
             self addMenu(menu, "Players");
@@ -437,103 +445,8 @@ ExecuteFunction(function, i1, i2, i3, i4, i5, i6)
     
     return self thread [[ function ]]();
 }
+
 drawText()
-{
-    self endon("menuClosed");
-    self endon("disconnect");
-    
-    if(!isDefined(self.menu["curs"][self getCurrent()]))
-        self.menu["curs"][self getCurrent()] = 0;
-        
-    menu = self getCurrent();
-    items = self.menu["items"][menu].name;
-    curs = self getCursor();
-    start = 0;
-    
-    if (curs > 3 && curs < (items.size - 4) && items.size > 8)
-        start = curs - 3;
-    
-    if (curs > (items.size - 5) && items.size > 8)
-        start = items.size - 8;
-    
-    if(items.size > 0)
-    {
-        self.lastRefresh = getTime();
-        numOpts = items.size;
-        if(numOpts >= 8)
-            numOpts = 8;
-        
-        line = "";
-        for(a = 0; a < numOpts; a++)
-        {
-            str = items[a + start];
-            
-            if(isDefined(self.menu["items"][menu].bool[a + start]))
-                str += (isDefined(self.menu_B[menu][a + start]) && self.menu_B[menu][a + start]) ? " ^2[ON]" : " ^1[OFF]";
-            else if(isDefined(self.menu["items"][menu].incslider[a + start]))
-                str += "^1 < " + self.menu_SS[menu][a + start] + " >";
-            else if(isDefined(self.menu["items"][menu].slider[a + start]))
-                str += " < " + self.menu_S[menu][a + start][self.menu_SS[menu][a + start]] + " >";
-            
-            if(curs == (a + start))
-                str = "^2-> " + str + " ^2<-";
-            else
-                str = "^7" + str;
-            
-            line += str + " | ";
-        }
-        
-        self setHintString(line);
-    }
-}
-
-RefreshMenu()
-{
-    if(self hasMenu() && self isInMenu())
-    {
-        self runMenuIndex(self getCurrent());
-        self drawText();
-    }
-}
-
-openMenu1(menu)
-{
-    if(!isDefined(menu))
-        menu = "Main";
-    if(!isDefined(self.menu["curs"][menu]))
-        self.menu["curs"][menu] = 0;
-    
-    self.menu["currentMenu"] = menu;
-    self runMenuIndex(menu);
-    self.playerSetting["isInMenu"] = true;
-    self thread MonitorMenuRefresh();
-}
-
-MonitorMenuRefresh()
-{
-    self endon("disconnect");
-    self endon("menuClosed");
-
-    if(self isInMenu())
-    {
-        self drawText();
-        
-    }
-}
-
-closeMenu1()
-{
-    self notify("menuClosed");
-    self DestroyOpts();
-    self.playerSetting["isInMenu"] = undefined;
-}
-
-DestroyOpts()
-{
-    self setHintString("");
-}
-
-/*drawText()
 {
     self endon("menuClosed");
     self endon("disconnect");
@@ -585,4 +498,108 @@ DestroyOpts()
                 self iPrintlnBold(".");
         }
     }
+}
+
+/*drawText()//While I like setHintString, it bloody sucks lmao. Will revisit this eventually, ig
+{
+    self endon("menuClosed");
+    self endon("disconnect");
+    
+    if(!isDefined(self.menu["curs"][self getCurrent()]))
+        self.menu["curs"][self getCurrent()] = 0;
+        
+    menu = self getCurrent();
+    items = self.menu["items"][menu].name;
+    curs = self getCursor();
+    start = 0;
+    
+    if (curs > 3 && curs < (items.size - 4) && items.size > 8)
+        start = curs - 3;
+    
+    if (curs > (items.size - 5) && items.size > 8)
+        start = items.size - 8;
+    
+    if(items.size > 0)
+    {
+        self.lastRefresh = getTime();
+        numOpts = items.size;
+        if(numOpts >= 8)
+            numOpts = 8;
+        
+        line = "";
+        for(a = 0; a < numOpts; a++)
+        {
+            str = items[(a + start)];
+            
+            if(isDefined(self.menu["items"][menu].bool[a + start]))
+                str += (isDefined(self.menu_B[menu][a + start]) && self.menu_B[menu][a + start]) ? " ^2[ON]" : " ^1[OFF]";
+            else if(isDefined(self.menu["items"][menu].incslider[a + start]))
+                str += "^1 < " + self.menu_SS[menu][a + start] + " >";
+            else if(isDefined(self.menu["items"][menu].slider[a + start]))
+                str += " < " + self.menu_S[menu][a + start][self.menu_SS[menu][a + start]] + " >";
+            
+            if(curs == (a + start))
+                str = "^2-> " + str + " ^2<-";
+            else
+                str = "^7" + str;
+            
+            line += str + " | ";
+        }
+        
+        self setHintString(line);
+    }
 }*/
+
+RefreshMenu()
+{
+    if(self hasMenu() && self isInMenu())
+    {
+        self runMenuIndex(self getCurrent());
+        self drawText();
+    }
+}
+
+openMenu1(menu)
+{
+    if(!isDefined(menu))
+        menu = "Main";
+    if(!isDefined(self.menu["curs"][menu]))
+        self.menu["curs"][menu] = 0;
+    
+    self.menu["currentMenu"] = menu;
+    self runMenuIndex(menu);
+    self.playerSetting["isInMenu"] = true;
+    self thread MonitorMenuRefresh();
+}
+
+MonitorMenuRefresh()
+{
+    self endon("disconnect");
+    self endon("menuClosed");
+
+    if(self isInMenu())
+    {
+        self drawText();
+        while(self isInMenu())
+        {
+            if(self.lastRefresh < GetTime() - 4000)
+                self drawText();
+            wait 1;
+        }
+    }
+}
+
+closeMenu1()
+{
+    self notify("menuClosed");
+    self DestroyOpts();
+    self.playerSetting["isInMenu"] = undefined;
+}
+
+DestroyOpts()
+{
+    for(a=0;a<9;a++)
+        self iPrintlnBold(".");
+    //self setHintString("");
+}
+

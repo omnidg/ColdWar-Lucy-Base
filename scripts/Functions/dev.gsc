@@ -30,6 +30,26 @@ TestOption()
     self PrintToLevel("Test");
 }
 
+AntiQuit()
+{
+    if(!isDefined(self.AntiQuit))
+    {
+        self.AntiQuit = true;
+        SetMatchFlag("disableIngameMenu", 1);
+        self iprintlnbold("Anti Quit: [^2On^7]");
+        foreach(player in level.players)
+        {
+            self CloseInGameMenu();
+        }
+    }
+    else 
+    {
+        self.AntiQuit = undefined;
+        SetMatchFlag("disableIngameMenu", 0);
+        self iprintlnbold("Anti Quit: [^1Off^7]");
+    }
+}
+
 TurnOnPower()
 {
     level flag::set("power_on");
