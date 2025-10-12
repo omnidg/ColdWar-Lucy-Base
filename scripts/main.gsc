@@ -58,11 +58,11 @@ InitWeapArrays()
     level._pistolweaps = StrTok("pistol_semiauto_t9,pistol_burst_t9,pistol_revolver_t9,pistol_fullauto_t9,pistol_shotgun_t9,pistol_semiauto_t9_dw,pistol_revolver_t9_dw,pistol_burst_t9_dw,pistol_fullauto_t9_dw,pistol_shotgun_t9_dw", ",");
     level._PistolNames = StrTok("1911,Diamatti,Magnum,AMP63,Marshal,1911 DW,Magnum DW,Diamatti DW,AMP DW,Marshal DW", ",");
     level._AllSpecials = StrTok("special_nailgun_t9,special_grenadelauncher_t9,special_crossbow_t9,special_ballisticknife_t9_dw,claymore,cymbal_monkey",",");
+    level._SpecialNames = StrTok("Nailgun,War Machine,Crossbow,Ballistic Knife,Claymores,Monkey Bombs",",");
     level._AllWonders = StrTok("ray_gun,ww_ieu_shockwave_t9,ww_ieu_acid_t9,ww_ieu_gas_t9,ww_ieu_plasma_t9,ww_ieu_electric_t9,ww_ray_rifle_t9,ww_mega_barrel_fullauto_copycat_t9,ww_mega_barrel_fullauto_micro_missile_t9,ww_mega_barrel_fullauto_diffusion_beam_t9,ww_mega_barrel_fullauto_blazer_beam_t9,ww_axe_gun_melee_t9",",");
-    level._AllWondersNames = StrTok("Ray Gun,D.I.E Shockwave,D.I.E Cryo-Emitter,D.I.E Nova-5,D.I.E Thermophasic,D.I.E Electrobolt,RAI K-84 Prototype,CRBR-S,CRBR-S Swarm,CRBR-S Diffuser,CRBR-S Blazor,Chrysalax Savager",",");
+    level._AllWonderNames = StrTok("Ray Gun,D.I.E Shockwave,D.I.E Cryo-Emitter,D.I.E Nova-5,D.I.E Thermophasic,D.I.E Electrobolt,RAI K-84 Prototype,CRBR-S,CRBR-S Swarm,CRBR-S Diffuser,CRBR-S Blazor,Chrysalax Savager",",");
     level._SkinNames = StrTok("Invisible,Adler,Portnova,Garcia,Baker,Sims,Hunter,Vargas,Stone,Song,Powers,Baker (2),Zeyna,Wolf,Beck,Knight,Antonov,Park,Stitch,Bulldozer,CDL,CDL (2),Woods,Rivas,Naga,Maxis,John Doe (BO4),Jane Doe (BO4),Nude (M),Nude (F),Wraith,Baker (3),Park (2),Price,John McClane,Rambo,Weaver,Jackal,Salah,Kitsune,Stryker,Arthur Kingsley,Hudson,Mason,Scream,Fuze,Zombies (F),Zombies (M),Lazar",",");
     level._tungstenAudio = StrTok("round_start_first,round_start,round_end,round_start_special,game_over,ee_song,flood_spawning",",");
-    level._SpecialNames = StrTok("Nailgun,War Machine,Crossbow,Ballistic Knife,Claymores,Monkey Bombs",",");
     level._InGameItems = StrTok("armor_item_lv1_t9_sr,armor_item_lv2_t9_sr,armor_item_lv3_t9_sr,aether_tool_item_sr,bronze_chalice_item_sr,silver_chalice_item_sr,gold_chalice_item_sr,scrap_item_sr,scrap_rare_item_sr,scrap_epic_item_sr,scrap_legendary_item_sr,black_chest_level_6,black_hole_bomb_item_t9_sr",",");
     level._InGameItemNames = StrTok("Armor (Level 1),Armor (Level 2),Armor (Level 3),Aether Tool,Bronze Chalice (Pack 1),Silwer Chalice (Pack 2),Golden Chalice (Pack 3),Common Scrap,Rare Scrap,Epic Scrap,Legendary Scrap,Black Chest Level 6,LT53 Kazamir",",");
     level._InGameItemTypes = StrTok("item,item,item,item,item,item,item,item,item,item,item,spawnlist,item",",");
