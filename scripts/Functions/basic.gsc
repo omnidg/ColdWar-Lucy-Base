@@ -44,22 +44,43 @@ UnlimitedAmmo()
         self PrintToLevel("^5Unlimited Ammo ^2On");   
         self endon("disconnect");
 
+        
         while(isDefined(self.UnlimitedAmmo))
         {
+            // primary_weapon = self loadout::function_18a77b37( "primary" );
+            // secondary_weapon = self loadout::function_18a77b37( "secondary" );
+            // primary_grenade = self loadout::function_18a77b37( "primarygrenade" );
+            // secondary_grenade = self loadout::function_18a77b37( "secondarygrenade" );
+            // field_upgrade = self loadout::function_18a77b37( "specialgrenade" );
+            // var_992d253 = self loadout::function_18a77b37( "herogadget" );
+            // var_7078908d = self loadout::function_18a77b37( "ultimate" );
+            
+            //Set the weapon ammo
             weapons = self getweaponslist();
             foreach(weapon in weapons)
             {
-                if(weapon.isgadget){
-                    slot = self gadgetgetslot(weapon);
-                    if(self gadgetpowerget(slot) < 100 && !self getcurrentweapon().isgadget || self gadgetpowerget(slot) < 10){
-                        self gadgetpowerset(slot,100);
-                    }
+                if(!weapon.isgadget && !zm_loadout::is_tactical_grenade( weapon ) && !zm_loadout::is_lethal_grenade( weapon ) && !zm_equipment::is_equipment( weapon.name )){
+                    self giveMaxAmmo(weapon);
+                    maxammo = weapon.maxammo;
+                    maxclip = self getclipsize( weapon );
+                    self setweaponammoclip( weapon, maxclip );
+                    self setweaponammostock( weapon, maxammo );
                 }
                 else{
-                    self givemaxammo(weapon);
-                    self setweaponammoclip(weapon,weapon.clipsize);
+                    if(zm_loadout::is_tactical_grenade( weapon ) || zm_loadout::is_lethal_grenade( weapon ) || zm_equipment::is_equipment(weapon.name))
+                    { 
+                        if(zm_loadout::is_tactical_grenade( weapon ) || zm_loadout::is_lethal_grenade( weapon )) GiveClientWeapon(self, weapon.name);
+                        if(zm_equipment::is_equipment(weapon.name)) self zm_equipment::give(weapon.name);
+                        maxammo = weapon.maxammo;
+                        maxclip = self getclipsize( weapon );
+                        self setweaponammoclip( weapon, maxclip );
+                        self setweaponammostock( weapon, maxammo );
+                    }
                 }
             }
+
+            //Set the gaget ammo
+            self thread zm_powerup_hero_weapon_power::hero_weapon_power(self);
             wait .05;
         }
     }
@@ -96,7 +117,6 @@ DropItem(Item, Type, Total)
     switch (Type) {
         case "spawnlist":
             arrSpawnItems = get_spawn_list_items(Item);
-            self PrintToLevel("Spawn List Size: ^2" + arrSpawnItems.size);
             if(arrSpawnItems.size > 0) 
             {
                 spawnItemsFinal = [];
@@ -134,7 +154,7 @@ DropItem(Item, Type, Total)
                     origin = get_lookat_origin(self);
                     self item_drop::drop_item( 0, (isdefined( scpBundle.weapon ) ? weap : undefined), 1, (isdefined( scpBundle.weapon ) ? weap.maxammo : 0), point.id, origin, angle, 3 );
                     playsoundatposition( "zmb_powerup_eqp_spawn",  origin );
-                    self PrintToLevel("Item Dropped: ^2"+ Item);
+                    self PrintToLevel("^5Item Dropped: ^2" + Item);
                     wait .1;
                 }
             }

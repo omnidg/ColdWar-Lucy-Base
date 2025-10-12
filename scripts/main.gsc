@@ -78,7 +78,7 @@ InitWeapArrays()
     level._MauerDerTotenItemNames = StrTok("Klaus Battery",",");
     level._ForsakenItems = StrTok("item_zmquest_tungsten_pap_quest_part_a,axe_gun_volatile_crystal_item_t9,axe_gun_energetic_shard_item_t9",",");
     level._ForsakenItemNames = StrTok("Circuit Board,Chrysalax Volatile Shard,Chrysalax Energetic Shard",",");
-    level._TacticalEquipment = StrTok("eq_stimshot,eq_slow_grenade,eq_grapple,nightingale,cymbal_monkey,black_hole_bomb",",");
+    level._TacticalEquipment = StrTok("eq_stimshot,eq_slow_grenade,eq_grapple,nightingale,cymbal_monkey,w_black_hole_bomb",",");
     level._TacticalEquipmentNames = StrTok("Stimshot,Stunn Grenade,Grapple Gun,Decoy,Cymbal Monkey,LT53 Kazamir",",");
     level._LethalEquipment = StrTok("frag_grenade,eq_sticky_grenade,eq_molotov,satchel_charge",",");
     level._LethalEquipmentNames = StrTok("Frag,Semtex,Molotov,C4",",");

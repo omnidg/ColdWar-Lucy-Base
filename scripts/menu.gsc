@@ -72,10 +72,71 @@ runMenuIndex(menu)
         break;
         case "Zombies Options":
             self addMenu(menu, "Zombies Options");
+                self addOptIncSlider("Spawn Zombies: ", &spawn_zombies,1,1,999,1);
+                self addOpt("Spawn Elite Zombies", &newMenu, "Spawn Elite Zombies");
                 self addOpt("Kill All Zombies", &KillAllZombies);
                 self addOptBool(self.ZombiePos, "Teleport to Crosshair Loop", &StartZombiePosition);
                 self addOptBool(self.oneHPZombs, "One Hit Zombies", &OneHPZombs);
-            
+        break;
+        case "Spawn Elite Zombies":
+            self addMenu(menu, "Spawn Elite Zombies");
+                switch(level.script)
+                {
+                    case "zm_silver":
+                        self addOpt("Spawn Plague Hound", &spawn_elite, "spawner_bo5_zombie_dog_plague");
+                        self addOpt("Chungus", &spawn_elite, "spawner_zm_steiner");
+                        self addOpt("Chungus (Red)", &spawn_elite, "spawner_zm_steiner_hvt_zm_silver");
+                        self addOpt("Chungus (Steiner)", &spawn_elite, "spawner_zm_steiner_f");
+                    break;
+                    case "zm_gold": 
+                        self addOpt("Spawn Fire Hound", &spawn_elite, "spawner_bo5_zombie_dog_molotov");
+                        self addOpt("Spawn Mimic", &spawn_elite, "spawner_bo5_mimic");
+                        self addOpt("Spawn Mangler", &spawn_elite, "spawner_bo5_raz_sr");
+                    break;
+                    case "zm_platinum":
+                        self addOpt("Spawn Tempest", &spawn_elite, "spawner_bo5_avogadro_sr");
+                        self addOpt("Spawn Mimic", &spawn_elite, "spawner_bo5_mimic");
+                        self addOpt("Spawn Mangler", &spawn_elite, "spawner_bo5_raz_sr");
+                        self addOpt("Spawn Disciple", &spawn_elite, "spawner_bo5_soa");
+                        self addOpt("Spawn Mech", &spawn_elite, "spawner_bo5_mechz_sr");
+                    break;
+                    case "zm_tungsten":
+                        self addOpt("Spawn Ronnie Raygun", &spawn_elite, "spawner_bo5_zombie_sr_ronnie_raygun");
+                        self addOpt("Spawn Plague Hound", &spawn_elite, "spawner_bo5_zombie_dog_plague");
+                        self addOpt("Spawn Fire Hound", &spawn_elite, "spawner_bo5_zombie_dog_molotov");
+                        self addOpt("Spawn Tormentor", &spawn_elite, "spawner_zm_tormentor");
+                        self addOpt("Spawn Tempest", &spawn_elite, "spawner_bo5_avogadro_sr");
+                        self addOpt("Spawn Mimic", &spawn_elite, "spawner_bo5_mimic");
+                        self addOpt("Spawn Disciple", &spawn_elite, "spawner_bo5_soa", 1);
+                        self addOpt("Spawn Mangler", &spawn_elite, "spawner_bo5_raz_sr");
+                        self addOpt("Spawn Mech", &spawn_elite, "spawner_bo5_mechz_sr");
+                        self addOpt("Spawn Abomination", &spawn_elite, "spawner_bo5_abom");
+                    break;
+                    default:
+                        self addOpt("Spawn Plague Hound", &spawn_elite, "spawner_bo5_zombie_dog_plague");
+                        self addOpt("Spawn Fire Hound", &spawn_elite, "spawner_bo5_zombie_dog_molotov");
+                        self addOpt("Spawn Tormentor", &spawn_elite, "spawner_zm_tormentor");
+                        self addOpt("Spawn Tempest", &spawn_elite, "spawner_bo5_avogadro_sr");
+                        self addOpt("Spawn Mimic", &spawn_elite, "spawner_bo5_mimic");
+                        self addOpt("Spawn Mimic(hvt)", &spawn_elite, "spawner_bo5_mimic_hvt");
+                        self addOpt("Spawn Disciple", &spawn_elite, "spawner_bo5_soa", 1);
+                        self addOpt("Spawn Mangler", &spawn_elite, "spawner_bo5_raz_sr");
+                        self addOpt("Spawn Mangler(hvt)", &spawn_elite, "spawner_bo5_raz_sr_hvt");
+                        self addOpt("Spawn Mech", &spawn_elite, "spawner_bo5_mechz_sr");
+                        self addOpt("Spawn Mech(hvt)", &spawn_elite, "spawner_bo5_mechz_sr_hvt");
+                        self addOpt("Split Chunges Blast", &spawn_elite, "spawner_zm_steiner_split_radiation_blast");
+                        self addOpt("Split Chunges Blast(hvt)", &spawn_elite, "spawner_zm_steiner_split_radiation_blast_hvt");
+                        self addOpt("Split Chunges Bomb", &spawn_elite, "spawner_zm_steiner_split_radiation_bomb_hvt");
+                        self addOpt("Split Chunges Bomb(hvt)", &spawn_elite, "spawner_zm_steiner_split_radiation_bomb");
+                        self addOpt("Chungus Mega", &spawn_elite, "spawner_zm_steiner");
+                        self addOpt("Chungus(hvt)", &spawn_elite, "spawner_zm_steiner_hvt");
+                        self addOpt("Chungus (Red)", &spawn_elite, "spawner_zm_steiner_hvt_zm_silver");
+                        self addOpt("Chungus (Steiner)", &spawn_elite, "spawner_zm_steiner_f");
+                        self addOpt("Spawn Abomination", &spawn_elite, "spawner_bo5_abom");
+                        self addOpt("Spawn Abomination(hvt)", &spawn_elite, "spawner_bo5_abom_hvt");
+                        self addOpt("Spawn Hulk", &spawn_elite,"spawner_bo5_hulk");
+                    break;
+                }
         break;
         case "Weapon Options":
             self addMenu(menu, "Weapon Options");

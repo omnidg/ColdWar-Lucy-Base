@@ -56,6 +56,8 @@
 #include scripts\zm_common\zm_sq.gsc;
 #include scripts\core_common\activecamo_shared.gsc;
 #include scripts\core_common\activecamo_shared_util.gsc;
+#include scripts\zm\powerup\zm_powerup_hero_weapon_power.gsc;
+#include scripts\zm_common\zm_round_logic.gsc;
 
 #namespace synergycw;
 

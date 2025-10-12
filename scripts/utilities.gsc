@@ -16,7 +16,7 @@ isInMenu()
     return true;
 }
 
-GetTehMap()
+GetTheMap()
 {
     switch(level.script)
     {
@@ -45,7 +45,7 @@ GetTehMap()
     }
 }
 
-GetTehMapName(mapname)
+GetTheMapName(mapname)
 {
     switch(mapname)
     {

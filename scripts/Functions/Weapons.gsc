@@ -1,24 +1,32 @@
 GiveClientWeapon(WeaponName, player)//needs work, as some things don't work well
 {
-    Weapon = getweapon(ishash(WeaponName) ? WeaponName : hash(WeaponName));
-    if(!isDefined(Weapon)) return;
-    if(zm_loadout::is_melee_weapon(Weapon)) slotIndex = 2;
-    else slotIndex = 0;
-    player zm_weapons::weapon_give(
-    Weapon,      
-    0,           
-    1,           
-    slotIndex,           
-    1,       
-    #"orange",   
-    [],          
-    1            
-    );
+    if ( zm_equipment::is_equipment( WeaponName ) )
+    {
+        self zm_equipment::give( WeaponName );
+    }
+    else{
+        Weapon = getweapon(ishash(WeaponName) ? WeaponName : hash(WeaponName));
+        if(!isDefined(Weapon)) return;
+        if(zm_loadout::is_melee_weapon(Weapon)) slotIndex = 2;
+        else slotIndex = 0;
+        player zm_weapons::weapon_give(
+        Weapon,      
+        0,           
+        1,           
+        slotIndex,           
+        1,       
+        #"orange",   
+        [],          
+        1            
+        );
 
-    player switchtoweapon(Weapon); // Optional: equip immediately
-    player giveMaxAmmo(Weapon);
-    player switchToWeapon(Weapon);
-    
+        player giveMaxAmmo(Weapon);
+
+        if(!zm_loadout::is_tactical_grenade( Weapon ) || !zm_loadout::is_lethal_grenade( Weapon ) || !zm_equipment::is_equipment(weapon.name))
+        {
+            player switchtoweapon(Weapon);
+        }
+    }
 }
 
 GiveKillstreak(streakName)
@@ -48,10 +56,22 @@ PAPWeapon()
 {
     weapon = self GetCurrentWeapon();
     wait .1;
-    paplvl = get_pap_level(weapon);
+    if ( !isdefined( self.var_2843d3cc ) )
+    {
+        self.var_2843d3cc = [];
+    }
+    else if ( !isarray( self.var_2843d3cc ) )
+    {
+        self.var_2843d3cc = array( self.var_2843d3cc );
+    }
+    
+    if ( !isdefined( self.var_2843d3cc[ weapon ] ) )
+    {
+        self.var_2843d3cc[ weapon ] = 0;
+    }
 
     chalice_level = "";
-    switch (paplvl)
+    switch (self.var_2843d3cc[ weapon ])
     {
         case 0:
             chalice_level = "bronze_chalice_item_sr";
@@ -68,18 +88,30 @@ PAPWeapon()
     {
         if(chalice_level != "platinum_chalice_item_sr")
         {
-            //self thread animation::play( "ai_t9_zm_zombie_base_attack_02" );
-            self playrumbleonentity( "reload_large" );
+            self thread namespace_1cc7b406::give_item( chalice_level );
+
         }
         self playsound( "zmb_powerup_chalice_gold_pickup" );
         wait .1;
         weapon = self GetCurrentWeapon();
-        paplvl += 1;
-        self PrintToLevel("^2PAP Level At Max!");
+        
+        if(chalice_level == "bronze_chalice_item_sr") 
+        {
+            self.var_2843d3cc[ weapon ] = 1;
+            self PrintToLevel("^5Your weapon has been upgraded to PAP level:^2 1");
+        }
+        if(chalice_level == "silver_chalice_item_sr"){
+            self.var_2843d3cc[ weapon ] = 2;
+            self PrintToLevel("^5Your weapon has been upgraded to PAP level:^2 2!");
+        }
+        if(chalice_level == "gold_chalice_item_sr"){
+            self.var_2843d3cc[ weapon ] = 3;
+            self PrintToLevel("^5Your weapon has been upgraded to PAP level:^2 3!");
+        }
     }
     else 
     {
-        if(paplvl >= 3) self PrintToLevel("^1Your weapon is already at max PAP level!");
+        if(self.var_2843d3cc[ weapon ] >= 3) self PrintToLevel("^1Your weapon is already at max PAP level!");
         else self PrintToLevel("^1Unable to PAP weapon!");
     }
 }
