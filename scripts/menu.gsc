@@ -290,18 +290,18 @@ runMenuIndex(menu)
         break;
         case "Upgraded Specials":
             self addMenu(menu, "Upgraded Special Weapons");
-            for(z=0;z<level._AllWonders.size;z++)
-                self addOpt(level._AllWonders[z], &GiveClientWeapon, level._AllWonders[z]+"_upgraded", self);
+            for(z=0;z<level._AllSpecials.size - 2;z++)//-2 since Claymores and Monkeys can't be upgraded normally
+                self addOpt(level._SpecialNames[z], &GiveClientWeapon, level._AllSpecials[z]+"_upgraded", self);
         break;
         case "Wonder Weapons":
             self addMenu(menu, "Wonder Weapons");
-            for(z=0;z<level._PlatinumWonders.size;z++)
-                self addOpt(level._PlatinumWondersNames[z], &GiveClientWeapon, level._PlatinumWonders[z], self);
+            for(z=0;z<level._AllWonders.size;z++)
+                self addOpt(level._AllWondersNames[z], &GiveClientWeapon, level._AllWonders[z], self);
         break;
         case "Upgraded Wonder Weapons":
             self addMenu(menu, "Upgraded Wonder Weapons");
-            for(z=0;z<level._PlatinumWonders.size;z++)
-                self addOpt(level._PlatinumWondersNames[z], &GiveClientWeapon, level._PlatinumWonders[z]+"_upgraded", self);
+            for(z=0;z<level._AllWonders.size;z++)
+                self addOpt(level._AllWondersNames[z], &GiveClientWeapon, level._AllWonders[z]+"_upgraded", self);
         break;
         case "Skin Selection":
             self addMenu(menu, "Skin Selection");
