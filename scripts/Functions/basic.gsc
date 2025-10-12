@@ -61,20 +61,11 @@ UnlimitedAmmo()
             {
                 if(!weapon.isgadget && !zm_loadout::is_tactical_grenade( weapon ) && !zm_loadout::is_lethal_grenade( weapon ) && !zm_equipment::is_equipment( weapon.name )){
                     self giveMaxAmmo(weapon);
-                    maxammo = weapon.maxammo;
-                    maxclip = self getclipsize( weapon );
-                    self setweaponammoclip( weapon, maxclip );
-                    self setweaponammostock( weapon, maxammo );
                 }
                 else{
                     if(zm_loadout::is_tactical_grenade( weapon ) || zm_loadout::is_lethal_grenade( weapon ) || zm_equipment::is_equipment(weapon.name))
                     { 
-                        if(zm_loadout::is_tactical_grenade( weapon ) || zm_loadout::is_lethal_grenade( weapon )) GiveClientWeapon(self, weapon.name);
-                        if(zm_equipment::is_equipment(weapon.name)) self zm_equipment::give(weapon.name);
-                        maxammo = weapon.maxammo;
-                        maxclip = self getclipsize( weapon );
-                        self setweaponammoclip( weapon, maxclip );
-                        self setweaponammostock( weapon, maxammo );
+                        GiveClientWeapon(self, weapon.name);
                     }
                 }
             }
