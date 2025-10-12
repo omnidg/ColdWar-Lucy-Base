@@ -46,15 +46,7 @@ UnlimitedAmmo()
 
         
         while(isDefined(self.UnlimitedAmmo))
-        {
-            // primary_weapon = self loadout::function_18a77b37( "primary" );
-            // secondary_weapon = self loadout::function_18a77b37( "secondary" );
-            // primary_grenade = self loadout::function_18a77b37( "primarygrenade" );
-            // secondary_grenade = self loadout::function_18a77b37( "secondarygrenade" );
-            // field_upgrade = self loadout::function_18a77b37( "specialgrenade" );
-            // var_992d253 = self loadout::function_18a77b37( "herogadget" );
-            // var_7078908d = self loadout::function_18a77b37( "ultimate" );
-            
+        {            
             //Set the weapon ammo
             weapons = self getweaponslist();
             foreach(weapon in weapons)
